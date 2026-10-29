@@ -1,0 +1,1017 @@
+// Generator for 100 Backend, Databases & System Design Questions
+const fs = require('fs');
+
+const backendQuestions = [
+  // 1-25: Relational Databases, SQL & Indexing
+  {
+    id: "backend_001",
+    topic: "backend_db",
+    difficulty: "easy",
+    type: "single",
+    question: "What does the 'A' stand for in the database ACID acronym?",
+    options: ["Atomicity", "Availability", "Authentication", "Asynchronous"],
+    correct: 0,
+    explanation: "Atomicity guarantees that all operations within a transaction either succeed completely or are completely rolled back (all-or-nothing)."
+  },
+  {
+    id: "backend_002",
+    topic: "backend_db",
+    difficulty: "easy",
+    type: "single",
+    question: "Which SQL JOIN returns all rows from the left table and matched rows from the right table, filling unmatched right columns with NULL?",
+    options: ["LEFT JOIN (LEFT OUTER JOIN)", "INNER JOIN", "RIGHT JOIN", "CROSS JOIN"],
+    correct: 0,
+    explanation: "LEFT JOIN preserves all rows from the left table regardless of whether a matching record exists in the right table."
+  },
+  {
+    id: "backend_003",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What is the difference between WHERE and HAVING clauses in SQL?",
+    options: ["WHERE filters individual rows before aggregation; HAVING filters aggregated groups created by GROUP BY", "HAVING filters rows before aggregation; WHERE filters groups", "WHERE can only be used with primary keys; HAVING with foreign keys", "They are identical and interchangeable"],
+    correct: 0,
+    explanation: "WHERE filters rows prior to grouping and aggregation; HAVING filters groups after GROUP BY evaluation (e.g. HAVING COUNT(*) > 5)."
+  },
+  {
+    id: "backend_004",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What is a 'Clustered Index' in relational database systems (like MySQL InnoDB)?",
+    options: ["An index that defines the physical storage order of table rows on disk (usually the Primary Key)", "An in-memory hash table", "An index stored in a secondary text file", "An index that only applies to foreign keys"],
+    correct: 0,
+    explanation: "A clustered index dictates the actual on-disk arrangement of data rows; a table can therefore have only one clustered index."
+  },
+  {
+    id: "backend_005",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What is a 'Covering Index' in database query optimization?",
+    options: ["An index that contains all columns requested by a SELECT query, allowing the database to serve results without reading table row data (index-only scan)", "An index that covers all tables in a schema", "An index that automatically encrypts table data", "A composite index with more than 10 columns"],
+    correct: 0,
+    explanation: "When an index contains every column needed by the query, the engine satisfies the request directly from the B-tree leaf nodes without table lookups."
+  },
+  {
+    id: "backend_006",
+    topic: "backend_db",
+    difficulty: "hard",
+    type: "single",
+    question: "In database transaction isolation levels, what is a 'Phantom Read'?",
+    options: ["A transaction re-reads a range of rows and discovers new rows inserted or committed by another concurrent transaction", "A transaction reads uncommitted data that is later rolled back", "A transaction modifies a row that was deleted", "A database server crash during recovery"],
+    correct: 0,
+    explanation: "Phantom reads occur when a query using a WHERE range predicate returns different sets of rows on repeated execution due to concurrent inserts."
+  },
+  {
+    id: "backend_007",
+    topic: "backend_db",
+    difficulty: "hard",
+    type: "single",
+    question: "Which transaction isolation level prevents Dirty Reads and Non-Repeatable Reads, but may still allow Phantom Reads under standard ANSI SQL?",
+    options: ["Repeatable Read", "Read Committed", "Read Uncommitted", "Serializable"],
+    correct: 0,
+    explanation: "Repeatable Read guarantees that any row read during the transaction maintains its values on subsequent reads, but phantom rows may appear unless serializable."
+  },
+  {
+    id: "backend_008",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What does the SQL command `EXPLAIN ANALYZE` do in PostgreSQL or MySQL?",
+    options: ["Executes the query, displays the chosen query execution plan, and reports actual runtime costs and row counts per node", "Analyzes the database schema for syntax errors", "Rebuilds all indexes automatically", "Backs up the query results to S3"],
+    correct: 0,
+    explanation: "EXPLAIN ANALYZE runs the SQL statement, revealing sequential scans, index scans, hash joins, and real execution times to help optimize queries."
+  },
+  {
+    id: "backend_009",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What normal form requires that a table is in 1NF and all non-key attributes are fully functionally dependent on the entire primary key (no partial dependencies)?",
+    options: ["Second Normal Form (2NF)", "First Normal Form (1NF)", "Third Normal Form (3NF)", "Boyce-Codd Normal Form (BCNF)"],
+    correct: 0,
+    explanation: "2NF eliminates partial dependencies where a column depends on only part of a composite primary key."
+  },
+  {
+    id: "backend_0010",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What normal form requires that a table is in 2NF and contains no transitive dependencies (non-key columns depending on other non-key columns)?",
+    options: ["Third Normal Form (3NF)", "Second Normal Form (2NF)", "Fourth Normal Form (4NF)", "Fifth Normal Form (5NF)"],
+    correct: 0,
+    explanation: "3NF requires that every non-prime attribute depends on 'the key, the whole key, and nothing but the key'."
+  },
+  {
+    id: "backend_011",
+    topic: "backend_db",
+    difficulty: "easy",
+    type: "single",
+    question: "Which SQL constraint ensures that all values in a column are distinct and not duplicate?",
+    options: ["UNIQUE", "NOT NULL", "CHECK", "DEFAULT"],
+    correct: 0,
+    explanation: "The UNIQUE constraint prevents duplicate values in a column, automatically creating a unique B-tree index."
+  },
+  {
+    id: "backend_012",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What is the difference between `DELETE` and `TRUNCATE` in SQL?",
+    options: ["`DELETE` removes rows one by one and can be rolled back; `TRUNCATE` deallocates data pages as DDL, resetting auto-increment counters and running much faster", "`TRUNCATE` can use a WHERE clause; `DELETE` cannot", "`DELETE` drops the table schema; `TRUNCATE` does not", "Both commands behave identically"],
+    correct: 0,
+    explanation: "TRUNCATE is a fast DDL command that deallocates storage pages directly without logging individual row deletions."
+  },
+  {
+    id: "backend_013",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "In SQL window functions, what does `DENSE_RANK()` do compared to `RANK()` when there are tied values?",
+    options: ["`DENSE_RANK()` does not skip rank numbers after ties (1, 1, 2); `RANK()` leaves gaps (1, 1, 3)", "`RANK()` does not skip rank numbers; `DENSE_RANK()` leaves gaps", "`DENSE_RANK()` returns fractional percentiles", "`RANK()` only works on integer columns"],
+    correct: 0,
+    explanation: "RANK skips ranks after ties (e.g. 1, 1, 3); DENSE_RANK assigns consecutive numbers without gaps (e.g. 1, 1, 2)."
+  },
+  {
+    id: "backend_014",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What is an SQL injection vulnerability and how is it primarily prevented?",
+    options: ["Attackers inject malicious SQL into input fields; prevented by using Parameterized Queries (Prepared Statements)", "A virus infecting the database server; prevented by antivirus software", "Hardware failure in SSD storage; prevented by RAID", "Exceeding database connection limits; prevented by connection pooling"],
+    correct: 0,
+    explanation: "Parameterized queries separate SQL code structure from user input data, ensuring inputs are treated strictly as literal values, never executable code."
+  },
+  {
+    id: "backend_015",
+    topic: "backend_db",
+    difficulty: "hard",
+    type: "single",
+    question: "What is a Write-Ahead Log (WAL) in database engines like PostgreSQL and SQLite?",
+    options: ["A log where all data changes are written to persistent disk before applying them to database data files, ensuring durability and crash recovery", "A log of failed user login attempts", "A cache for SQL query results", "A backup mechanism that runs once a week"],
+    correct: 0,
+    explanation: "WAL ensures durability: in case of sudden power loss, uncommitted buffer pool pages can be reconstructed by replaying the sequential WAL log."
+  },
+
+  // 16-35: NoSQL, Caching & Redis
+  {
+    id: "backend_016",
+    topic: "backend_db",
+    difficulty: "easy",
+    type: "single",
+    question: "What type of NoSQL database is MongoDB?",
+    options: ["Document-oriented database (JSON/BSON)", "Key-Value database", "Graph database", "Relational database"],
+    correct: 0,
+    explanation: "MongoDB stores records as flexible, schema-less BSON (Binary JSON) documents organized into collections."
+  },
+  {
+    id: "backend_017",
+    topic: "backend_db",
+    difficulty: "easy",
+    type: "single",
+    question: "What is Redis primarily known for?",
+    options: ["An ultra-fast in-memory key-value data structure store used for caching, session management, and pub/sub", "A relational database for complex joins", "A file system for video streaming", "A web server like Nginx"],
+    correct: 0,
+    explanation: "Redis stores data in RAM with optional persistence, providing sub-millisecond responses for strings, hashes, lists, sets, and sorted sets."
+  },
+  {
+    id: "backend_018",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What is the 'Cache-Aside' (Lazy Loading) caching pattern?",
+    options: ["Application checks the cache first; if cache miss, reads from database, writes to cache, and returns data", "Database automatically updates the cache on every commit", "Application writes only to cache; background thread writes to DB", "All reads bypass the cache completely"],
+    correct: 0,
+    explanation: "In Cache-Aside, the application code manages cache reading and population on demand only when a cache miss occurs."
+  },
+  {
+    id: "backend_019",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What is the 'Cache Stampede' (Thundering Herd) problem?",
+    options: ["When a popular cached key expires, and hundreds of concurrent requests simultaneously hit the database to recompute it", "When the cache server runs out of disk space", "When an attacker floods the cache with random keys", "When Redis memory exceeds 100GB"],
+    correct: 0,
+    explanation: "A cache stampede overwhelms the database when high-traffic keys expire; mitigated using mutex locks, probabilistic early expiration (XFetch), or background refresh."
+  },
+  {
+    id: "backend_020",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What is the difference between Cache Penetration and Cache Breakdown?",
+    options: ["Penetration queries non-existent keys that bypass cache and hit DB repeatedly; Breakdown occurs when a hot cached key expires under high load", "Penetration is a hardware failure; Breakdown is software error", "Both terms mean the exact same thing", "Breakdown only affects Redis clusters"],
+    correct: 0,
+    explanation: "Cache Penetration queries keys that don't exist in DB (fixed via Bloom filters or caching nulls); Cache Breakdown is a single hot key expiring."
+  },
+  {
+    id: "backend_021",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What Redis data structure maintains elements ordered by a floating-point score, ideal for real-time gaming leaderboards?",
+    options: ["Sorted Set (ZSET)", "Hash", "List", "HyperLogLog"],
+    correct: 0,
+    explanation: "Redis Sorted Sets (ZSET) use a skip list and hash table to support O(log N) insertion, rank lookups, and range queries by score."
+  },
+  {
+    id: "backend_022",
+    topic: "backend_db",
+    difficulty: "hard",
+    type: "single",
+    question: "What probabilistic Redis data structure estimates the unique cardinality of billions of items using only 12KB of memory?",
+    options: ["HyperLogLog", "Bloom Filter", "BitMap", "Geospatial Index"],
+    correct: 0,
+    explanation: "HyperLogLog estimates unique counts (like daily active visitors) with a standard error of ~0.81% using negligible fixed memory."
+  },
+  {
+    id: "backend_023",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What is the CAP Theorem trade-off during a network partition in a distributed data store?",
+    options: ["You must choose between Consistency (all nodes see latest data) or Availability (every non-failing node returns a response)", "You must choose between Performance and Encryption", "You must choose between Relational schemas and JSON", "You must choose between RAM and Disk storage"],
+    correct: 0,
+    explanation: "When network communication between nodes is severed (Partition), a system can either refuse requests to preserve consistency (CP) or accept writes risking inconsistency (AP)."
+  },
+  {
+    id: "backend_024",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What does Eventual Consistency mean in distributed databases (like Apache Cassandra)?",
+    options: ["If no new updates are made, all replicas will eventually converge to become identical over time", "Transactions are consistent only on weekends", "The database guarantees strict sequential execution", "Writes fail if a single node is offline"],
+    correct: 0,
+    explanation: "Eventual consistency trades off immediate synchronization for high availability and low latency, guaranteeing convergence over time."
+  },
+  {
+    id: "backend_025",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What is Database Sharding?",
+    options: ["Horizontally partitioning a database table rows across multiple independent physical server instances", "Encrypting database backups with SHA-256", "Creating read-only replicas in the same data center", "Converting tables from SQL to NoSQL"],
+    correct: 0,
+    explanation: "Sharding splits large datasets across multiple machines (by user_id, hash, or geographic region) to scale write throughput and storage."
+  },
+
+  // 36-55: REST, GraphQL, gRPC & API Design
+  {
+    id: "backend_026",
+    topic: "backend_db",
+    difficulty: "easy",
+    type: "single",
+    question: "Which HTTP method is defined by RFC 7231 as idempotent and used to replace an entire resource representation?",
+    options: ["PUT", "POST", "PATCH", "DELETE"],
+    correct: 0,
+    explanation: "PUT is idempotent: calling PUT with the same payload multiple times results in the exact same resource state as calling it once."
+  },
+  {
+    id: "backend_027",
+    topic: "backend_db",
+    difficulty: "easy",
+    type: "single",
+    question: "Which HTTP method is specifically designed for partial modifications to an existing resource?",
+    options: ["PATCH", "PUT", "POST", "OPTIONS"],
+    correct: 0,
+    explanation: "PATCH applies partial delta updates to a resource (e.g. updating just an email field) rather than replacing the complete object."
+  },
+  {
+    id: "backend_028",
+    topic: "backend_db",
+    difficulty: "easy",
+    type: "single",
+    question: "What HTTP status code should a backend API return when a client request lacks valid authentication credentials?",
+    options: ["401 Unauthorized", "403 Forbidden", "400 Bad Request", "404 Not Found"],
+    correct: 0,
+    explanation: "401 Unauthorized indicates that the request lacks valid authentication credentials (e.g. missing or expired Bearer token)."
+  },
+  {
+    id: "backend_029",
+    topic: "backend_db",
+    difficulty: "easy",
+    type: "single",
+    question: "What HTTP status code should be returned when the user is authenticated, but lacks permissions to access the requested resource?",
+    options: ["403 Forbidden", "401 Unauthorized", "405 Method Not Allowed", "409 Conflict"],
+    correct: 0,
+    explanation: "403 Forbidden means the server recognizes the caller's identity, but the caller lacks authorization/role privileges for that action."
+  },
+  {
+    id: "backend_030",
+    topic: "backend_db",
+    difficulty: "easy",
+    type: "single",
+    question: "What HTTP status code indicates that the server encountered a rate-limiting threshold violation?",
+    options: ["429 Too Many Requests", "503 Service Unavailable", "408 Request Timeout", "504 Gateway Timeout"],
+    correct: 0,
+    explanation: "429 Too Many Requests informs the client they have sent too many requests in a given amount of time (often paired with Retry-After header)."
+  },
+  {
+    id: "backend_031",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What common performance issue in GraphQL occurs when resolving nested relational fields without batching?",
+    options: ["The N+1 Query Problem", "Memory leak in Node.js", "CORS failure", "Deadlock in MySQL"],
+    correct: 0,
+    explanation: "Fetching 10 authors and then issuing 1 query per author to fetch their books yields 1 + 10 = 11 database queries, solved by DataLoader batching."
+  },
+  {
+    id: "backend_032",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What underlying transport protocol does gRPC use to enable multiplexing, binary serialization, and bidirectional streaming?",
+    options: ["HTTP/2", "HTTP/1.1", "WebSockets", "FTP"],
+    correct: 0,
+    explanation: "gRPC runs over HTTP/2, leveraging binary header compression, single TCP connection multiplexing, and Protocol Buffers serialization."
+  },
+  {
+    id: "backend_033",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What is the key difference between WebSockets and Server-Sent Events (SSE)?",
+    options: ["WebSockets provide full-duplex bidirectional communication; SSE provides unidirectional server-to-client streaming over standard HTTP", "SSE is bidirectional; WebSockets is unidirectional", "WebSockets only work on mobile devices", "SSE requires UDP transport"],
+    correct: 0,
+    explanation: "WebSockets allow both client and server to send messages freely; SSE streams text events strictly from server to client over persistent HTTP."
+  },
+  {
+    id: "backend_034",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What are the three dot-separated components of a JSON Web Token (JWT)?",
+    options: ["Header.Payload.Signature", "Username.Role.Key", "Issuer.Audience.Hash", "Algorithm.Data.Salt"],
+    correct: 0,
+    explanation: "A JWT consists of base64url-encoded Header (algorithm/type), Payload (claims/user data), and cryptographic Signature (HMAC/RSA)."
+  },
+  {
+    id: "backend_035",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "Why should sensitive secrets (like passwords or credit card numbers) never be stored inside a JWT payload?",
+    options: ["The payload is only base64url encoded, NOT encrypted; anyone with the token can decode and view its JSON content", "Because JWT payloads max out at 64 characters", "Because JWTs expire after 5 seconds", "Because base64 changes characters randomly"],
+    correct: 0,
+    explanation: "JWT signatures ensure authenticity and tamper-proofing, but the payload itself is plaintext readable by simply decoding base64url."
+  },
+
+  // 56-75: Security, Auth & Message Brokers
+  {
+    id: "backend_036",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "Which cryptographic password hashing algorithm incorporates an adjustable work factor (cost) to defend against hardware brute-force attacks?",
+    options: ["bcrypt (or Argon2)", "MD5", "SHA-1", "CRC32"],
+    correct: 0,
+    explanation: "bcrypt and Argon2 use deliberate computational slowness and unique salts to make GPU and ASIC brute-force password cracking impractical."
+  },
+  {
+    id: "backend_037",
+    topic: "backend_db",
+    difficulty: "easy",
+    type: "single",
+    question: "What is a 'Salt' in password storage?",
+    options: ["A unique random string appended to each password before hashing to prevent rainbow table attacks", "An encryption key shared among all users", "A backup copy of the password", "A database table constraint"],
+    correct: 0,
+    explanation: "Salting ensures identical passwords produce distinct hashes, rendering precomputed lookup tables (rainbow tables) completely useless."
+  },
+  {
+    id: "backend_038",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "In OAuth 2.0 for single-page and mobile apps, what security extension replaces client secrets to prevent authorization code interception?",
+    options: ["PKCE (Proof Key for Code Exchange)", "mTLS", "SAML 2.0", "Basic Auth"],
+    correct: 0,
+    explanation: "PKCE generates a dynamic code_verifier and code_challenge pair, preventing attackers from intercepting and redeeming the authorization code."
+  },
+  {
+    id: "backend_039",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What rate-limiting algorithm uses a bucket that holds tokens arriving at a constant rate, allowing short bursts while enforcing an average rate?",
+    options: ["Token Bucket Algorithm", "Fixed Window Counter", "Random Drop", "Round Robin"],
+    correct: 0,
+    explanation: "Token Bucket allows bursts up to bucket capacity and refills at a steady rate, balancing elasticity with steady-state rate control."
+  },
+  {
+    id: "backend_040",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What is the primary architectural purpose of a Message Broker like Apache Kafka or RabbitMQ?",
+    options: ["Decouples producers and consumers asynchronously, buffers peak traffic, and enables event-driven architectures", "Renders HTML templates on the backend", "Replaces relational databases entirely", "Enforces HTTPS encryption on network cards"],
+    correct: 0,
+    explanation: "Message queues allow systems to process tasks asynchronously, smooth out sudden load spikes, and decouple microservice communications."
+  },
+  {
+    id: "backend_041",
+    topic: "backend_db",
+    difficulty: "hard",
+    type: "single",
+    question: "In Apache Kafka, what provides horizontal scalability and parallel consumption within a topic?",
+    options: ["Partitions", "ZooKeeper logs", "Brokers", "Consumer offsets"],
+    correct: 0,
+    explanation: "Kafka topics are split into partitions across brokers, allowing multiple consumers in a consumer group to process messages in parallel."
+  },
+  {
+    id: "backend_042",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What message delivery guarantee ensures messages are processed at least once, but may result in duplicates if acknowledgments are lost?",
+    options: ["At-least-once delivery", "At-most-once delivery", "Exactly-once delivery", "Zero-loss guarantee"],
+    correct: 0,
+    explanation: "At-least-once retries delivery until an ACK is received; consumers must be idempotent to handle potential duplicates safely."
+  },
+  {
+    id: "backend_043",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What does it mean for a backend API consumer or webhook handler to be 'Idempotent'?",
+    options: ["Processing the exact same message or request multiple times produces the identical side-effect as processing it once", "The endpoint executes in under 1ms", "The endpoint accepts requests without authentication", "The endpoint deletes database records"],
+    correct: 0,
+    explanation: "Idempotent endpoints (e.g. tracking payment idempotency keys) prevent duplicate charges when network retries occur."
+  },
+  {
+    id: "backend_044",
+    topic: "backend_db",
+    difficulty: "hard",
+    type: "single",
+    question: "What distributed design pattern manages distributed transactions across microservices using a sequence of local transactions and compensating actions?",
+    options: ["Saga Pattern", "Two-Phase Commit (2PC)", "CQRS", "Event Sourcing"],
+    correct: 0,
+    explanation: "The Saga pattern coordinates multi-service transactions: if step 3 fails, compensating transactions undo steps 2 and 1."
+  },
+  {
+    id: "backend_045",
+    topic: "backend_db",
+    difficulty: "hard",
+    type: "single",
+    question: "What is CQRS (Command Query Responsibility Segregation)?",
+    options: ["Separating the read model (queries) from the write model (commands) to optimize and scale them independently", "Combining SQL and NoSQL in a single file", "Handling HTTP requests without routing", "Using dual CPUs on the database server"],
+    correct: 0,
+    explanation: "CQRS splits data mutations (commands) from data reads (queries), allowing highly optimized read projections (e.g. Elasticsearch for search, Postgres for writes)."
+  },
+
+  // 76-100: Cloud, Docker, System Design & Architecture
+  {
+    id: "backend_046",
+    topic: "backend_db",
+    difficulty: "easy",
+    type: "single",
+    question: "What is the key difference between a Docker container and a traditional Virtual Machine (VM)?",
+    options: ["Containers share the host operating system kernel and are lightweight; VMs run a full guest OS on top of a hypervisor", "Containers require more RAM than VMs", "VMs cannot run Linux", "Containers do not isolate processes"],
+    correct: 0,
+    explanation: "Containers package only application binaries and dependencies sharing the host OS kernel via cgroups and namespaces, booting in seconds."
+  },
+  {
+    id: "backend_047",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "In Kubernetes, what is the smallest deployable computing unit that encapsulates one or more containers?",
+    options: ["Pod", "Node", "Cluster", "Deployment"],
+    correct: 0,
+    explanation: "A Pod represents a single instance of a running process in a cluster, sharing network IP, storage volumes, and container specifications."
+  },
+  {
+    id: "backend_048",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What is Consistent Hashing primarily used for in distributed systems (like DynamoDB, Memcached clusters, and CDNs)?",
+    options: ["Distributing keys across nodes so that adding or removing a node requires remapping only k/n keys on average", "Encrypting passwords on the server", "Sorting arrays in linear time", "Validating SSL certificates"],
+    correct: 0,
+    explanation: "Consistent hashing maps both keys and servers to a circular hash ring, preventing massive cache invalidation when cluster sizes scale."
+  },
+  {
+    id: "backend_049",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What is the Circuit Breaker pattern in microservice architecture?",
+    options: ["Detects failures in downstream services and trips to immediately fail requests without wasting resources, giving the failing service time to recover", "Stops the server when electricity fluctuates", "A hardware firewall on server racks", "A load balancer algorithm"],
+    correct: 0,
+    explanation: "Circuit breakers have 3 states (Closed, Open, Half-Open), stopping cascading failures when a downstream dependency experiences an outage."
+  },
+  {
+    id: "backend_050",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What is the difference between Layer 4 (L4) and Layer 7 (L7) load balancing?",
+    options: ["L4 routes traffic based on network and transport layer protocols (IP and TCP port); L7 inspects application layer content (HTTP headers, URLs, cookies)", "L7 only routes UDP packets; L4 routes HTTP", "L4 is slower than L7", "There is no functional difference"],
+    correct: 0,
+    explanation: "L4 operates at TCP/UDP level for high throughput without inspecting packet payload; L7 makes smart routing decisions based on HTTP path, headers, and cookies."
+  },
+  {
+    id: "backend_051",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "In Node.js, what is the 'Cluster' module used for?",
+    options: ["Spawning multiple worker processes that share server ports to take full advantage of multi-core CPU systems", "Connecting to multiple MongoDB clusters", "Encrypting network packets", "Running Python scripts from Node"],
+    correct: 0,
+    explanation: "Since Node.js runs on a single event loop thread, the cluster module forks worker processes across all CPU cores to scale throughput."
+  },
+  {
+    id: "backend_052",
+    topic: "backend_db",
+    difficulty: "easy",
+    type: "single",
+    question: "What Node.js built-in module provides asynchronous file system operations?",
+    options: ["fs (or fs/promises)", "path", "http", "stream"],
+    correct: 0,
+    explanation: "The 'fs' and 'fs/promises' modules provide methods like readFile, writeFile, and readdir for file I/O."
+  },
+  {
+    id: "backend_053",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What is backpressure in Node.js Streams?",
+    options: ["A mechanism where a fast data producer pauses until a slow data consumer finishes writing its current buffer", "An error thrown when hard drive is full", "Reverse network proxying", "A compression algorithm"],
+    correct: 0,
+    explanation: "When readable.pipe(writable) encounters a full write buffer, backpressure pauses the readable stream to prevent excessive memory accumulation."
+  },
+  {
+    id: "backend_054",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What is an API Gateway in microservice architectures?",
+    options: ["A reverse proxy entry point that handles authentication, SSL termination, rate limiting, and request routing to downstream services", "A physical modem connecting servers to the internet", "A database engine", "A client-side JavaScript SDK"],
+    correct: 0,
+    explanation: "The API Gateway acts as the single point of entry for clients, abstracting internal microservice layout and centralizing cross-cutting security."
+  },
+  {
+    id: "backend_055",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What is Event Sourcing?",
+    options: ["Storing every change of application state as an append-only immutable sequence of events rather than storing only the current state", "A JavaScript DOM event model", "Listening to Google Analytics", "Running cron jobs every midnight"],
+    correct: 0,
+    explanation: "Event Sourcing provides a complete audit trail: the current system state can be accurately reconstructed by replaying all historical events from the beginning."
+  },
+  {
+    id: "backend_056",
+    topic: "backend_db",
+    difficulty: "easy",
+    type: "single",
+    question: "What is a Content Delivery Network (CDN)?",
+    options: ["A geographically distributed network of proxy edge servers that cache static assets close to end users to reduce latency", "A high-speed broadband cable", "A database for storing media files", "An operating system for cloud servers"],
+    correct: 0,
+    explanation: "CDNs (like Cloudflare, AWS CloudFront) cache assets at points of presence (PoPs) worldwide, serving requests with minimal network latency."
+  },
+  {
+    id: "backend_057",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What is Database Connection Pooling?",
+    options: ["Maintaining a cache of open, reusable database connections to eliminate the latency of establishing new TCP/TLS connections per request", "Merging multiple databases into one", "Replicating data across three cloud regions", "Querying tables simultaneously with UNION"],
+    correct: 0,
+    explanation: "Connection pools keep a warm pool of database sockets ready, avoiding the heavy overhead of repeated authentication and handshake operations."
+  },
+  {
+    id: "backend_058",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What is the difference between Horizontal Scaling and Vertical Scaling?",
+    options: ["Horizontal scaling adds more machines/nodes to the pool; Vertical scaling upgrades CPU/RAM on an existing single machine", "Vertical scaling adds more machines; Horizontal adds RAM", "Horizontal scaling only works in the cloud", "Vertical scaling has zero downtime"],
+    correct: 0,
+    explanation: "Scaling out (horizontal) adds more server instances behind a load balancer; scaling up (vertical) increases the physical hardware limits of one server."
+  },
+  {
+    id: "backend_059",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "In relational databases, what is an 'Optimistic Lock'?",
+    options: ["A concurrency control mechanism that checks a version number or timestamp before updating, rolling back if another transaction modified the row in the interim", "Locking the entire table before reading", "Assuming the database will never crash", "Disabling foreign key checks"],
+    correct: 0,
+    explanation: "Optimistic locking avoids database lock contention: queries read freely, and writes verify WHERE version = expected_version."
+  },
+  {
+    id: "backend_060",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What is a 'Pessimistic Lock' in SQL (e.g. `SELECT ... FOR UPDATE`)?",
+    options: ["Acquiring an exclusive row-level lock immediately upon reading, preventing any other transaction from modifying or locking the row until commit", "Assuming transactions will always conflict and throwing errors", "Encrypting database disk blocks", "Disabling indexes during write"],
+    correct: 0,
+    explanation: "Pessimistic locking physically locks rows at read time to ensure no concurrent processes can modify the locked records until the transaction ends."
+  },
+  {
+    id: "backend_061",
+    topic: "backend_db",
+    difficulty: "easy",
+    type: "single",
+    question: "What SQL keyword removes all duplicate rows from query results?",
+    options: ["DISTINCT", "UNIQUE", "DIFFERENT", "FILTER"],
+    correct: 0,
+    explanation: "SELECT DISTINCT column FROM table eliminates duplicate result tuples."
+  },
+  {
+    id: "backend_062",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What is the purpose of an SQL Foreign Key constraint?",
+    options: ["Enforces referential integrity by guaranteeing that a column value corresponds to a valid existing primary key in another table", "Encrypts foreign IP addresses", "Speeds up SELECT queries automatically", "Allows connecting to remote databases"],
+    correct: 0,
+    explanation: "Foreign keys prevent orphaned records and ensure child table entries always point to valid parent records."
+  },
+  {
+    id: "backend_063",
+    topic: "backend_db",
+    difficulty: "hard",
+    type: "single",
+    question: "What is Database Read Replication (Master-Slave / Primary-Replica)?",
+    options: ["Writes are directed to a Primary database node and asynchronously replicated to one or more Read Replicas to scale read query traffic", "Making a paper printout of database tables", "Running two copies of MySQL on the same laptop", "A backup system that saves data to tape"],
+    correct: 0,
+    explanation: "Primary-Replica offloads heavy analytical and user read workloads to read replicas, leaving the primary node dedicated to writes."
+  },
+  {
+    id: "backend_064",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What is Serverless computing (e.g., AWS Lambda, Google Cloud Functions)?",
+    options: ["An execution model where the cloud provider dynamically provisions and bills for server resources on demand per function invocation, scaling to zero", "Running code without any computers", "Hosting servers in local office basements", "A database that has no queries"],
+    correct: 0,
+    explanation: "Serverless abstracts server maintenance, auto-scaling compute containers on demand and charging strictly for execution milliseconds."
+  },
+  {
+    id: "backend_065",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What is the 'Cold Start' latency problem in serverless functions?",
+    options: ["The initialization delay when a cloud provider spins up a new container instance to handle a request after a period of inactivity", "When server hardware is physically cold in winter", "Delay caused by slow internet connections", "Database reboot time"],
+    correct: 0,
+    explanation: "Cold starts occur when no idle container is ready, adding 100ms-2s of latency to download code, initialize runtimes, and establish DB pools."
+  },
+  {
+    id: "backend_066",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "In API design, what is semantic versioning (SemVer: MAJOR.MINOR.PATCH)?",
+    options: ["MAJOR = breaking changes; MINOR = backwards-compatible features; PATCH = backwards-compatible bug fixes", "MAJOR = bug fixes; MINOR = new UI; PATCH = security", "Random version numbers chosen by marketing", "Date-based release tags"],
+    correct: 0,
+    explanation: "SemVer provides a clear contract: clients know v1.2.0 is safe to update from v1.1.0, while v2.0.0 contains breaking changes."
+  },
+  {
+    id: "backend_067",
+    topic: "backend_db",
+    difficulty: "easy",
+    type: "single",
+    question: "What does the SQL command `ROLLBACK` do inside a transaction block?",
+    options: ["Reverts all modifications made during the current uncommitted transaction, leaving database state unchanged", "Restores the database to yesterday's backup", "Deletes all tables in the schema", "Restarts the database service"],
+    correct: 0,
+    explanation: "ROLLBACK undoes all queries executed since BEGIN TRANSACTION, maintaining data consistency upon error."
+  },
+  {
+    id: "backend_068",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What is a Deadlock in relational databases and how do modern engines handle it?",
+    options: ["Two transactions each hold a lock the other needs to proceed; the engine detects the cycle in its wait-for graph and aborts one transaction", "A severed power line to the server room", "A disk full error", "A forgotten admin password"],
+    correct: 0,
+    explanation: "Deadlock detection runs periodically; when a circular dependency is found, the DBMS chooses a victim transaction to abort and roll back."
+  },
+  {
+    id: "backend_069",
+    topic: "backend_db",
+    difficulty: "easy",
+    type: "single",
+    question: "Which HTTP status code is returned for '502 Bad Gateway'?",
+    options: ["A gateway or reverse proxy server received an invalid response from an upstream server", "The client sent invalid JSON", "The requested resource was not found", "Authentication expired"],
+    correct: 0,
+    explanation: "502 indicates that an edge proxy (Nginx, Cloudflare) could not successfully communicate with the internal application backend server."
+  },
+  {
+    id: "backend_070",
+    topic: "backend_db",
+    difficulty: "easy",
+    type: "single",
+    question: "Which HTTP status code signifies '504 Gateway Timeout'?",
+    options: ["The gateway/proxy did not receive a timely response from the upstream server within its configured timeout limit", "The client timed out sending headers", "The database ran out of memory", "The user logged out"],
+    correct: 0,
+    explanation: "504 means the reverse proxy waited longer than its proxy_read_timeout for the backend app to finish responding."
+  },
+  {
+    id: "backend_071",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What is a Reverse Proxy (such as Nginx, Traefik, or HAProxy)?",
+    options: ["A server that sits in front of backend servers, forwarding client requests, balancing load, terminating SSL, and caching responses", "A proxy used by employees to browse the web", "A hardware router in consumer homes", "A client-side browser plugin"],
+    correct: 0,
+    explanation: "A reverse proxy guards backend servers, providing unified public entrypoints, TLS decryption, compression, and request routing."
+  },
+  {
+    id: "backend_072",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What is SSL/TLS Termination at a load balancer?",
+    options: ["Decrypting HTTPS client traffic at the load balancer so internal communication with backend servers can happen over fast private HTTP", "Canceling an SSL certificate", "Blocking all encrypted traffic", "Encrypting passwords inside MySQL"],
+    correct: 0,
+    explanation: "TLS termination offloads CPU-intensive cryptographic handshakes to load balancers, simplifying certificate management across microservices."
+  },
+  {
+    id: "backend_073",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What is the purpose of Database Migrations in backend engineering?",
+    options: ["Version-controlled, incremental scripts that track and apply schema alterations (CREATE, ALTER, DROP) across all environments", "Physically moving servers between data centers", "Translating code from Python to Go", "Backing up table data to CSV files"],
+    correct: 0,
+    explanation: "Migration tools (Flyway, Liquibase, Prisma, Alembic) allow teams to reliably synchronize database schema evolution across dev, test, and production."
+  },
+  {
+    id: "backend_074",
+    topic: "backend_db",
+    difficulty: "hard",
+    type: "single",
+    question: "What is Two-Phase Commit (2PC) in distributed transactions?",
+    options: ["A consensus protocol where a coordinator asks all participants if they can commit (Prepare phase), then commands Commit or Rollback", "Running a SQL query twice to verify results", "Encrypting data with two private keys", "Writing to two local hard drives simultaneously"],
+    correct: 0,
+    explanation: "2PC guarantees all nodes either commit or abort together, though it is blocking and vulnerable to coordinator failure."
+  },
+  {
+    id: "backend_075",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What is the difference between synchronous and asynchronous logging in high-throughput backend services?",
+    options: ["Synchronous logging blocks application request threads waiting for disk I/O; Asynchronous logging pushes log events to an in-memory queue flushed by a worker", "Asynchronous logging loses half of all logs", "Synchronous logging is faster", "There is no difference in I/O behavior"],
+    correct: 0,
+    explanation: "Disk I/O is slow; asynchronous loggers (like Pino or Winston with workers) keep event loop latency minimal by offloading disk writes."
+  },
+  {
+    id: "backend_076",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What is an ORM (Object-Relational Mapping) library?",
+    options: ["A library that allows developers to query and manipulate database records using an object-oriented programming paradigm instead of raw SQL strings", "A hardware memory chip", "A database backup tool", "An optical character recognition tool"],
+    correct: 0,
+    explanation: "ORMs (like Prisma, Hibernate, SQLAlchemy) map database tables to code classes and columns to properties, simplifying CRUD operations."
+  },
+  {
+    id: "backend_077",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What is the primary risk of relying solely on an ORM for complex reporting queries?",
+    options: ["ORMs can generate highly inefficient SQL queries with hidden N+1 traversals or missing index scans", "ORMs cannot connect to PostgreSQL", "ORMs delete database tables automatically", "ORMs do not support transactions"],
+    correct: 0,
+    explanation: "Abstracting SQL can lead to unoptimized subqueries and excessive data fetching, often requiring hand-crafted SQL for heavy reporting."
+  },
+  {
+    id: "backend_078",
+    topic: "backend_db",
+    difficulty: "easy",
+    type: "single",
+    question: "What does the SQL aggregate function `COUNT(*)` return compared to `COUNT(column_name)`?",
+    options: ["`COUNT(*)` counts all rows including NULLs; `COUNT(column_name)` counts only rows where the specified column is NOT NULL", "`COUNT(*)` only counts non-NULL rows", "`COUNT(column_name)` counts duplicate values only", "Both return the exact same count in all cases"],
+    correct: 0,
+    explanation: "COUNT(*) counts total rows in the table/group; COUNT(col) ignores rows where col is NULL."
+  },
+  {
+    id: "backend_079",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What is the purpose of an SQL View (`CREATE VIEW`)?",
+    options: ["A saved virtual table defined by a SELECT query that does not physically store data on disk itself", "A physical backup snapshot of a table", "A graphical diagram of table relationships", "A temporary table deleted after 1 minute"],
+    correct: 0,
+    explanation: "A View encapsulates complex joins or security filters into a reusable virtual table dynamically computed on query execution."
+  },
+  {
+    id: "backend_080",
+    topic: "backend_db",
+    difficulty: "hard",
+    type: "single",
+    question: "What is a 'Materialized View' in PostgreSQL or Oracle?",
+    options: ["A view whose query results are physically persisted to disk, supporting indexes and needing periodic REFRESH commands to update", "A view that only stores image files", "A view that automatically updates in real time with zero CPU cost", "A view created in temporary RAM"],
+    correct: 0,
+    explanation: "Materialized views precompute heavy aggregations onto disk, offering lightning-fast reads at the expense of needing explicit refresh intervals."
+  },
+  {
+    id: "backend_081",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What is CORS (Cross-Origin Resource Sharing) strictly enforced by?",
+    options: ["The user's web browser client", "The backend database server", "The internet service provider (ISP)", "The operating system kernel"],
+    correct: 0,
+    explanation: "CORS is a browser security mechanism; curl and backend-to-backend HTTP requests ignore CORS completely."
+  },
+  {
+    id: "backend_082",
+    topic: "backend_db",
+    difficulty: "easy",
+    type: "single",
+    question: "What is the default port for PostgreSQL database servers?",
+    options: ["5432", "3306", "27017", "6379"],
+    correct: 0,
+    explanation: "PostgreSQL defaults to port 5432. MySQL defaults to 3306, MongoDB to 27017, and Redis to 6379."
+  },
+  {
+    id: "backend_083",
+    topic: "backend_db",
+    difficulty: "easy",
+    type: "single",
+    question: "What is the default port for MySQL database servers?",
+    options: ["3306", "5432", "8080", "1433"],
+    correct: 0,
+    explanation: "MySQL listens on port 3306 by default."
+  },
+  {
+    id: "backend_084",
+    topic: "backend_db",
+    difficulty: "easy",
+    type: "single",
+    question: "What is the default port for Redis servers?",
+    options: ["6379", "3306", "5432", "9092"],
+    correct: 0,
+    explanation: "Redis listens on port 6379 by default (spelling 'MERZ' on a phone keypad after designer antirez's friend Alessia Merz)."
+  },
+  {
+    id: "backend_085",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What is Blue-Green Deployment?",
+    options: ["A zero-downtime release technique running two identical production environments (Blue and Green), routing router traffic to Green after testing", "Deploying only on Fridays", "Deploying code with green terminal themes", "Testing code on user smartphones"],
+    correct: 0,
+    explanation: "Blue-Green deployment allows instant rollback: traffic switches cleanly to the new environment, and can immediately revert if bugs occur."
+  },
+  {
+    id: "backend_086",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What is a Canary Release?",
+    options: ["Gradually rolling out a new software version to a small percentage of real users (e.g. 5%) before expanding to 100%", "Releasing software only to beta testers in Canada", "Testing code for security vulnerabilities using automated bots", "Simulating 1 million artificial users"],
+    correct: 0,
+    explanation: "Canary releases allow monitoring error rates and metrics on a small canary group, minimizing blast radius if bugs slip through."
+  },
+  {
+    id: "backend_087",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What is the Raft Consensus Algorithm used for in distributed systems (like etcd, Consul, Kafka KRaft)?",
+    options: ["Electing a leader and maintaining a replicated state log consistently across a distributed cluster despite node failures", "Compressing network video streams", "Balancing CPU usage on a local PC", "Generating random cryptographic salts"],
+    correct: 0,
+    explanation: "Raft provides understandable distributed consensus through leader election, log replication, and safety invariants."
+  },
+  {
+    id: "backend_088",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What is the difference between SQL `UNION` and `UNION ALL`?",
+    options: ["`UNION` removes duplicate rows from the combined result set; `UNION ALL` retains all rows including duplicates and runs significantly faster", "`UNION ALL` removes duplicates; `UNION` does not", "`UNION` can only join two tables; `UNION ALL` can join ten", "There is no performance difference"],
+    correct: 0,
+    explanation: "UNION performs an expensive distinct sorting operation to eliminate duplicates; UNION ALL appends rows directly without deduping."
+  },
+  {
+    id: "backend_089",
+    topic: "backend_db",
+    difficulty: "hard",
+    type: "single",
+    question: "What is Database Sharding Rebalancing and why is it complex?",
+    options: ["Migrating partitions of data between existing and new shard nodes without incurring downtime or data inconsistency", "Rebuilding MySQL indexes", "Renaming database columns", "Restarting the master server"],
+    correct: 0,
+    explanation: "Rebalancing requires copying live active data, tracking concurrent writes, and atomically switching routing tables without service disruption."
+  },
+  {
+    id: "backend_090",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What is an Inverted Index, and which search engines rely heavily on it (like Elasticsearch and Solr)?",
+    options: ["An index mapping every distinct word/token to the list of document IDs containing it, enabling fast full-text search", "An index sorted in descending numerical order", "An encrypted database key", "A B-tree index where root is at the bottom"],
+    correct: 0,
+    explanation: "Inverted indexes function like book indexes: looking up 'dinosaur' immediately retrieves all document IDs containing that word in O(1) time."
+  },
+  {
+    id: "backend_091",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What is the purpose of the 'Content-Type' header in an HTTP POST request?",
+    options: ["Informs the server about the media format of the request body (e.g. application/json, multipart/form-data)", "Specifies the client's screen size", "Defines the encryption password", "Identifies the user's operating system"],
+    correct: 0,
+    explanation: "Content-Type instructs backend parsers whether to parse the incoming payload as JSON, URL-encoded form data, XML, or binary data."
+  },
+  {
+    id: "backend_092",
+    topic: "backend_db",
+    difficulty: "easy",
+    type: "single",
+    question: "What does the SQL statement `SELECT COALESCE(email, phone, 'N/A') FROM users;` do?",
+    options: ["Returns the first non-NULL value among email, phone, or 'N/A' for each row", "Combines email and phone into a single string", "Deletes users without emails", "Validates email formatting"],
+    correct: 0,
+    explanation: "COALESCE returns its first non-NULL argument, providing clean fallback values in SQL queries."
+  },
+  {
+    id: "backend_093",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "In relational database design, what is a Surrogate Key versus a Natural Key?",
+    options: ["A surrogate key is an artificial identifier (e.g. auto-increment ID or UUID); a natural key is a real-world attribute that is inherently unique (e.g. SSN)", "Surrogate keys are passwords; natural keys are usernames", "Surrogate keys only work in SQLite", "Natural keys are generated by the CPU"],
+    correct: 0,
+    explanation: "Surrogate keys have no business meaning and never change, preventing cascading updates when business identities change."
+  },
+  {
+    id: "backend_094",
+    topic: "backend_db",
+    difficulty: "hard",
+    type: "single",
+    question: "What is the difference between UUIDv4 and UUIDv7 in database primary keys?",
+    options: ["UUIDv4 is completely random; UUIDv7 includes a millisecond timestamp prefix, making it time-ordered and friendly to B-tree indexes", "UUIDv7 is shorter than UUIDv4", "UUIDv4 is encrypted; UUIDv7 is plaintext", "UUIDv7 only works on 64-bit systems"],
+    correct: 0,
+    explanation: "Random UUIDv4 causes severe B-tree page fragmentation; time-sorted UUIDv7 appends sequentially, preserving write performance."
+  },
+  {
+    id: "backend_095",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What is a Webhook in web application architecture?",
+    options: ["A user-defined HTTP POST callback triggered by an event in a service to notify external systems asynchronously in real time", "A tool for scraping HTML pages", "A browser bookmark", "A network cable connection"],
+    correct: 0,
+    explanation: "Webhooks reverse the polling pattern: instead of querying 'has anything happened?', the service pushes event payloads to a registered webhook URL."
+  },
+  {
+    id: "backend_096",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What is the purpose of an 'Idempotency Key' in HTTP headers for payment APIs (like Stripe)?",
+    options: ["Allows safe retries of POST requests without charging the customer twice if network timeouts occur", "Encrypts credit card numbers", "Generates loyalty reward points", "Identifies the user's geographic location"],
+    correct: 0,
+    explanation: "If a request times out, retrying with the same Idempotency-Key returns the cached initial response rather than executing a second charge."
+  },
+  {
+    id: "backend_097",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What is OpenTelemetry (OTel) used for in backend systems?",
+    options: ["An open-source observability framework for creating and collecting telemetry data (metrics, logs, and distributed traces)", "An open-source relational database", "A cloud server provider", "An automated code formatter"],
+    correct: 0,
+    explanation: "OpenTelemetry standardizes telemetry collection across microservices, enabling distributed tracing across complex request pathways."
+  },
+  {
+    id: "backend_098",
+    topic: "backend_db",
+    difficulty: "medium",
+    type: "single",
+    question: "What is Distributed Tracing in microservices?",
+    options: ["Tracking a user request via a unique Trace ID across multiple network boundaries and microservices to profile latency bottlenecks", "Tracking the physical GPS location of servers", "Tracing Git commit authors", "Logging console outputs to files"],
+    correct: 0,
+    explanation: "Distributed tracing passes trace/span headers (W3C TraceContext) across service calls to visualize the entire request timeline end-to-end."
+  },
+  {
+    id: "backend_099",
+    topic: "backend_db",
+    difficulty: "easy",
+    type: "single",
+    question: "What is the purpose of database Connection Keepalive?",
+    options: ["Periodically sending probe packets across idle sockets to prevent firewalls and NAT routers from dropping long-lived database connections", "Keeping the database server physically awake", "Restarting crashed database instances", "Refreshing passwords every hour"],
+    correct: 0,
+    explanation: "TCP keepalives detect broken peers and prevent intermediate network devices from terminating idle pool connections silently."
+  },
+  {
+    id: "backend_100",
+    topic: "backend_db",
+    difficulty: "hard",
+    type: "single",
+    question: "In distributed event systems, what is the 'Outbox Pattern'?",
+    options: ["Writing domain events to an 'outbox' table in the same local database transaction as business entities, then publishing them via an asynchronous CDC worker", "Sending emails directly from database triggers", "Deleting messages that fail delivery", "A hardware mailbox for physical disks"],
+    correct: 0,
+    explanation: "The Transactional Outbox pattern guarantees atomicity: business state changes and outgoing message records commit together in one ACID transaction."
+  }
+];
+
+console.log(`Generated ${backendQuestions.length} Backend & Database questions.`);
+fs.writeFileSync('scratch/backend_100.json', JSON.stringify(backendQuestions, null, 2));

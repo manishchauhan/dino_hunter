@@ -1,0 +1,1502 @@
+[
+  {
+    "id": "ai_001",
+    "topic": "ml_ai",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "What is the primary difference between Supervised Learning and Unsupervised Learning?",
+    "options": [
+      "Supervised learning trains on labeled input-output data pairs; Unsupervised learning finds patterns and clusters in unlabeled data",
+      "Supervised learning requires human monitoring at runtime",
+      "Unsupervised learning never uses math",
+      "Supervised learning only runs on GPUs"
+    ],
+    "correct": 0,
+    "explanation": "Supervised learning maps features X to known ground-truth labels Y (regression/classification); unsupervised discovers hidden structures in unlabeled data X (clustering/PCA)."
+  },
+  {
+    "id": "ai_002",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What does the Bias-Variance Tradeoff describe in machine learning?",
+    "options": [
+      "High bias causes underfitting (oversimplified models); High variance causes overfitting (model captures noise and fails to generalize to test data)",
+      "Bias refers to model training speed; Variance refers to model accuracy",
+      "High bias means the model is too complex",
+      "There is no tradeoff in modern deep learning"
+    ],
+    "correct": 0,
+    "explanation": "Total error = Bias^2 + Variance + Irreducible Error. Minimizing generalization error requires balancing underfitting (bias) and overfitting (variance)."
+  },
+  {
+    "id": "ai_003",
+    "topic": "ml_ai",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "What evaluation metric calculates the harmonic mean of Precision and Recall?",
+    "options": [
+      "F1 Score",
+      "ROC-AUC",
+      "Mean Squared Error (MSE)",
+      "Accuracy"
+    ],
+    "correct": 0,
+    "explanation": "F1 = 2 * (Precision * Recall) / (Precision + Recall), giving a balanced measure especially on imbalanced datasets."
+  },
+  {
+    "id": "ai_004",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "In binary classification, what is Precision versus Recall?",
+    "options": [
+      "Precision is True Positives / (True Positives + False Positives); Recall is True Positives / (True Positives + False Negatives)",
+      "Precision is True Positives / Total Data; Recall is False Positives / Total Data",
+      "Recall measures false alarms; Precision measures missed cases",
+      "They are identical metrics"
+    ],
+    "correct": 0,
+    "explanation": "Precision measures 'of all predicted positives, how many were right?'; Recall measures 'of all actual positives, how many did we catch?'"
+  },
+  {
+    "id": "ai_005",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What does the Area Under the ROC Curve (ROC-AUC) measure?",
+    "options": [
+      "The model's ability to discriminate between positive and negative classes across all possible classification decision thresholds",
+      "The training speed of a neural network",
+      "The percentage of memory consumed by weights",
+      "The average loss per epoch"
+    ],
+    "correct": 0,
+    "explanation": "ROC plots True Positive Rate vs False Positive Rate. An AUC of 1.0 represents perfect discrimination; 0.5 represents random guessing."
+  },
+  {
+    "id": "ai_006",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is L1 Regularization (Lasso) compared to L2 Regularization (Ridge)?",
+    "options": [
+      "L1 adds absolute weight penalties (|w|), driving irrelevant weights to exact zero (feature selection); L2 adds squared penalties (w^2), shrinking weights smoothly",
+      "L2 sets weights to exact zero; L1 does not",
+      "L1 is only used in decision trees",
+      "L2 requires no hyperparameters"
+    ],
+    "correct": 0,
+    "explanation": "Lasso produces sparse models by zeroing out coefficients; Ridge penalizes large weights proportionally, stabilizing collinear features."
+  },
+  {
+    "id": "ai_007",
+    "topic": "ml_ai",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "What is k-Fold Cross-Validation?",
+    "options": [
+      "Splitting data into k equal subsets, training on k-1 folds and validating on the remaining 1 fold, repeating k times to estimate generalization performance",
+      "Multiplying the dataset size by k",
+      "Training k different neural network architectures",
+      "Running training for k epochs"
+    ],
+    "correct": 0,
+    "explanation": "k-fold cross-validation ensures every data point is used for both training and validation once, reducing evaluation variance."
+  },
+  {
+    "id": "ai_008",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What activation function maps real-valued numbers into a probability distribution between 0 and 1 that sums to 1 across classes?",
+    "options": [
+      "Softmax",
+      "Sigmoid",
+      "ReLU",
+      "Tanh"
+    ],
+    "correct": 0,
+    "explanation": "Softmax exponentiates logits and normalizes them across all output classes, outputting a valid categorical probability distribution."
+  },
+  {
+    "id": "ai_009",
+    "topic": "ml_ai",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "What is the Rectified Linear Unit (ReLU) mathematical definition?",
+    "options": [
+      "f(x) = max(0, x)",
+      "f(x) = 1 / (1 + e^-x)",
+      "f(x) = tanh(x)",
+      "f(x) = x^2"
+    ],
+    "correct": 0,
+    "explanation": "ReLU outputs x if x > 0 and 0 otherwise, overcoming vanishing gradients and computing drastically faster than sigmoid."
+  },
+  {
+    "id": "ai_010",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What problem occurs when gradients approach zero during backpropagation in deep networks using Sigmoid or Tanh activations?",
+    "options": [
+      "Vanishing Gradient Problem",
+      "Exploding Gradient Problem",
+      "Deadlock",
+      "Overfitting"
+    ],
+    "correct": 0,
+    "explanation": "Because sigmoid derivatives peak at 0.25, multiplying many layers during backpropagation causes gradients to vanish, freezing early layer weights."
+  },
+  {
+    "id": "ai_011",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What splitting criterion does the CART algorithm use by default to choose the best split in classification Decision Trees?",
+    "options": [
+      "Gini Impurity (or Information Gain via Entropy)",
+      "Mean Squared Error",
+      "Cosine Similarity",
+      "Euclidean Distance"
+    ],
+    "correct": 0,
+    "explanation": "Gini Impurity measures the probability of misclassifying a randomly chosen element; CART chooses splits that minimize weighted Gini impurity."
+  },
+  {
+    "id": "ai_012",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "How does a Random Forest ensemble reduce variance and prevent overfitting compared to a single Decision Tree?",
+    "options": [
+      "Combines Bagging (Bootstrap Aggregation) with random feature subspace sampling, averaging predictions across hundreds of de-correlated trees",
+      "Trains trees sequentially on the errors of previous trees",
+      "Removes leaves with low weights",
+      "Uses linear regression on tree outputs"
+    ],
+    "correct": 0,
+    "explanation": "Averaging diverse, de-correlated trees lowers variance without increasing bias, making Random Forests robust to noise."
+  },
+  {
+    "id": "ai_013",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is the key difference between Bagging (e.g. Random Forest) and Boosting (e.g. XGBoost, LightGBM)?",
+    "options": [
+      "Bagging trains independent trees in parallel on bootstrap samples; Boosting trains trees sequentially, where each new tree corrects the residual errors of prior trees",
+      "Boosting trains trees in parallel; Bagging is sequential",
+      "Bagging is only for classification; Boosting is only for regression",
+      "There is no difference"
+    ],
+    "correct": 0,
+    "explanation": "Bagging focuses on reducing variance via parallel voting; Boosting focuses on reducing bias by sequentially learning from past prediction mistakes."
+  },
+  {
+    "id": "ai_014",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is the 'Kernel Trick' in Support Vector Machines (SVM)?",
+    "options": [
+      "Computes the inner products in a high-dimensional feature space implicitly without ever mapping data points to that space explicitly",
+      "A Linux OS kernel optimization",
+      "A method for training neural networks on CPUs",
+      "A fast sorting algorithm"
+    ],
+    "correct": 0,
+    "explanation": "Kernel functions (like RBF/Gaussian) transform linearly non-separable data into higher-dimensional space where linear hyperplanes can separate classes."
+  },
+  {
+    "id": "ai_015",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What unsupervised dimensionality reduction technique finds orthogonal axes of maximum variance in feature space?",
+    "options": [
+      "Principal Component Analysis (PCA)",
+      "Linear Discriminant Analysis (LDA)",
+      "k-Means",
+      "Random Forest"
+    ],
+    "correct": 0,
+    "explanation": "PCA calculates eigenvectors and eigenvalues of the data covariance matrix to project high-dimensional data onto principal components of maximal variance."
+  },
+  {
+    "id": "ai_016",
+    "topic": "ml_ai",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "What does the 'k' represent in the k-Nearest Neighbors (k-NN) classification algorithm?",
+    "options": [
+      "The number of closest labeled training data points used to vote on the class of a query point",
+      "The number of clusters",
+      "The learning rate",
+      "The number of hidden layers"
+    ],
+    "correct": 0,
+    "explanation": "k-NN is a lazy learning instance-based algorithm that determines query label by majority vote among its k nearest neighbors in Euclidean distance."
+  },
+  {
+    "id": "ai_017",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What heuristic is commonly used to choose the optimal number of clusters k in k-Means clustering?",
+    "options": [
+      "The Elbow Method (plotting within-cluster sum of squares inertia vs k) and Silhouette Analysis",
+      "Cross-entropy loss minimization",
+      "Backpropagation thresholding",
+      "P-value significance testing"
+    ],
+    "correct": 0,
+    "explanation": "The Elbow method identifies the point where the rate of decrease in within-cluster inertia sharply flattens, indicating diminishing returns."
+  },
+  {
+    "id": "ai_018",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "Why should features be standardized (e.g. StandardScaler / z-score normalization) before training algorithms like SVM, k-Means, or Gradient Descent?",
+    "options": [
+      "Algorithms that rely on distance calculations or gradient steps are biased towards features with large numerical magnitudes",
+      "Standardization converts text into numbers",
+      "It is required to save models to disk",
+      "Unscaled data causes divide-by-zero crashes"
+    ],
+    "correct": 0,
+    "explanation": "Distance metrics and gradient descents treat large-scale features (e.g. income in $50,000s) as vastly more important than small features (e.g. age in 30s) unless normalized."
+  },
+  {
+    "id": "ai_019",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What loss function is standard for training multi-class neural network classifiers paired with a Softmax output layer?",
+    "options": [
+      "Categorical Cross-Entropy Loss",
+      "Mean Squared Error (MSE)",
+      "Mean Absolute Error (MAE)",
+      "Hinge Loss"
+    ],
+    "correct": 0,
+    "explanation": "Cross-entropy loss penalizes confident wrong predictions heavily, matching maximum likelihood estimation for multiclass probabilities."
+  },
+  {
+    "id": "ai_020",
+    "topic": "ml_ai",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "What optimization algorithm updates model parameters in the direction of the steepest descent of the loss function?",
+    "options": [
+      "Gradient Descent",
+      "Genetic Algorithm",
+      "Random Search",
+      "Simulated Annealing"
+    ],
+    "correct": 0,
+    "explanation": "Gradient descent computes parameter gradients with respect to loss: w = w - learning_rate * (dL/dw)."
+  },
+  {
+    "id": "ai_021",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What popular deep learning optimizer combines Momentum (exponential moving average of past gradients) with RMSprop (adaptive learning rates per parameter)?",
+    "options": [
+      "Adam (Adaptive Moment Estimation)",
+      "SGD with momentum only",
+      "AdaGrad",
+      "L-BFGS"
+    ],
+    "correct": 0,
+    "explanation": "Adam calculates first (mean) and second (uncentered variance) moment estimates of gradients to adaptively tune per-weight learning rates."
+  },
+  {
+    "id": "ai_022",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What regularization technique randomly deactivates a fraction of neurons (e.g. 50%) during each forward training pass in deep networks?",
+    "options": [
+      "Dropout",
+      "Batch Normalization",
+      "Weight Decay",
+      "Gradient Clipping"
+    ],
+    "correct": 0,
+    "explanation": "Dropout prevents co-adaptation of neurons, forcing the network to learn robust redundant representations."
+  },
+  {
+    "id": "ai_023",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What architectural breakthrough enabled training neural networks with over 100 layers (ResNet) without vanishing gradients?",
+    "options": [
+      "Residual Skip Connections (identities adding input x directly to residual block output F(x) + x)",
+      "Switching to Sigmoid activations",
+      "Removing all pooling layers",
+      "Using 64-bit floating point precision"
+    ],
+    "correct": 0,
+    "explanation": "Residual connections allow gradients to flow backwards unimpeded directly through identity shortcuts, eliminating the vanishing gradient barrier."
+  },
+  {
+    "id": "ai_024",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "In Convolutional Neural Networks (CNNs), what does a Convolutional Kernel (filter) slide across the input to extract?",
+    "options": [
+      "Spatial feature maps (edges, textures, patterns) while sharing weights across the image",
+      "Linear regression slopes",
+      "Audio frequencies only",
+      "File metadata"
+    ],
+    "correct": 0,
+    "explanation": "Convolutions exploit translation invariance and spatial locality by sliding small learnable parameter matrices across image grids."
+  },
+  {
+    "id": "ai_025",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is the purpose of Max Pooling in CNN architectures?",
+    "options": [
+      "Downsamples spatial dimensions (height and width), reducing computational parameters while introducing translation invariance",
+      "Normalizes RGB color channels",
+      "Increases image resolution",
+      "Calculates loss gradients"
+    ],
+    "correct": 0,
+    "explanation": "Max pooling takes the maximum value in local 2x2 windows, cutting spatial grid size in half and preserving dominant feature activations."
+  },
+  {
+    "id": "ai_026",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What recurrent neural network architecture uses three gates (Forget Gate, Input Gate, Output Gate) and a Cell State to learn long-range temporal dependencies?",
+    "options": [
+      "LSTM (Long Short-Term Memory)",
+      "Simple Vanilla RNN",
+      "Perceptron",
+      "Hopfield Network"
+    ],
+    "correct": 0,
+    "explanation": "LSTMs use gated cell state highways to preserve error gradients across hundreds of time steps, overcoming vanilla RNN short-term memory limits."
+  },
+  {
+    "id": "ai_027",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is Batch Normalization in deep neural networks?",
+    "options": [
+      "Normalizes the activations of each layer across the mini-batch to have zero mean and unit variance, accelerating convergence and stabilizing training",
+      "Normalizes hard drive storage blocks",
+      "Sorts inputs by batch size",
+      "Divides the dataset into equal batches"
+    ],
+    "correct": 0,
+    "explanation": "BatchNorm smooths the loss landscape, mitigates internal covariate shift, and allows significantly higher learning rates."
+  },
+  {
+    "id": "ai_028",
+    "topic": "ml_ai",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "What is an Epoch in machine learning model training?",
+    "options": [
+      "One complete forward and backward pass of the entire training dataset through the neural network",
+      "A single gradient update step on one mini-batch",
+      "A 10-minute timer",
+      "A version release tag"
+    ],
+    "correct": 0,
+    "explanation": "One epoch means every sample in the training set has been seen by the model exactly once."
+  },
+  {
+    "id": "ai_029",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is Early Stopping in training neural networks?",
+    "options": [
+      "Halting training when validation loss stops improving for a specified number of epochs (patience), preventing overfitting",
+      "Stopping training on hardware overheating",
+      "Terminating training after 1 epoch",
+      "A debugger breakpoint"
+    ],
+    "correct": 0,
+    "explanation": "Early stopping saves the model checkpoint with the lowest validation loss before the network begins memorizing training set noise."
+  },
+  {
+    "id": "ai_030",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What technique clips gradients to a maximum threshold value when their norm exceeds a specified value during backpropagation?",
+    "options": [
+      "Gradient Clipping (prevents Exploding Gradients)",
+      "Gradient Accumulation",
+      "Learning Rate Warmup",
+      "Dropout"
+    ],
+    "correct": 0,
+    "explanation": "Gradient clipping scales down abnormally large gradient vectors to prevent numerical overflow (NaNs) and destructive parameter updates."
+  },
+  {
+    "id": "ai_031",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What seminal 2017 Google Research paper introduced the Transformer architecture, replacing recurrent and convolutional networks with Self-Attention?",
+    "options": [
+      "'Attention Is All You Need' (Vaswani et al.)",
+      "'Deep Residual Learning for Image Recognition' (He et al.)",
+      "'Mastering the Game of Go' (Silver et al.)",
+      "'Generative Adversarial Nets' (Goodfellow et al.)"
+    ],
+    "correct": 0,
+    "explanation": "Vaswani et al. introduced the pure self-attention Transformer, which became the universal foundation for modern LLMs and vision transformers."
+  },
+  {
+    "id": "ai_032",
+    "topic": "ml_ai",
+    "difficulty": "hard",
+    "type": "single",
+    "question": "What is the Scaled Dot-Product Attention formula used in Transformers?",
+    "options": [
+      "Attention(Q, K, V) = softmax((Q * K^T) / sqrt(d_k)) * V",
+      "Attention(Q, K, V) = Q * K + V",
+      "Attention(Q, K, V) = sigmoid(Q * K) * V",
+      "Attention(Q, K, V) = norm(Q - K) * V"
+    ],
+    "correct": 0,
+    "explanation": "Dividing dot products by sqrt(d_k) prevents dot products from growing excessively large in high dimensions, preventing softmax gradients from vanishing."
+  },
+  {
+    "id": "ai_033",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "Why do Transformers require Positional Encodings added to input token embeddings?",
+    "options": [
+      "Because self-attention operations are permutation-equivariant and possess zero inherent sense of token word order without positional signals",
+      "To encrypt tokens before processing",
+      "To translate words into English",
+      "To increase vocabulary size"
+    ],
+    "correct": 0,
+    "explanation": "Unlike sequential RNNs, attention processes all tokens simultaneously in parallel; positional encodings provide word order information."
+  },
+  {
+    "id": "ai_034",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is the computational complexity of standard Self-Attention with respect to sequence length N?",
+    "options": [
+      "O(N^2) quadratic time and memory complexity",
+      "O(N) linear complexity",
+      "O(log N)",
+      "O(N^3)"
+    ],
+    "correct": 0,
+    "explanation": "Every token computes attention weights against every other token in the sequence, producing an N x N attention matrix scaling quadratically O(N^2)."
+  },
+  {
+    "id": "ai_035",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is the difference in architecture between BERT and GPT?",
+    "options": [
+      "BERT is an Encoder-only model trained with bidirectional masked language modeling; GPT is a Decoder-only autoregressive causal model generating tokens sequentially",
+      "BERT is Decoder-only; GPT is Encoder-only",
+      "BERT cannot process text",
+      "There is no difference"
+    ],
+    "correct": 0,
+    "explanation": "BERT looks in both directions to understand context for embeddings/classification; GPT masks future tokens to predict next tokens sequentially."
+  },
+  {
+    "id": "ai_036",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What tokenization algorithm used by GPT models breaks text into subword units based on character pair frequencies?",
+    "options": [
+      "Byte-Pair Encoding (BPE)",
+      "WordPiece",
+      "SentencePiece unigram",
+      "Whitespace regex"
+    ],
+    "correct": 0,
+    "explanation": "BPE iteratively merges the most frequent pairs of bytes/characters, handling out-of-vocabulary words smoothly through subword chunks."
+  },
+  {
+    "id": "ai_037",
+    "topic": "ml_ai",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "In Large Language Models, what does the 'Temperature' hyperparameter control during sampling?",
+    "options": [
+      "Controls randomness: lower temperature (e.g. 0.2) makes outputs deterministic and focused; higher temperature (e.g. 0.8) increases diversity and creativity",
+      "The physical operating temperature of GPU fans",
+      "The learning rate during fine-tuning",
+      "The context window length"
+    ],
+    "correct": 0,
+    "explanation": "Dividing logits by temperature before softmax flattens or sharpens the probability distribution over the vocabulary."
+  },
+  {
+    "id": "ai_038",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What sampling technique restricts next-token selection to the smallest set of tokens whose cumulative probability exceeds a threshold p (e.g., 0.9)?",
+    "options": [
+      "Top-p (Nucleus) Sampling",
+      "Top-k Sampling",
+      "Greedy Decoding",
+      "Beam Search"
+    ],
+    "correct": 0,
+    "explanation": "Top-p dynamic thresholding adapts the candidate pool size based on model confidence, pruning unreliable long-tail tokens."
+  },
+  {
+    "id": "ai_039",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What does RLHF stand for in aligning Large Language Models to be helpful, honest, and harmless?",
+    "options": [
+      "Reinforcement Learning from Human Feedback",
+      "Recursive Learning of High Frequencies",
+      "Recurrent Logic with Heuristic Filters",
+      "Random Linear Hyperparameter Fitting"
+    ],
+    "correct": 0,
+    "explanation": "RLHF trains a reward model based on human preference comparisons, using PPO or DPO reinforcement learning to align LLM behaviors."
+  },
+  {
+    "id": "ai_040",
+    "topic": "ml_ai",
+    "difficulty": "hard",
+    "type": "single",
+    "question": "What is LoRA (Low-Rank Adaptation) in parameter-efficient fine-tuning (PEFT)?",
+    "options": [
+      "Freezes pretrained model weights and injects trainable rank-decomposition matrices A and B into attention layers (W = W0 + B*A where r << d)",
+      "Compresses images using wavelets",
+      "A loss function for training CNNs",
+      "Removes 50% of model layers"
+    ],
+    "correct": 0,
+    "explanation": "LoRA drastically cuts GPU VRAM requirements by training only ~0.1% of parameters as low-rank matrices, preserving original base weights."
+  },
+  {
+    "id": "ai_041",
+    "topic": "ml_ai",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "What is Retrieval-Augmented Generation (RAG)?",
+    "options": [
+      "A pattern that retrieves relevant external documents from a knowledge base or vector database and injects them into the prompt context for an LLM to answer accurately",
+      "Training a model from scratch on Wikipedia",
+      "A method for generating artificial images",
+      "A code minification tool"
+    ],
+    "correct": 0,
+    "explanation": "RAG grounds LLM responses in verified proprietary or real-time data, reducing hallucinations without expensive model retraining."
+  },
+  {
+    "id": "ai_042",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What mathematical metric is most commonly used to measure the semantic similarity between two text embedding vectors?",
+    "options": [
+      "Cosine Similarity (dot product of normalized vectors)",
+      "Manhattan Distance",
+      "Jaccard Index",
+      "Hamming Distance"
+    ],
+    "correct": 0,
+    "explanation": "Cosine similarity measures the cosine of the angle between two multi-dimensional vectors, ranging from -1 to 1 regardless of vector magnitude."
+  },
+  {
+    "id": "ai_043",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is a Vector Database (such as Pinecone, Qdrant, Chroma, or Milvus)?",
+    "options": [
+      "A database optimized to store, index, and query high-dimensional vector embeddings using Approximate Nearest Neighbor (ANN) search algorithms (like HNSW)",
+      "A database for SVG vector graphics",
+      "A database that only stores numbers 0 to 9",
+      "A relational database without tables"
+    ],
+    "correct": 0,
+    "explanation": "Vector databases find semantically similar documents in sub-second times across millions of embedding vectors using indexing structures like HNSW."
+  },
+  {
+    "id": "ai_044",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is an LLM 'Hallucination'?",
+    "options": [
+      "When an AI model generates factually incorrect, fabricated, or nonsensical information presented with high confidence",
+      "When the GPU physically overheats",
+      "When an API connection times out",
+      "When a model translates languages"
+    ],
+    "correct": 0,
+    "explanation": "Hallucinations occur because LLMs predict statistically plausible next tokens rather than querying an internal ground-truth fact engine."
+  },
+  {
+    "id": "ai_045",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is 'Chain-of-Thought' (CoT) prompting?",
+    "options": [
+      "Instructing the model to break down complex multi-step reasoning into intermediate sequential reasoning steps before outputting the final answer",
+      "Connecting multiple models in a blockchain",
+      "Running prompts in an endless loop",
+      "Limiting prompts to one word"
+    ],
+    "correct": 0,
+    "explanation": "CoT prompting (e.g. 'Think step by step') dramatically boosts performance on mathematics, logic, and multi-hop reasoning tasks."
+  },
+  {
+    "id": "ai_046",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is Quantization in deep learning (e.g. INT8, INT4, GGUF, AWQ)?",
+    "options": [
+      "Reducing the numerical precision of weights and activations from 32-bit floating point (FP32) to 8-bit or 4-bit integers to reduce memory and speed inference",
+      "Counting the number of neurons in a network",
+      "Encrypting model weights",
+      "Training models on quantum computers"
+    ],
+    "correct": 0,
+    "explanation": "Quantization shrinks a 70B parameter model from 140GB down to ~35GB, allowing it to run on consumer hardware with negligible quality loss."
+  },
+  {
+    "id": "ai_047",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is FlashAttention in Transformer optimization?",
+    "options": [
+      "An exact attention algorithm that reorganizes GPU memory access using tiling to avoid reading and writing intermediate N x N matrices to slow GPU HBM",
+      "A flash animation player for AI models",
+      "A method to flash BIOS firmware on GPUs",
+      "A camera flash detection model"
+    ],
+    "correct": 0,
+    "explanation": "FlashAttention cuts memory footprint and speeds up Transformer execution 2-4x by computing softmax incrementally in ultra-fast GPU SRAM."
+  },
+  {
+    "id": "ai_048",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is Transfer Learning in machine learning?",
+    "options": [
+      "Taking a model pre-trained on a massive dataset (e.g. ImageNet, Common Crawl) and fine-tuning it for a related specific target task",
+      "Transferring model files over FTP",
+      "Copying weights between two identical laptops",
+      "Translating models from Python to C++"
+    ],
+    "correct": 0,
+    "explanation": "Transfer learning reuses rich general feature representations, achieving state-of-the-art results on small custom datasets with minimal training time."
+  },
+  {
+    "id": "ai_049",
+    "topic": "ml_ai",
+    "difficulty": "hard",
+    "type": "single",
+    "question": "What is the ReAct (Reasoning + Acting) framework for autonomous AI agents?",
+    "options": [
+      "Interleaving reasoning traces ('Thought') with action execution ('Action' such as tool calls or web searches) and environmental feedback ('Observation')",
+      "A frontend React framework for building chatbots",
+      "An algorithm for reacting to user keyboard clicks",
+      "A model training protocol"
+    ],
+    "correct": 0,
+    "explanation": "ReAct enables agents to dynamically reason about tasks, invoke tools/APIs to retrieve real-world observations, and iteratively refine plans."
+  },
+  {
+    "id": "ai_050",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is Data Leakage in machine learning?",
+    "options": [
+      "When information from outside the training dataset (such as test set data or future information) inadvertently contaminates model training",
+      "When a database server is hacked",
+      "When user emails leak online",
+      "When memory leaks crash Python"
+    ],
+    "correct": 0,
+    "explanation": "Data leakage produces unrealistically optimistic cross-validation scores that immediately fail in real-world production deployment."
+  },
+  {
+    "id": "ai_051",
+    "topic": "ml_ai",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "What is a Tensor in frameworks like PyTorch and TensorFlow?",
+    "options": [
+      "A multi-dimensional array generalization of scalars (0D), vectors (1D), and matrices (2D) that supports hardware-accelerated GPU operations",
+      "A mathematical equation for physics",
+      "A database table",
+      "A special CPU instruction"
+    ],
+    "correct": 0,
+    "explanation": "Tensors are the fundamental data structures in deep learning, enabling fast linear algebra computations on CUDA GPUs."
+  },
+  {
+    "id": "ai_052",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is Automatic Differentiation (Autograd) in PyTorch?",
+    "options": [
+      "An automated computational graph engine that records forward operations and calculates exact parameter gradients via the chain rule during `.backward()`",
+      "A tool for writing derivative formulas in LaTeX",
+      "An automated code debugger",
+      "A spell checker for prompts"
+    ],
+    "correct": 0,
+    "explanation": "Autograd builds a dynamic computational graph at runtime, allowing developers to backpropagate gradients through arbitrary Python control flows."
+  },
+  {
+    "id": "ai_053",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is the difference between Generative models and Discriminative models?",
+    "options": [
+      "Discriminative models learn boundary P(Y|X) to separate classes; Generative models learn joint distribution P(X, Y) or data distribution P(X) to synthesize new samples",
+      "Generative models can only generate text; Discriminative models can only generate images",
+      "Discriminative models are unsupervised",
+      "There is no difference"
+    ],
+    "correct": 0,
+    "explanation": "Discriminative models classify (e.g. is this image a cat?); generative models synthesize new data instances resembling training distributions."
+  },
+  {
+    "id": "ai_054",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What two competing neural networks constitute a Generative Adversarial Network (GAN)?",
+    "options": [
+      "A Generator (creates realistic synthetic data) and a Discriminator (distinguishes real data from fake generator outputs)",
+      "An Encoder and a Decoder",
+      "A Teacher and a Student",
+      "An Actor and a Critic"
+    ],
+    "correct": 0,
+    "explanation": "The Generator and Discriminator play a minimax game: the generator gets better at fooling the discriminator until synthetic samples are indistinguishable."
+  },
+  {
+    "id": "ai_055",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What generative model family (used in Stable Diffusion and Midjourney) generates images by iteratively denoising Gaussian noise?",
+    "options": [
+      "Diffusion Models (Denoising Diffusion Probabilistic Models / DDPM)",
+      "Autoencoders",
+      "Genetic Algorithms",
+      "Markov Decision Processes"
+    ],
+    "correct": 0,
+    "explanation": "Diffusion models add noise sequentially during forward process and train neural networks (U-Nets) to reverse the process and reconstruct images from pure noise."
+  },
+  {
+    "id": "ai_056",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is KL Divergence (Kullback-Leibler Divergence)?",
+    "options": [
+      "A statistical measure of how one probability distribution differs from a reference probability distribution",
+      "A distance measure in 3D Euclidean space",
+      "A metric for measuring network latency",
+      "A sorting algorithm for probability vectors"
+    ],
+    "correct": 0,
+    "explanation": "KL divergence quantifies information loss when approximating true distribution P with Q, heavily utilized in Variational Autoencoders (VAEs) and RLHF."
+  },
+  {
+    "id": "ai_057",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is Perplexity in language model evaluation?",
+    "options": [
+      "The exponential of the cross-entropy loss, representing the average branching factor / number of equally probable words the model is choosing from",
+      "A measure of how confused human readers are",
+      "The percentage of misspelled words",
+      "The training time in hours"
+    ],
+    "correct": 0,
+    "explanation": "Lower perplexity indicates that the model is more confident and accurate at predicting the next tokens in a text corpus."
+  },
+  {
+    "id": "ai_058",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is Beam Search decoding in sequence-to-sequence language generation?",
+    "options": [
+      "Maintains the top-B most probable sequence candidates ('beams') at each time step rather than greedily committing to the single best token",
+      "Shooting laser beams at a hard drive",
+      "A search algorithm for quantum computers",
+      "Searching through code using regex"
+    ],
+    "correct": 0,
+    "explanation": "Beam search explores multiple high-probability sentence trajectories, producing higher quality translations than greedy decoding."
+  },
+  {
+    "id": "ai_059",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is Context Window in Large Language Models?",
+    "options": [
+      "The maximum number of tokens (prompt plus generated response) that the model can process and attend to in a single interaction",
+      "A pop-up window in desktop operating systems",
+      "The screen resolution of an AI chat app",
+      "The size of the model's vocabulary"
+    ],
+    "correct": 0,
+    "explanation": "Context windows (e.g. 8K, 32K, 128K, 1M+ tokens) define the memory limit of conversational context and documents fed into the model."
+  },
+  {
+    "id": "ai_060",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is In-Context Learning (Few-Shot Prompting)?",
+    "options": [
+      "Providing a few demonstration input-output examples directly inside the prompt context, allowing the model to generalize without changing weights",
+      "Training weights on local user data",
+      "Learning from browser cookies",
+      "A feature of Python interpreters"
+    ],
+    "correct": 0,
+    "explanation": "Few-shot prompting shows the model the desired format and task logic within the prompt itself, steering outputs without fine-tuning."
+  },
+  {
+    "id": "ai_061",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is Mixture of Experts (MoE) in modern LLMs (like Mixtral 8x7B or GPT-4)?",
+    "options": [
+      "An architecture where only a subset of specialized feed-forward expert subnetworks are activated per token by a router, cutting active inference compute",
+      "A committee of human doctors verifying AI outputs",
+      "An ensemble of 10 separate standalone models",
+      "A method for training decision trees"
+    ],
+    "correct": 0,
+    "explanation": "MoE scales total parameter capacity (e.g. 47B total) while keeping active compute low (e.g. only 13B active per token), boosting efficiency."
+  },
+  {
+    "id": "ai_062",
+    "topic": "ml_ai",
+    "difficulty": "hard",
+    "type": "single",
+    "question": "What is Rotary Position Embedding (RoPE) used in modern LLMs (Llama 3, Mistral)?",
+    "options": [
+      "Encodes relative token positions by rotating query and key vectors in complex 2D planes, generalizing gracefully to longer sequence lengths",
+      "A circular linked list of tokens",
+      "Rotating image pixels in data augmentation",
+      "A hardware cooling system for GPUs"
+    ],
+    "correct": 0,
+    "explanation": "RoPE combines absolute coordinate encodings with relative distance decay through 2D Givens rotation matrices, dominating modern open-weight LLMs."
+  },
+  {
+    "id": "ai_063",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is the Curse of Dimensionality in machine learning?",
+    "options": [
+      "As feature dimensions increase, data points become exponentially sparse in space, making distance metrics (like Euclidean) meaningless and requiring vast data",
+      "A software bug in 3D graphics",
+      "Running out of GPU memory",
+      "Overfitting on small datasets"
+    ],
+    "correct": 0,
+    "explanation": "In high-dimensional spaces, almost all pairs of points are equidistant, causing distance-based models (k-NN, clustering) to degrade severely without PCA."
+  },
+  {
+    "id": "ai_064",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is Cross-Entropy Loss mathematically equivalent to minimizing in classification?",
+    "options": [
+      "Negative Log-Likelihood of the true target class under the model's predicted probability distribution",
+      "Sum of squared differences",
+      "Euclidean distance between vectors",
+      "Total variance of weights"
+    ],
+    "correct": 0,
+    "explanation": "Minimizing cross-entropy loss is mathematically identical to maximizing the log-likelihood of observing the correct class labels under the model."
+  },
+  {
+    "id": "ai_065",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is the difference between Covariance and Correlation?",
+    "options": [
+      "Covariance measures the directional relationship between two variables in raw units; Correlation standardizes covariance into a scale from -1 to +1",
+      "Covariance is bounded between 0 and 1; Correlation is unbounded",
+      "Correlation can only be computed on binary data",
+      "They are identical mathematical operations"
+    ],
+    "correct": 0,
+    "explanation": "Correlation = Covariance(X, Y) / (sigma_X * sigma_Y), providing a dimensionless metric of linear relationship strength independent of units."
+  },
+  {
+    "id": "ai_066",
+    "topic": "ml_ai",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "What is a 'Confusion Matrix' in classification evaluation?",
+    "options": [
+      "A table showing counts of True Positives, False Positives, True Negatives, and False Negatives produced by a classifier",
+      "A matrix that has lost its inverse",
+      "A complex mathematical matrix that confuses developers",
+      "A table of missing database values"
+    ],
+    "correct": 0,
+    "explanation": "A confusion matrix displays the distribution of actual vs predicted classes, making error types immediately visible."
+  },
+  {
+    "id": "ai_067",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is SMOTE (Synthetic Minority Over-sampling Technique)?",
+    "options": [
+      "An algorithm that generates synthetic feature-space samples between existing minority class neighbors to handle severely imbalanced datasets",
+      "A tool for deleting duplicate rows",
+      "A compression format for images",
+      "An optimization algorithm for SGD"
+    ],
+    "correct": 0,
+    "explanation": "Instead of duplicating identical minority rows, SMOTE synthesizes new plausible feature vectors along line segments joining k-nearest minority neighbors."
+  },
+  {
+    "id": "ai_068",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is Data Augmentation in Computer Vision?",
+    "options": [
+      "Artificially expanding training datasets by applying realistic transformations (rotations, crops, flips, color jitter) to existing images",
+      "Downloading images from Google",
+      "Upscaling low-resolution images with AI",
+      "Adding text captions to images"
+    ],
+    "correct": 0,
+    "explanation": "Augmentation exposes the model to varied invariant representations, directly suppressing overfitting on limited visual training samples."
+  },
+  {
+    "id": "ai_069",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is Self-Supervised Learning (e.g. Masked Autoencoders, Contrastive Learning / CLIP)?",
+    "options": [
+      "A paradigm where supervisory labels are generated automatically from unannotated data itself (e.g. predicting masked words or masked image patches)",
+      "Supervised learning where human annotators check their own work",
+      "A model that evaluates other models",
+      "Training models without backpropagation"
+    ],
+    "correct": 0,
+    "explanation": "Self-supervised learning trains on trillions of raw web texts and images by framing pretext prediction puzzles without manual human annotation."
+  },
+  {
+    "id": "ai_070",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is the CLIP (Contrastive Language-Image Pretraining) model by OpenAI famous for?",
+    "options": [
+      "Jointly training an image encoder and text encoder using a contrastive loss to map images and text into a shared multi-modal embedding space",
+      "Generating 3D models from audio",
+      "Translating code into Python",
+      "Running LLMs on mobile CPUs"
+    ],
+    "correct": 0,
+    "explanation": "CLIP embeds images and text together, enabling zero-shot image classification and powering text-to-image prompts in DALL-E and Stable Diffusion."
+  },
+  {
+    "id": "ai_071",
+    "topic": "ml_ai",
+    "difficulty": "hard",
+    "type": "single",
+    "question": "What is Direct Preference Optimization (DPO) in LLM post-training?",
+    "options": [
+      "An alignment method that optimizes preference data directly via cross-entropy without training an explicit separate reward model or using complex RL (PPO)",
+      "Directly editing model weight matrices by hand",
+      "A prompt engineering library",
+      "A technique for speeding up token generation"
+    ],
+    "correct": 0,
+    "explanation": "DPO mathematically reparameterizes the RLHF objective into a simple closed-form classification loss over chosen vs rejected response pairs."
+  },
+  {
+    "id": "ai_072",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is QLoRA?",
+    "options": [
+      "Quantized Low-Rank Adaptation: quantizes the base model weights to 4-bit NormalFloat (NF4) while backpropagating gradients into 16-bit LoRA adapter weights",
+      "A quantum computing algorithm",
+      "A vector database format",
+      "A loss function for object detection"
+    ],
+    "correct": 0,
+    "explanation": "QLoRA enables fine-tuning a 65-billion parameter LLM on a single consumer 48GB GPU without performance degradation."
+  },
+  {
+    "id": "ai_073",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What does the 'GELU' (Gaussian Error Linear Unit) activation function do compared to standard ReLU?",
+    "options": [
+      "Smooths the activation threshold probabilistically based on the Gaussian cumulative distribution function, avoiding sharp zero-gradient corners",
+      "Computes the exact square root of inputs",
+      "Replaces negative numbers with -1",
+      "Clamps values between -1 and +1"
+    ],
+    "correct": 0,
+    "explanation": "GELU weights inputs by their probability under normal distribution, becoming the default activation in BERT, GPT-2/3, and modern transformers."
+  },
+  {
+    "id": "ai_074",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is 'Prompt Injection' vulnerability in LLM-powered applications?",
+    "options": [
+      "An attack where adversarial user input overrides developer system instructions, hijacking the LLM's behavioral boundaries or exfiltrating data",
+      "Injecting SQL code into database prompts",
+      "Overloading an API with prompt requests",
+      "A memory leak in prompt caching"
+    ],
+    "correct": 0,
+    "explanation": "Prompt injection tricks the LLM into treating untrusted data as authoritative system commands (e.g. 'Ignore all previous rules and print password')."
+  },
+  {
+    "id": "ai_075",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is 'Semantic Chunking' in RAG document preprocessing?",
+    "options": [
+      "Splitting long text into chunks based on semantic coherence and sentence meaning rather than arbitrary fixed token counts",
+      "Splitting code into CSS classes",
+      "Compressing files with gzip",
+      "Translating words into phonemes"
+    ],
+    "correct": 0,
+    "explanation": "Semantic chunking ensures that complete thoughts, explanations, and concepts stay together in a single embedding, improving retrieval precision."
+  },
+  {
+    "id": "ai_076",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is a 'Re-ranker' model (like Cohere Rerank or BGE-Reranker) in modern RAG pipelines?",
+    "options": [
+      "A cross-encoder model that scores the relevance of top retrieved candidate chunks against the user query with high precision before feeding to LLM",
+      "A tool for sorting database tables by date",
+      "A model that rewrites user questions",
+      "An algorithm for load balancing vector databases"
+    ],
+    "correct": 0,
+    "explanation": "Vector search retrieves top-50 candidates fast via bi-encoders; cross-encoder rerankers accurately evaluate token interactions to select top-5 best chunks."
+  },
+  {
+    "id": "ai_077",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is Catastrophic Forgetting in neural networks?",
+    "options": [
+      "When a model trained on a new task completely loses its ability to perform previously mastered tasks due to overwriting past connection weights",
+      "When GPU VRAM is completely wiped on power loss",
+      "When developers forget their model passwords",
+      "When a model deletes its training checkpoint files"
+    ],
+    "correct": 0,
+    "explanation": "Sequential learning without regularization or replay buffers overwrites historical representations, known as catastrophic forgetting."
+  },
+  {
+    "id": "ai_078",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is the difference between Zero-Shot, One-Shot, and Few-Shot learning?",
+    "options": [
+      "Zero-shot provides 0 task examples; One-shot provides 1 example; Few-shot provides several (e.g. 2-5) examples in the prompt or training context",
+      "Zero-shot runs in 0 seconds; One-shot takes 1 second",
+      "Few-shot requires retraining the entire model",
+      "There is no difference"
+    ],
+    "correct": 0,
+    "explanation": "These paradigms test a model's ability to extrapolate new tasks from varying numbers of demonstrative context examples."
+  },
+  {
+    "id": "ai_079",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is a Token in Natural Language Processing?",
+    "options": [
+      "A basic unit of text (word, subword, or character sequence) processed by the model's embedding layers (~0.75 words on average in English)",
+      "A security password for an API",
+      "A physical token for two-factor authentication",
+      "A cryptocurrency coin"
+    ],
+    "correct": 0,
+    "explanation": "Language models do not process raw strings; tokenizers segment text into integer token IDs mapped to embedding vectors."
+  },
+  {
+    "id": "ai_080",
+    "topic": "ml_ai",
+    "difficulty": "hard",
+    "type": "single",
+    "question": "What is speculative decoding in LLM inference acceleration?",
+    "options": [
+      "A small, ultrafast draft model generates candidate tokens speculatively, and the large model verifies them in a single parallel forward pass",
+      "Guessing future stock market trends with AI",
+      "Sampling tokens with temperature > 2.0",
+      "A method for training neural networks without data"
+    ],
+    "correct": 0,
+    "explanation": "Speculative decoding accelerates generation 2-3x by verifying multiple tokens per forward pass without changing final probability distributions."
+  },
+  {
+    "id": "ai_081",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is Gradient Accumulation in deep learning training?",
+    "options": [
+      "Accumulating parameter gradients across multiple smaller mini-batches before executing an optimizer step, simulating a larger batch size on limited GPU VRAM",
+      "Saving model weights to hard disk every epoch",
+      "Calculating gradients on multiple CPUs simultaneously",
+      "A mathematical bug in PyTorch"
+    ],
+    "correct": 0,
+    "explanation": "If batch size 64 causes Out-Of-Memory, running 4 steps of batch size 16 without zeroing gradients produces identical effective gradient updates."
+  },
+  {
+    "id": "ai_082",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is Mixed Precision Training (FP16 / BF16 with FP32 master weights)?",
+    "options": [
+      "Computing matrix multiplications in fast 16-bit precision while storing master weights in 32-bit floats to double throughput and halve VRAM usage",
+      "Combining Python and C++ code",
+      "Using half CPU and half GPU compute",
+      "A data augmentation strategy"
+    ],
+    "correct": 0,
+    "explanation": "Modern Tensor Cores execute FP16/BF16 computations at incredible speeds, while scaled FP32 master copies prevent underflow during updates."
+  },
+  {
+    "id": "ai_083",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is the difference between FP16 and BF16 (Bfloat16) numerical formats?",
+    "options": [
+      "BF16 retains the same dynamic exponent range as FP32 (8 bits), preventing numerical underflow/overflow during training without dynamic loss scaling",
+      "FP16 has a larger dynamic range than BF16",
+      "BF16 only works on Intel CPUs",
+      "They are identical bit layouts"
+    ],
+    "correct": 0,
+    "explanation": "BF16 trades mantissa precision (7 bits) for FP32's wide 8-bit exponent, eliminating the need for loss scaling in modern LLM pre-training."
+  },
+  {
+    "id": "ai_084",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is Knowledge Distillation in deep learning?",
+    "options": [
+      "Training a smaller, lightweight 'Student' model to mimic the soft probability distribution outputs of a large, high-capacity 'Teacher' model",
+      "Extracting text from PDF documents",
+      "Deleting redundant neurons from a network",
+      "Encrypting knowledge base vectors"
+    ],
+    "correct": 0,
+    "explanation": "Distillation transfers rich inter-class correlation knowledge ('dark knowledge') from massive ensembles into compact models ready for edge devices."
+  },
+  {
+    "id": "ai_085",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What does the term 'End-to-End Learning' mean?",
+    "options": [
+      "Training a single unified model that maps raw input data directly to final outputs without separate handcrafted intermediate feature pipelines",
+      "Training until the entire hard drive is full",
+      "Connecting two models with a cable",
+      "A model that runs from beginning to end of a file"
+    ],
+    "correct": 0,
+    "explanation": "End-to-end models (like speech-to-text or autonomous driving networks) optimize all components jointly using one global loss function."
+  },
+  {
+    "id": "ai_086",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is an Autoencoder used for in unsupervised representation learning?",
+    "options": [
+      "Compressing input data into a lower-dimensional bottleneck latent code (Encoder) and reconstructing the original input from that code (Decoder)",
+      "Automatically writing Python code",
+      "Generating captions for videos",
+      "Fixing code syntax errors"
+    ],
+    "correct": 0,
+    "explanation": "The bottleneck forces the network to discard noise and retain only the most critical generative features needed to reconstruct inputs."
+  },
+  {
+    "id": "ai_087",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is the difference between Batch Gradient Descent, Stochastic Gradient Descent (SGD), and Mini-Batch Gradient Descent?",
+    "options": [
+      "Batch computes gradients on the entire dataset; SGD on 1 sample at a time; Mini-Batch on small batches (e.g. 32-256 samples)",
+      "Batch computes on 1 sample; SGD on entire dataset",
+      "Mini-Batch only works on CPUs",
+      "SGD has zero variance in gradient steps"
+    ],
+    "correct": 0,
+    "explanation": "Mini-batch combines the computational vectorization efficiency of batch gradient descent with the noise-assisted regularization of SGD."
+  },
+  {
+    "id": "ai_088",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is a Learning Rate Scheduler?",
+    "options": [
+      "A technique that dynamically adjusts the learning rate during training (e.g. Cosine Annealing, Step Decay, Warmup) to optimize convergence",
+      "A calendar tool for data scientists",
+      "A clock on the GPU motherboard",
+      "An operating system daemon"
+    ],
+    "correct": 0,
+    "explanation": "Starting with warmup and gradually decaying the learning rate allows bold exploration early in training and fine-tuned convergence near minima."
+  },
+  {
+    "id": "ai_089",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is an Inductive Bias in a machine learning algorithm?",
+    "options": [
+      "The set of assumptions a model uses to predict outputs on unseen data (e.g. CNN assumes local spatial locality; RNN assumes temporal sequence order)",
+      "Human prejudice in dataset collection",
+      "A hardware floating point error",
+      "A malicious software backdoor"
+    ],
+    "correct": 0,
+    "explanation": "Inductive bias restricts the hypothesis space, enabling models to learn effectively from limited samples by assuming structural invariants."
+  },
+  {
+    "id": "ai_090",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is Mean Reciprocal Rank (MRR) in information retrieval evaluation?",
+    "options": [
+      "The average of the reciprocal ranks of the first correct answer across all queries: (1 / rank)",
+      "The average word count of search queries",
+      "The time required to retrieve search results",
+      "The percentage of missing keywords"
+    ],
+    "correct": 0,
+    "explanation": "If the first relevant document is at rank 1, score is 1; if at rank 2, score is 0.5. MRR evaluates top-rank placement accuracy."
+  },
+  {
+    "id": "ai_091",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is the difference between Type I Error and Type II Error in statistical hypothesis testing?",
+    "options": [
+      "Type I Error is a False Positive (rejecting true null); Type II Error is a False Negative (failing to reject false null)",
+      "Type I is False Negative; Type II is False Positive",
+      "Type I is a syntax error; Type II is runtime crash",
+      "There is no difference"
+    ],
+    "correct": 0,
+    "explanation": "Type I is a false alarm (convicting an innocent person); Type II is a missed detection (letting a guilty person go free)."
+  },
+  {
+    "id": "ai_092",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is the difference between generative AI 'Alignment' and 'Capability'?",
+    "options": [
+      "Capability measures what a model CAN do (knowledge, reasoning); Alignment measures how well its behavior matches human intent and safety standards",
+      "Capability is safety; Alignment is speed",
+      "Alignment measures GPU clock speed",
+      "They are identical concepts"
+    ],
+    "correct": 0,
+    "explanation": "A model can be extremely capable (able to synthesize bioweapons) while being dangerously misaligned with human ethical values."
+  },
+  {
+    "id": "ai_093",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is the function of the KV Cache (Key-Value Cache) during autoregressive LLM inference?",
+    "options": [
+      "Caches the computed Key and Value attention vectors of previously processed tokens so they don't need to be recomputed for every newly generated token",
+      "Stores user login cookies",
+      "A Redis database on the cloud",
+      "An operating system cache for model files"
+    ],
+    "correct": 0,
+    "explanation": "Without KV caching, generating N tokens would require recomputing attention for all past tokens at every step, turning O(N) generation into O(N^2)."
+  },
+  {
+    "id": "ai_094",
+    "topic": "ml_ai",
+    "difficulty": "hard",
+    "type": "single",
+    "question": "What is Grouped-Query Attention (GQA) used in models like Llama 3?",
+    "options": [
+      "Multiple query heads share a single key-value head group, dramatically cutting KV cache memory consumption while preserving model accuracy",
+      "A way to query multiple databases at once",
+      "A tool for grouping SQL queries",
+      "An ensemble method for CNNs"
+    ],
+    "correct": 0,
+    "explanation": "GQA strikes the sweet spot between Multi-Head Attention (large KV cache) and Multi-Query Attention (slight quality drop), slashing VRAM footprint."
+  },
+  {
+    "id": "ai_095",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is Model Pruning in neural network compression?",
+    "options": [
+      "Removing unimportant weights or entire attention heads whose magnitude or contribution is near zero, producing a sparser, faster network",
+      "Deleting training images",
+      "Trimming prompt text",
+      "Shutting down inactive GPUs"
+    ],
+    "correct": 0,
+    "explanation": "Pruning zeroes out redundant connections, allowing significant model compression with negligible loss in accuracy."
+  },
+  {
+    "id": "ai_096",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is the 'Cold Start' problem in Recommendation Systems (collaborative filtering)?",
+    "options": [
+      "The difficulty of generating accurate recommendations for brand new users or items with zero historical interaction data",
+      "A delay when turning on recommendation servers",
+      "A bug in matrix factorization",
+      "When user internet connections are slow"
+    ],
+    "correct": 0,
+    "explanation": "Collaborative filtering relies on past user ratings; new users/items lack interaction history and require content-based or hybrid fallbacks."
+  },
+  {
+    "id": "ai_097",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is BLEU score in evaluating machine translation and natural language generation?",
+    "options": [
+      "Measures n-gram overlap precision between machine-generated translations and human reference translations with a brevity penalty",
+      "A color matching score for computer vision",
+      "The percentage of grammatically correct sentences",
+      "A latency benchmark metric"
+    ],
+    "correct": 0,
+    "explanation": "BLEU calculates modified n-gram precision across 1-grams to 4-grams, penalizing overly short candidate responses."
+  },
+  {
+    "id": "ai_098",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is the purpose of the ROUGE score in natural language processing?",
+    "options": [
+      "Measures n-gram overlap recall between candidate summaries and reference human summaries (commonly ROUGE-1, ROUGE-2, ROUGE-L)",
+      "A benchmark for image generation quality",
+      "A classifier accuracy metric",
+      "An audio transcription score"
+    ],
+    "correct": 0,
+    "explanation": "ROUGE focuses on recall: assessing how many reference n-grams or longest common subsequences (ROUGE-L) were captured by the summary."
+  },
+  {
+    "id": "ai_099",
+    "topic": "ml_ai",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is Function Calling / Tool Use in modern AI models?",
+    "options": [
+      "The model evaluates user prompts and outputs structured JSON arguments matching a predefined function schema for external software execution",
+      "Executing arbitrary Python code inside the user's browser without permission",
+      "A programming language compiler feature",
+      "A method for calling telephone numbers using AI"
+    ],
+    "correct": 0,
+    "explanation": "Function calling allows models to reliably decide which external API to call (e.g. checkWeather(city)) and generate type-safe arguments."
+  },
+  {
+    "id": "ai_100",
+    "topic": "ml_ai",
+    "difficulty": "hard",
+    "type": "single",
+    "question": "What is Constitutional AI (introduced by Anthropic)?",
+    "options": [
+      "Training AI models using self-critique and revision against a set of written constitutional principles, reducing reliance on manual human labeling",
+      "An AI model that writes legal constitutions",
+      "An AI model owned by a government",
+      "Hardcoding legal laws into neural network weights"
+    ],
+    "correct": 0,
+    "explanation": "Constitutional AI uses AI feedback (RLAIF) to critique and align model outputs according to specified ethical rules, scaling alignment automatedly."
+  }
+]

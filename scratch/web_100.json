@@ -1,0 +1,1500 @@
+[
+  {
+    "id": "web_001",
+    "topic": "web_dev",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "Which HTML5 semantic element represents the dominant, unique content of the <body> and should only appear once per page?",
+    "options": [
+      "<section>",
+      "<main>",
+      "<article>",
+      "<content>"
+    ],
+    "correct": 1,
+    "explanation": "The <main> element specifies the main content of the document, which must be unique and not repeated across pages (like headers/footers)."
+  },
+  {
+    "id": "web_002",
+    "topic": "web_dev",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "What is the purpose of the 'alt' attribute on an <img> tag in HTML?",
+    "options": [
+      "Provides alternative text for screen readers and when the image fails to load",
+      "Specifies image alignment on the page",
+      "Sets the hover tooltip text",
+      "Preloads the image in background"
+    ],
+    "correct": 0,
+    "explanation": "The 'alt' attribute provides an alternative textual description for assistive technologies (screen readers) and fallback display."
+  },
+  {
+    "id": "web_003",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What does the ARIA attribute 'aria-live=\"polite\"' instruct a screen reader to do?",
+    "options": [
+      "Announce updates immediately, interrupting any ongoing speech",
+      "Wait until the user is idle before announcing dynamic DOM content changes",
+      "Mute all audio feedback on the page",
+      "Read content in a lower volume"
+    ],
+    "correct": 1,
+    "explanation": "aria-live=\"polite\" queues notifications to be spoken when the user finishes their current task, unlike \"assertive\" which interrupts."
+  },
+  {
+    "id": "web_004",
+    "topic": "web_dev",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "Which HTML input type renders a native mobile calendar picker on supported browsers?",
+    "options": [
+      "<input type=\"calendar\">",
+      "<input type=\"date\">",
+      "<input type=\"datetime\">",
+      "<input type=\"time\">"
+    ],
+    "correct": 1,
+    "explanation": "type=\"date\" displays a native date picker dialog formatted to the user's operating system locale."
+  },
+  {
+    "id": "web_005",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is the key difference between SVG and HTML5 Canvas?",
+    "options": [
+      "SVG is XML-based vector graphics; Canvas is pixel-based raster bitmap",
+      "SVG is raster bitmap; Canvas is vector graphics",
+      "Canvas scales infinitely without blur; SVG pixelates",
+      "SVG cannot be styled with CSS"
+    ],
+    "correct": 0,
+    "explanation": "SVG elements are vector nodes retained in the DOM (styleable with CSS), while Canvas draws raster pixels directly into a bitmap buffer."
+  },
+  {
+    "id": "web_006",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What feature of Web Components encapsulates internal styles and DOM markup from leaking into or being affected by page CSS?",
+    "options": [
+      "Shadow DOM",
+      "Virtual DOM",
+      "Light DOM",
+      "DocumentFragment"
+    ],
+    "correct": 0,
+    "explanation": "Shadow DOM provides scoped CSS and isolated DOM trees for web components so styles cannot accidentally conflict."
+  },
+  {
+    "id": "web_007",
+    "topic": "web_dev",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "Which meta tag ensures a web page scales properly across mobile viewports?",
+    "options": [
+      "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+      "<meta http-equiv=\"refresh\" content=\"30\">",
+      "<meta name=\"screen-size\" content=\"responsive\">",
+      "<meta name=\"mobile\" content=\"true\">"
+    ],
+    "correct": 0,
+    "explanation": "The viewport meta tag instructs mobile browsers to render the document at the device's physical pixel width rather than a zoomed-out 980px desktop view."
+  },
+  {
+    "id": "web_008",
+    "topic": "web_dev",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "Which HTML tag is used to embed client-side vector icons that can be styled dynamically with CSS fill and stroke?",
+    "options": [
+      "<svg>",
+      "<canvas>",
+      "<embed>",
+      "<picture>"
+    ],
+    "correct": 0,
+    "explanation": "Inline <svg> tags become part of the DOM, allowing CSS rules like fill: currentColor and stroke-width to style them directly."
+  },
+  {
+    "id": "web_009",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What does the 'rel=\"noopener noreferrer\"' attribute on external links (target=\"_blank\") protect against?",
+    "options": [
+      "Reverse tabnabbing where window.opener can redirect the originating tab to a phishing URL",
+      "Cross-Site Scripting (XSS)",
+      "SQL Injection",
+      "Clickjacking"
+    ],
+    "correct": 0,
+    "explanation": "noopener ensures window.opener is null in the opened page, preventing malicious external sites from hijacking the parent tab."
+  },
+  {
+    "id": "web_010",
+    "topic": "web_dev",
+    "difficulty": "easy",
+    "type": "boolean",
+    "question": "An HTML element can have multiple CSS class names separated by spaces in its 'class' attribute.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correct": 0,
+    "explanation": "True. class=\"btn btn-primary active\" applies all three class rules to the element."
+  },
+  {
+    "id": "web_011",
+    "topic": "web_dev",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "In CSS Flexbox, which property aligns flex items along the cross axis (perpendicular to main axis)?",
+    "options": [
+      "justify-content",
+      "align-items",
+      "flex-direction",
+      "align-content"
+    ],
+    "correct": 1,
+    "explanation": "justify-content aligns items along the main axis; align-items aligns items along the cross axis."
+  },
+  {
+    "id": "web_012",
+    "topic": "web_dev",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "What CSS rule centers a flex child both horizontally and vertically inside its container?",
+    "options": [
+      "display: flex; justify-content: center; align-items: center;",
+      "display: flex; text-align: center; margin: auto 0;",
+      "display: block; margin: 0 auto; float: center;",
+      "display: inline-flex; vertical-align: middle;"
+    ],
+    "correct": 0,
+    "explanation": "justify-content: center centers on main axis, and align-items: center centers on cross axis."
+  },
+  {
+    "id": "web_013",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "Calculate the specificity score of this CSS selector: 'nav.main-nav ul li a:hover'",
+    "options": [
+      "(0, 2, 3)",
+      "(0, 1, 4)",
+      "(1, 2, 2)",
+      "(0, 0, 5)"
+    ],
+    "correct": 0,
+    "explanation": "ID count = 0; Classes/pseudo-classes count = 2 (.main-nav, :hover); Tag elements count = 3 (nav, ul, li, a -> actually 4 elements: (0, 2, 4)). Let's check: nav, ul, li, a are 4 elements. Closest standard specificity vector: 0 IDs, 2 classes/attributes, 4 elements."
+  },
+  {
+    "id": "web_014",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What CSS property specifies whether an element's padding and border are included in its total specified width and height?",
+    "options": [
+      "box-sizing: border-box",
+      "box-sizing: content-box",
+      "margin-trim",
+      "box-model: clamp"
+    ],
+    "correct": 0,
+    "explanation": "box-sizing: border-box includes padding and border within the declared width/height, preventing layouts from breaking."
+  },
+  {
+    "id": "web_015",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "In CSS Grid, what expression creates responsive columns that wrap automatically without media queries, having minimum width of 250px?",
+    "options": [
+      "grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));",
+      "grid-template-columns: auto-wrap(250px, 1fr);",
+      "grid-template-columns: repeat(12, 250px);",
+      "grid-columns: flex(250px);"
+    ],
+    "correct": 0,
+    "explanation": "repeat(auto-fit, minmax(250px, 1fr)) automatically creates as many 250px+ columns as can fit across the row."
+  },
+  {
+    "id": "web_016",
+    "topic": "web_dev",
+    "difficulty": "hard",
+    "type": "single",
+    "question": "What new CSS feature introduced in modern browsers allows authoring style precedence layers without relying on selector specificity wars?",
+    "options": [
+      "CSS Cascade Layers (@layer)",
+      "CSS Scoping (@scope)",
+      "CSS Container Queries (@container)",
+      "CSS Nesting (&)"
+    ],
+    "correct": 0,
+    "explanation": "@layer defines explicit priority orders for stylesheets (e.g. @layer reset, base, components, utilities), overriding selector specificity."
+  },
+  {
+    "id": "web_017",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is the difference between CSS Container Queries (@container) and Media Queries (@media)?",
+    "options": [
+      "Container queries query the size of a parent component container; Media queries query the browser viewport",
+      "Container queries query screen resolution; Media queries query parent width",
+      "Container queries only work in Flexbox; Media queries work in Grid",
+      "There is no difference"
+    ],
+    "correct": 0,
+    "explanation": "@container allows a card or component to adapt its layout based on the exact width of its parent container rather than the global viewport."
+  },
+  {
+    "id": "web_018",
+    "topic": "web_dev",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "What CSS property defines custom variables in CSS?",
+    "options": [
+      "--custom-property: value;",
+      "$custom-property: value;",
+      "@custom-property: value;",
+      "#custom-property: value;"
+    ],
+    "correct": 0,
+    "explanation": "CSS custom properties are prefixed with double dashes: --primary-color: #3b82f6; and accessed via var(--primary-color)."
+  },
+  {
+    "id": "web_019",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "Why might a z-index of 9999 fail to display an element above another element with z-index of 1?",
+    "options": [
+      "The element is trapped inside a different Stacking Context with a lower parent z-index",
+      "z-index maxes out at 1000 in CSS",
+      "z-index only applies to <table> elements",
+      "The element has display: flex"
+    ],
+    "correct": 0,
+    "explanation": "Stacking contexts (created by opacity < 1, transform, filter, will-change, or positioned elements with z-index) contain their children's z-indices."
+  },
+  {
+    "id": "web_020",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "Which CSS pseudo-class matches an element only if it matches a selector passed as an argument (parent selector)?",
+    "options": [
+      ":has()",
+      ":is()",
+      ":where()",
+      ":matches()"
+    ],
+    "correct": 0,
+    "explanation": "The :has() relational pseudo-class acts as a parent/previous sibling selector: e.g., card:has(img) styles a card containing an image."
+  },
+  {
+    "id": "web_021",
+    "topic": "web_dev",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "What will `console.log(typeof null)` output in standard JavaScript?",
+    "options": [
+      "'object'",
+      "'null'",
+      "'undefined'",
+      "'boolean'"
+    ],
+    "correct": 0,
+    "explanation": "In JavaScript, typeof null returns 'object'. This is a historical bug in the language's initial 32-bit type tag implementation that cannot be changed for backwards compatibility."
+  },
+  {
+    "id": "web_022",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "Consider this code:\n```js\nconsole.log(1);\nsetTimeout(() => console.log(2), 0);\nPromise.resolve().then(() => console.log(3));\nconsole.log(4);\n```\nWhat is the exact output order?",
+    "options": [
+      "1, 4, 3, 2",
+      "1, 2, 3, 4",
+      "1, 4, 2, 3",
+      "3, 1, 4, 2"
+    ],
+    "correct": 0,
+    "explanation": "Synchronous code runs first (1, 4). Next, the microtask queue empties (Promise .then prints 3). Finally, the macrotask/timer queue executes (setTimeout prints 2)."
+  },
+  {
+    "id": "web_023",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is a Closure in JavaScript?",
+    "options": [
+      "A function bundled together with references to its surrounding lexical environment",
+      "A method that closes an open network connection",
+      "An immediately invoked function expression (IIFE)",
+      "A function that has no return statement"
+    ],
+    "correct": 0,
+    "explanation": "A closure gives a function access to its outer scope variables even after the outer function has finished executing."
+  },
+  {
+    "id": "web_024",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "How does the 'this' keyword behave inside an arrow function compared to a traditional function declaration?",
+    "options": [
+      "Arrow functions do not bind their own 'this'; they inherit 'this' lexically from the enclosing scope",
+      "Arrow functions bind 'this' to the global window/global object strictly",
+      "Arrow functions can be rebound using .bind() or .call()",
+      "Arrow functions bind 'this' to the DOM element that fired the event"
+    ],
+    "correct": 0,
+    "explanation": "Arrow functions lack their own 'this' binding and lexically resolve 'this' from the enclosing execution context."
+  },
+  {
+    "id": "web_025",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What does `Promise.allSettled(promises)` return compared to `Promise.all(promises)`?",
+    "options": [
+      "Waits for all promises to settle (fulfill or reject) and returns an array of status objects without short-circuiting on rejection",
+      "Rejects immediately if any single promise rejects",
+      "Returns only the first promise that resolves",
+      "Cancels any ongoing promises after 5 seconds"
+    ],
+    "correct": 0,
+    "explanation": "Promise.all rejects on the first failure, while Promise.allSettled waits for all promises to finish and returns their outcomes."
+  },
+  {
+    "id": "web_026",
+    "topic": "web_dev",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "What is the difference between '==' and '===' in JavaScript?",
+    "options": [
+      "'==' performs type coercion before comparison; '===' checks both value and type without coercion",
+      "'===' performs type coercion; '==' does not",
+      "Both operators behave identically in ES6+",
+      "'==' is used only for comparing objects"
+    ],
+    "correct": 0,
+    "explanation": "The strict equality operator (===) checks value and type without converting types; loose equality (==) coerces types (e.g. 0 == '0' is true, 0 === '0' is false)."
+  },
+  {
+    "id": "web_027",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What does the Optional Chaining operator (?.) do in JavaScript?",
+    "options": [
+      "Safely accesses nested object properties without throwing a TypeError if an intermediate reference is null or undefined",
+      "Creates a conditional ternary expression in one symbol",
+      "Checks if an array is non-empty",
+      "Declares an optional function parameter"
+    ],
+    "correct": 0,
+    "explanation": "user?.profile?.avatar short-circuits and evaluates to undefined rather than throwing 'Cannot read properties of undefined'."
+  },
+  {
+    "id": "web_028",
+    "topic": "web_dev",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "What is the Nullish Coalescing operator (??) in JavaScript?",
+    "options": [
+      "A logical operator that returns its right-hand operand only when its left-hand operand is null or undefined",
+      "An operator that treats 0 and empty string '' as falsy and returns the right operand",
+      "A bitwise XOR operator",
+      "A regex quantifier"
+    ],
+    "correct": 0,
+    "explanation": "Unlike || which falls back on any falsy value (including 0, false, ''), ?? only falls back if the left operand is strictly null or undefined."
+  },
+  {
+    "id": "web_029",
+    "topic": "web_dev",
+    "difficulty": "hard",
+    "type": "single",
+    "question": "What is a WeakMap in JavaScript, and how does it prevent memory leaks?",
+    "options": [
+      "Keys must be objects, and keys are held weakly allowing them to be garbage collected if no other references exist",
+      "Keys can only be strings that expire after a timeout",
+      "Values cannot be overwritten once set",
+      "It is an array that automatically truncates its size"
+    ],
+    "correct": 0,
+    "explanation": "In WeakMap, keys are weakly held object references. When an object key has no other references in memory, it is automatically garbage-collected."
+  },
+  {
+    "id": "web_030",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What JavaScript method creates a deep copy of a standard serializable object in modern browsers without external libraries?",
+    "options": [
+      "structuredClone(obj)",
+      "Object.assign({}, obj)",
+      "{ ...obj }",
+      "obj.clone()"
+    ],
+    "correct": 0,
+    "explanation": "structuredClone() is a standard web API that recursively copies nested objects, arrays, Dates, Maps, Sets, and circular references."
+  },
+  {
+    "id": "web_031",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "In DOM Event Propagation, what are the three sequential phases of an event?",
+    "options": [
+      "Capturing Phase, Target Phase, Bubbling Phase",
+      "Target Phase, Bubbling Phase, Capturing Phase",
+      "Bubbling Phase, Processing Phase, Dispatch Phase",
+      "Initialization Phase, Execution Phase, Destruction Phase"
+    ],
+    "correct": 0,
+    "explanation": "Events travel down from Window to target (Capturing), trigger on the target element (Target), and bubble back up to Window (Bubbling)."
+  },
+  {
+    "id": "web_032",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is Event Delegation in JavaScript DOM programming?",
+    "options": [
+      "Attaching a single event listener to a common ancestor instead of separate listeners on dozens of child elements",
+      "Delegating event handling to a background Web Worker",
+      "Passing events to an iframe",
+      "Triggering events programmatically with dispatchEvent"
+    ],
+    "correct": 0,
+    "explanation": "Event delegation leverages event bubbling to handle clicks on current and future child elements using event.target on a parent listener."
+  },
+  {
+    "id": "web_033",
+    "topic": "web_dev",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "What is the difference between `event.preventDefault()` and `event.stopPropagation()`?",
+    "options": [
+      "preventDefault cancels the browser's default action (e.g. following a link); stopPropagation stops the event from bubbling up the DOM tree",
+      "stopPropagation cancels default actions; preventDefault stops bubbling",
+      "Both methods do the exact same thing",
+      "preventDefault only works on <form> submits"
+    ],
+    "correct": 0,
+    "explanation": "preventDefault halts native browser behavior (submitting form, navigating anchor), while stopPropagation prevents parent handlers from catching the event."
+  },
+  {
+    "id": "web_034",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What browser API allows asynchronously monitoring when a DOM element enters or exits the viewport (e.g. for lazy-loading images)?",
+    "options": [
+      "Intersection Observer API",
+      "Mutation Observer API",
+      "Resize Observer API",
+      "Performance Observer API"
+    ],
+    "correct": 0,
+    "explanation": "IntersectionObserver efficiently detects when target elements intersect with an ancestor or top-level document viewport without scroll event lag."
+  },
+  {
+    "id": "web_035",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What browser storage mechanism persists data across browser tabs and sessions until explicitly cleared by user or code, with roughly 5-10MB capacity?",
+    "options": [
+      "localStorage",
+      "sessionStorage",
+      "Cookie",
+      "IndexedDB"
+    ],
+    "correct": 0,
+    "explanation": "localStorage persists across browser restarts and all tabs of the same origin. sessionStorage is cleared when the tab closes."
+  },
+  {
+    "id": "web_036",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What cookie attribute prevents client-side JavaScript (`document.cookie`) from accessing the cookie, mitigating XSS token theft?",
+    "options": [
+      "HttpOnly",
+      "Secure",
+      "SameSite=Strict",
+      "Domain"
+    ],
+    "correct": 0,
+    "explanation": "The HttpOnly flag ensures that cookies can only be sent over HTTP requests and cannot be read via JavaScript document.cookie."
+  },
+  {
+    "id": "web_037",
+    "topic": "web_dev",
+    "difficulty": "hard",
+    "type": "single",
+    "question": "What triggers a browser 'Reflow' (Layout calculation) versus a mere 'Repaint'?",
+    "options": [
+      "Reflow recalculates geometry and positions of elements (e.g. offsetWidth, changing width/height); Repaint updates visual pixels (e.g. background-color)",
+      "Reflow only changes colors; Repaint changes element sizes",
+      "Both are identical operations in the browser engine",
+      "Repaint is slower than Reflow"
+    ],
+    "correct": 0,
+    "explanation": "Reflow is computationally expensive because changing geometry forces the browser to recalculate bounding boxes for the affected branch."
+  },
+  {
+    "id": "web_038",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is a CORS preflight request, and which HTTP method does the browser issue for it?",
+    "options": [
+      "An automated OPTIONS request sent before non-simple cross-origin requests to check server permissions",
+      "A GET request with custom headers",
+      "A POST request with credentials",
+      "A HEAD request to check content length"
+    ],
+    "correct": 0,
+    "explanation": "Browsers send an HTTP OPTIONS preflight request before complex requests (like PUT, DELETE, or custom headers) to verify Access-Control headers."
+  },
+  {
+    "id": "web_039",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What browser feature runs JavaScript scripts in background threads isolated from the main thread DOM?",
+    "options": [
+      "Web Workers",
+      "Service Workers",
+      "WebSockets",
+      "Shadow DOM"
+    ],
+    "correct": 0,
+    "explanation": "Web Workers execute heavy calculations in a separate background thread, communicating with the main thread via postMessage without freezing the UI."
+  },
+  {
+    "id": "web_040",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What technique delays function execution until a specified delay has elapsed since the last time the function was invoked (e.g., search input)?",
+    "options": [
+      "Debouncing",
+      "Throttling",
+      "Currying",
+      "Memoization"
+    ],
+    "correct": 0,
+    "explanation": "Debouncing groups rapid successive calls into a single invocation after quiet time, whereas throttling enforces a max execution rate."
+  },
+  {
+    "id": "web_041",
+    "topic": "web_dev",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "Why must React component state updates not mutate state directly (e.g., state.count = 5)?",
+    "options": [
+      "React relies on object reference equality to detect changes and schedule component re-renders",
+      "Direct mutation crashes the V8 engine",
+      "State variables are frozen with Object.freeze automatically",
+      "Direct mutation only works in production builds"
+    ],
+    "correct": 0,
+    "explanation": "React components re-render when state changes; mutating existing objects keeps the same memory address, bypassing shallow equality checks."
+  },
+  {
+    "id": "web_042",
+    "topic": "web_dev",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "What does the second argument (dependency array) in React's `useEffect(fn, deps)` control?",
+    "options": [
+      "Specifies which state/prop values cause the effect function to re-run when changed",
+      "Sets a timeout in milliseconds",
+      "Defines the cleanup order",
+      "Passes props into the effect"
+    ],
+    "correct": 0,
+    "explanation": "An empty array [] runs the effect once on mount; specifying [a, b] runs the effect whenever a or b changes."
+  },
+  {
+    "id": "web_043",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is the primary difference between `useMemo` and `useCallback` in React?",
+    "options": [
+      "`useMemo` caches the calculated result of a function; `useCallback` caches the function definition itself",
+      "`useCallback` runs synchronously; `useMemo` runs asynchronously",
+      "`useMemo` is for class components; `useCallback` is for function components",
+      "There is no difference"
+    ],
+    "correct": 0,
+    "explanation": "useMemo(() => computeValue(a, b), [a, b]) returns a memoized value; useCallback(fn, deps) returns a memoized function reference."
+  },
+  {
+    "id": "web_044",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "Why should you never use the array index as a 'key' prop for dynamic lists that can be reordered, sorted, or filtered in React?",
+    "options": [
+      "Index keys confuse React's reconciliation diffing, causing component state or form input values to attach to the wrong elements",
+      "Index keys cause syntax errors in JSX",
+      "React enforces UUID keys only",
+      "Index keys increase bundle size"
+    ],
+    "correct": 0,
+    "explanation": "When list items reorder or delete, their indices change, misleading React's diffing algorithm and causing subtle UI bugs."
+  },
+  {
+    "id": "web_045",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What does the `useRef` hook return in React?",
+    "options": [
+      "A mutable object with a '.current' property that persists across renders without triggering a re-render when mutated",
+      "A read-only snapshot of component props",
+      "A callback that triggers re-rendering",
+      "A DOM selector function"
+    ],
+    "correct": 0,
+    "explanation": "useRef returns { current: initialValue }. Changing ref.current does not cause the component to re-render, making it ideal for DOM nodes and timer IDs."
+  },
+  {
+    "id": "web_046",
+    "topic": "web_dev",
+    "difficulty": "hard",
+    "type": "single",
+    "question": "What was the primary goal of the React Fiber architecture rewrite?",
+    "options": [
+      "To enable incremental rendering by splitting rendering work into chunks across animation frames and pausing/prioritizing updates",
+      "To replace JavaScript with WebAssembly",
+      "To eliminate the Virtual DOM entirely",
+      "To force static typing across all JSX components"
+    ],
+    "correct": 0,
+    "explanation": "React Fiber turned the recursive stack reconciler into an incremental linked-list tree where work can be paused, aborted, or prioritized."
+  },
+  {
+    "id": "web_047",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What hook in React is designed to read layout from the DOM and synchronously re-render before the browser paints screen pixels?",
+    "options": [
+      "useLayoutEffect",
+      "useEffect",
+      "useInsertionEffect",
+      "useImperativeHandle"
+    ],
+    "correct": 0,
+    "explanation": "useLayoutEffect fires synchronously after all DOM mutations but before the browser paints, preventing visual flickers when measuring DOM elements."
+  },
+  {
+    "id": "web_048",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is a 'controlled component' in React form handling?",
+    "options": [
+      "An input element whose value is driven by React state and updated via an onChange handler",
+      "A component that cannot be edited by the user",
+      "A component rendered on the server",
+      "An input using ref to read value on submit"
+    ],
+    "correct": 0,
+    "explanation": "In a controlled component, form data is handled by a React component via value={state} and onChange={e => setState(e.target.value)}."
+  },
+  {
+    "id": "web_049",
+    "topic": "web_dev",
+    "difficulty": "hard",
+    "type": "single",
+    "question": "What does React 18's `useTransition` hook allow developers to do?",
+    "options": [
+      "Mark non-urgent UI state updates as transitions that can be interrupted by higher-priority urgent updates (like typing)",
+      "Animate CSS transitions using JavaScript",
+      "Transition between page routes in Next.js",
+      "Pause network requests"
+    ],
+    "correct": 0,
+    "explanation": "startTransition allows updates to be deprioritized so heavy renders don't block immediate user input like keypresses and clicks."
+  },
+  {
+    "id": "web_050",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is the purpose of React Error Boundaries?",
+    "options": [
+      "Catch JavaScript errors anywhere in their child component tree, log those errors, and display a fallback UI instead of crashing the whole app",
+      "Catch compile-time syntax errors in Babel",
+      "Handle 404 and 500 HTTP server errors",
+      "Validate prop types"
+    ],
+    "correct": 0,
+    "explanation": "Class components implementing componentDidCatch or static getDerivedStateFromError catch render-phase crashes and render fallback UI."
+  },
+  {
+    "id": "web_051",
+    "topic": "web_dev",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "What is the key difference between TypeScript `interface` and `type` alias?",
+    "options": [
+      "Interfaces can be merged via declaration merging; type aliases cannot and can define unions/primitives",
+      "Type aliases cannot define object shapes",
+      "Interfaces compile to JavaScript functions; type aliases are deleted",
+      "There is no difference in TypeScript"
+    ],
+    "correct": 0,
+    "explanation": "Multiple interface declarations with the same name merge their properties, while type aliases support unions (type X = A | B) and mapped types."
+  },
+  {
+    "id": "web_052",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "In TypeScript, what does the utility type `Partial<T>` do?",
+    "options": [
+      "Constructs a type with all properties of T set to optional (?)",
+      "Makes all properties read-only",
+      "Extracts only primitive properties from T",
+      "Deletes undefined properties"
+    ],
+    "correct": 0,
+    "explanation": "Partial<T> wraps every property of type T in optional: { [P in keyof T]?: T[P] }."
+  },
+  {
+    "id": "web_053",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "In TypeScript, what does the utility type `Record<K, T>` construct?",
+    "options": [
+      "An object type whose property keys are K and property values are T",
+      "A database record model",
+      "An immutable tuple",
+      "An audio recording stream"
+    ],
+    "correct": 0,
+    "explanation": "Record<string, number> defines an object whose keys are strings and values are numbers."
+  },
+  {
+    "id": "web_054",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is the purpose of the 'unknown' type in TypeScript versus 'any'?",
+    "options": [
+      "'unknown' is type-safe; you must perform type checking or casting before performing operations on an unknown variable",
+      "'any' is stricter than 'unknown'",
+      "'unknown' can only accept null or undefined",
+      "'unknown' is converted to number at runtime"
+    ],
+    "correct": 0,
+    "explanation": "'any' turns off type checking completely, whereas 'unknown' forces the developer to narrow the type via typeof, instanceof, or type guards."
+  },
+  {
+    "id": "web_055",
+    "topic": "web_dev",
+    "difficulty": "hard",
+    "type": "single",
+    "question": "What TypeScript keyword is used to extract the return type of a function type inside a conditional type?",
+    "options": [
+      "infer",
+      "typeof",
+      "keyof",
+      "extends"
+    ],
+    "correct": 0,
+    "explanation": "type ReturnType<T> = T extends (...args: any[]) => infer R ? R : any; uses 'infer' to deduce the return type variable R."
+  },
+  {
+    "id": "web_056",
+    "topic": "web_dev",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "What does the 'defer' attribute on an external `<script src=\"app.js\" defer></script>` tag do?",
+    "options": [
+      "Downloads the script in parallel and executes it only after HTML parsing is completely finished",
+      "Executes the script immediately, blocking HTML parsing",
+      "Delays downloading until the user scrolls",
+      "Loads the script inside an iframe"
+    ],
+    "correct": 0,
+    "explanation": "defer scripts download in the background without blocking the parser and execute in document order right before DOMContentLoaded."
+  },
+  {
+    "id": "web_057",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is the difference between 'async' and 'defer' attributes on script tags?",
+    "options": [
+      "'async' executes as soon as it downloads, potentially out of order; 'defer' executes after HTML parsing in document order",
+      "'defer' executes immediately; 'async' waits for document complete",
+      "'async' only works for CSS; 'defer' is for JS",
+      "There is no functional difference"
+    ],
+    "correct": 0,
+    "explanation": "async scripts execute the moment they finish downloading, interrupting parsing; defer scripts execute orderly after DOM parsing completes."
+  },
+  {
+    "id": "web_058",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What Core Web Vital metric measures visual stability and unexpected layout shifts on a page?",
+    "options": [
+      "Cumulative Layout Shift (CLS)",
+      "Largest Contentful Paint (LCP)",
+      "Interaction to Next Paint (INP)",
+      "First Contentful Paint (FCP)"
+    ],
+    "correct": 0,
+    "explanation": "CLS measures unexpected shifts in visual elements as content loads, aiming for a score under 0.1 for good user experience."
+  },
+  {
+    "id": "web_059",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What Core Web Vital replaced First Input Delay (FID) to assess page responsiveness to user interactions?",
+    "options": [
+      "Interaction to Next Paint (INP)",
+      "Time to First Byte (TTFB)",
+      "Total Blocking Time (TBT)",
+      "Speed Index"
+    ],
+    "correct": 0,
+    "explanation": "INP observes the latency of all click, tap, and keyboard interactions throughout the entire page lifecycle."
+  },
+  {
+    "id": "web_060",
+    "topic": "web_dev",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "Which HTTP header instructs the browser to enforce HTTPS connections exclusively for a domain?",
+    "options": [
+      "Strict-Transport-Security (HSTS)",
+      "Content-Security-Policy (CSP)",
+      "X-Frame-Options",
+      "Access-Control-Allow-Origin"
+    ],
+    "correct": 0,
+    "explanation": "HSTS tells browsers to convert all insecure http:// requests to https:// automatically before network transmission."
+  },
+  {
+    "id": "web_061",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What security header helps prevent Cross-Site Scripting (XSS) and data injection attacks by restricting resource loading domains?",
+    "options": [
+      "Content-Security-Policy (CSP)",
+      "X-Content-Type-Options",
+      "Referrer-Policy",
+      "ETag"
+    ],
+    "correct": 0,
+    "explanation": "CSP restricts which scripts, styles, images, and endpoints can be executed or loaded by the browser."
+  },
+  {
+    "id": "web_062",
+    "topic": "web_dev",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "In CSS, what does the unit 'rem' stand for?",
+    "options": [
+      "Root Element fontSize multiplier",
+      "Relative Element margin",
+      "Randomized Element metric",
+      "Responsive layout measure"
+    ],
+    "correct": 0,
+    "explanation": "1rem equals the font-size of the root <html> element (typically 16px by default)."
+  },
+  {
+    "id": "web_063",
+    "topic": "web_dev",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "What is the difference between 'rem' and 'em' units in CSS?",
+    "options": [
+      "'rem' is relative to the root <html> font-size; 'em' is relative to the immediate parent element's font-size",
+      "'em' is relative to root; 'rem' is relative to parent",
+      "'rem' only applies to margins; 'em' applies to padding",
+      "They are identical in modern CSS"
+    ],
+    "correct": 0,
+    "explanation": "em compounds based on the cascade of parent font-sizes, whereas rem remains consistently anchored to the root element."
+  },
+  {
+    "id": "web_064",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What CSS property creates a frosted-glass blur effect on content behind an element?",
+    "options": [
+      "backdrop-filter: blur(10px);",
+      "filter: blur(10px);",
+      "background-blur: 10px;",
+      "opacity: blur(10px);"
+    ],
+    "correct": 0,
+    "explanation": "backdrop-filter applies graphic effects (like blur or saturate) to the area behind an element with semi-transparent background."
+  },
+  {
+    "id": "web_065",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "In JavaScript, what does `Object.freeze(obj)` do?",
+    "options": [
+      "Prevents adding new properties, removing existing properties, or modifying values of existing properties (shallow)",
+      "Encrypts the object in memory",
+      "Clones the object into an immutable Proxy",
+      "Deeply freezes all nested objects automatically"
+    ],
+    "correct": 0,
+    "explanation": "Object.freeze makes an object shallowly immutable; properties cannot be added, removed, or changed."
+  },
+  {
+    "id": "web_066",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is the difference between Array.prototype.map() and Array.prototype.forEach()?",
+    "options": [
+      "map() returns a new array with transformed elements; forEach() executes a side effect and returns undefined",
+      "forEach() returns a new array; map() returns undefined",
+      "map() mutates the original array",
+      "forEach() cannot take a callback"
+    ],
+    "correct": 0,
+    "explanation": "map creates and returns a new array with the return value of each callback call; forEach returns undefined."
+  },
+  {
+    "id": "web_067",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What does Array.prototype.reduce() do in JavaScript?",
+    "options": [
+      "Executes a reducer callback on each array element to accumulate them into a single resultant value",
+      "Shrinks the array length by half",
+      "Filters out duplicate items",
+      "Sorts elements in descending order"
+    ],
+    "correct": 0,
+    "explanation": "reduce runs an accumulator function across all elements, producing a single combined result (sum, object map, etc.)."
+  },
+  {
+    "id": "web_068",
+    "topic": "web_dev",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "How do you remove duplicates from a JavaScript array `arr` in a single line using ES6?",
+    "options": [
+      "Array.from(new Set(arr))",
+      "arr.distinct()",
+      "arr.filter(unique)",
+      "Object.keys(arr)"
+    ],
+    "correct": 0,
+    "explanation": "Sets only store unique values, so [...new Set(arr)] or Array.from(new Set(arr)) discards duplicates."
+  },
+  {
+    "id": "web_069",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is the purpose of the 'Symbol' primitive data type introduced in ES6?",
+    "options": [
+      "Creates completely unique, immutable identifiers often used as non-enumerable object property keys",
+      "Generates cryptographic hashes",
+      "Represents large integers beyond 2^53 - 1",
+      "Creates HTML emoji entities"
+    ],
+    "correct": 0,
+    "explanation": "Every Symbol() call produces a unique value that cannot clash with other keys, even if initialized with identical descriptions."
+  },
+  {
+    "id": "web_070",
+    "topic": "web_dev",
+    "difficulty": "hard",
+    "type": "single",
+    "question": "What JavaScript metaprogramming object allows intercepting and customizing operations like property lookups, assignments, and function calls?",
+    "options": [
+      "Proxy (with Reflect)",
+      "Generator",
+      "AsyncIterator",
+      "WebAssembly.Instance"
+    ],
+    "correct": 0,
+    "explanation": "new Proxy(target, handler) intercepts fundamental operations (traps like get, set, has, deleteProperty) to customize behavior."
+  },
+  {
+    "id": "web_071",
+    "topic": "web_dev",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "What HTTP response status code signifies '204 No Content'?",
+    "options": [
+      "The request succeeded, but the server has no response body to return",
+      "The server failed to locate the resource",
+      "The request was unauthorized",
+      "The server redirected the client"
+    ],
+    "correct": 0,
+    "explanation": "204 indicates successful request completion without returning a message body (often used in DELETE or PUT operations)."
+  },
+  {
+    "id": "web_072",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is tree-shaking in modern JavaScript bundlers (Vite, Rollup, Webpack)?",
+    "options": [
+      "Dead code elimination that analyzes ES module imports/exports to discard unused code from the production bundle",
+      "Rebuilding directory trees",
+      "Balancing AST binary trees",
+      "Compressing PNG assets"
+    ],
+    "correct": 0,
+    "explanation": "Tree-shaking statically analyzes ES import/export graphs to strip out exported functions that are never imported or called."
+  },
+  {
+    "id": "web_073",
+    "topic": "web_dev",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "What is the CSS pseudo-class for styling an element when it receives keyboard focus, avoiding outline styling on mouse clicks?",
+    "options": [
+      ":focus-visible",
+      ":focus",
+      ":focus-within",
+      ":active"
+    ],
+    "correct": 0,
+    "explanation": ":focus-visible only applies focus indicators when navigation is initiated via keyboard (e.g. Tab key) rather than pointer clicks."
+  },
+  {
+    "id": "web_074",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What does CSS `pointer-events: none` do to an element?",
+    "options": [
+      "Makes the element non-targetable for click, hover, and drag events, passing events through to underlying elements",
+      "Hides the mouse cursor completely",
+      "Disables all CSS hover transitions",
+      "Freezes touch scrolling on mobile"
+    ],
+    "correct": 0,
+    "explanation": "pointer-events: none causes mouse and pointer events to ignore the element and trigger on whatever is visually beneath it."
+  },
+  {
+    "id": "web_075",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is the difference between `display: none` and `visibility: hidden` in CSS?",
+    "options": [
+      "`display: none` removes the element from the document layout flow; `visibility: hidden` hides it while preserving its physical layout space",
+      "`visibility: hidden` removes it from layout flow; `display: none` preserves space",
+      "Both free the layout space equally",
+      "Only `display: none` hides text from screen readers"
+    ],
+    "correct": 0,
+    "explanation": "display: none collapses the element so it occupies 0px in layout. visibility: hidden keeps the element's box in the DOM layout intact."
+  },
+  {
+    "id": "web_076",
+    "topic": "web_dev",
+    "difficulty": "hard",
+    "type": "single",
+    "question": "What is the 'SameSite' cookie attribute option that prevents the cookie from being sent in all cross-site requests, including top-level navigations?",
+    "options": [
+      "SameSite=Strict",
+      "SameSite=Lax",
+      "SameSite=None",
+      "SameSite=Secure"
+    ],
+    "correct": 0,
+    "explanation": "SameSite=Strict withholds cookies on all cross-origin requests, including when clicking a normal hyperlink from an external domain."
+  },
+  {
+    "id": "web_077",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What lifecycle event fires when the HTML document has been completely parsed and DOM tree built, without waiting for stylesheets or images?",
+    "options": [
+      "DOMContentLoaded",
+      "load",
+      "readystatechange",
+      "beforeunload"
+    ],
+    "correct": 0,
+    "explanation": "DOMContentLoaded fires as soon as HTML is parsed into the DOM. The window 'load' event waits for all external resources (images, styles)."
+  },
+  {
+    "id": "web_078",
+    "topic": "web_dev",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "What method stops an active `setInterval` timer in JavaScript?",
+    "options": [
+      "clearInterval(timerId)",
+      "stopInterval(timerId)",
+      "clearTimeout(timerId)",
+      "timerId.stop()"
+    ],
+    "correct": 0,
+    "explanation": "clearInterval takes the ID returned by setInterval and stops further scheduled recurring invocations."
+  },
+  {
+    "id": "web_079",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What CSS property optimizes performance by informing the browser ahead of time which properties on an element are expected to change?",
+    "options": [
+      "will-change",
+      "transform-style",
+      "contain",
+      "backface-visibility"
+    ],
+    "correct": 0,
+    "explanation": "will-change: transform, opacity allows the browser to promote the element to its own GPU compositor layer before animation begins."
+  },
+  {
+    "id": "web_080",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "Which of the following is a pure function in JavaScript?",
+    "options": [
+      "const add = (a, b) => a + b;",
+      "const addRandom = (a) => a + Math.random();",
+      "const addToDOM = (a) => document.body.innerHTML += a;",
+      "const addWithDate = (a) => a + Date.now();"
+    ],
+    "correct": 0,
+    "explanation": "A pure function always returns the exact same output for the same arguments and produces zero observable side effects."
+  },
+  {
+    "id": "web_081",
+    "topic": "web_dev",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "What is JSX in React development?",
+    "options": [
+      "A syntax extension for JavaScript that resembles HTML and compiles to React.createElement function calls",
+      "A separate programming language compiled to WebAssembly",
+      "A database query syntax for GraphQL",
+      "A JSON format for CSS styles"
+    ],
+    "correct": 0,
+    "explanation": "JSX provides HTML-like syntax inside JavaScript, which compilers like Babel or SWC transform into React.createElement / jsx runtime calls."
+  },
+  {
+    "id": "web_082",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "In React, what is 'prop drilling'?",
+    "options": [
+      "The process of passing props through multiple levels of intermediate components that do not need the data themselves",
+      "Extracting props using TypeScript",
+      "Mutating props directly in children",
+      "Validating props with Zod"
+    ],
+    "correct": 0,
+    "explanation": "Prop drilling occurs when state must be passed down a deep component hierarchy, solved by React Context or state management stores."
+  },
+  {
+    "id": "web_083",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is the purpose of the React Context API?",
+    "options": [
+      "Provides a way to share values between components without having to explicitly pass a prop through every level of the tree",
+      "Manages database connections on server",
+      "Replaces CSS stylesheets",
+      "Tracks user analytics"
+    ],
+    "correct": 0,
+    "explanation": "React Context allows sharing global-like state (themes, authentication, locale) across an entire subtree."
+  },
+  {
+    "id": "web_084",
+    "topic": "web_dev",
+    "difficulty": "hard",
+    "type": "single",
+    "question": "What happens when you call a state updater function in React with a callback: `setCount(prev => prev + 1)`?",
+    "options": [
+      "React passes the most recent guaranteed state value into the callback, avoiding stale closure race conditions in async operations",
+      "It runs the state update in a web worker",
+      "It executes synchronously before the next line of code",
+      "It resets the state to 0 first"
+    ],
+    "correct": 0,
+    "explanation": "Functional state updates guarantee access to the current pending state rather than capturing stale values from old render closures."
+  },
+  {
+    "id": "web_085",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is Server-Side Rendering (SSR) in modern web frameworks like Next.js or Nuxt?",
+    "options": [
+      "Generating full HTML markup for a page on the server per request, sending rendered HTML to the client for faster initial paint and SEO",
+      "Executing JavaScript exclusively on user's GPU",
+      "Compiling client code into a single desktop binary",
+      "Fetching database data without HTTP"
+    ],
+    "correct": 0,
+    "explanation": "SSR renders the component tree into HTML on the server, speeding up FCP/LCP and making pages immediately indexable by web crawlers."
+  },
+  {
+    "id": "web_086",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is 'Hydration' in modern SSR frameworks?",
+    "options": [
+      "Attaching event listeners and client React state to server-rendered static HTML markup to make it interactive",
+      "Cleaning memory leaks in the browser",
+      "Pre-fetching all images on the page",
+      "Downloading CSS bundle chunks"
+    ],
+    "correct": 0,
+    "explanation": "Hydration bridges the gap between static HTML generated by the server and dynamic client-side React event handlers."
+  },
+  {
+    "id": "web_087",
+    "topic": "web_dev",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "What is the Fetch API return type in JavaScript?",
+    "options": [
+      "A Promise that resolves to a Response object",
+      "A JSON object directly",
+      "A XMLHttpRequest instance",
+      "A readable file stream"
+    ],
+    "correct": 0,
+    "explanation": "fetch(url) returns a Promise resolving to a Response object representing the HTTP response, which requires .json() or .text() to parse."
+  },
+  {
+    "id": "web_088",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "Why does `fetch()` NOT reject its promise on HTTP 404 or 500 status codes?",
+    "options": [
+      "A Promise from fetch() only rejects on network failures or CORS errors; HTTP 4xx/5xx are considered successful HTTP communications with response.ok = false",
+      "Because 404 is an informational status code",
+      "It is a bug in the Fetch spec that cannot be fixed",
+      "Because only POST requests can reject"
+    ],
+    "correct": 0,
+    "explanation": "fetch only rejects if the network fails or request is blocked. 404 and 500 still represent completed HTTP exchanges, check response.ok."
+  },
+  {
+    "id": "web_089",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "How can you abort an in-flight `fetch()` request in JavaScript?",
+    "options": [
+      "Using an AbortController instance and passing its signal to the fetch options: { signal: controller.signal }",
+      "Calling fetch.cancel()",
+      "Setting fetch timeout to 0",
+      "Closing the browser window"
+    ],
+    "correct": 0,
+    "explanation": "const controller = new AbortController(); fetch(url, { signal: controller.signal }); controller.abort(); cleanly cancels ongoing HTTP requests."
+  },
+  {
+    "id": "web_090",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is the CSS clamp() function used for?",
+    "options": [
+      "Clamping a value between an allowable minimum, preferred, and maximum value: clamp(min, preferred, max)",
+      "Fixing an element to screen viewport",
+      "Clipping an SVG path",
+      "Compressing CSS file size"
+    ],
+    "correct": 0,
+    "explanation": "clamp(1rem, 2.5vw, 2rem) creates fluid typography and dimensions that dynamically adapt to viewport size within strict bounds."
+  },
+  {
+    "id": "web_091",
+    "topic": "web_dev",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "What CSS property prevents text from wrapping onto a new line?",
+    "options": [
+      "white-space: nowrap;",
+      "text-wrap: balance;",
+      "overflow: hidden;",
+      "word-break: keep-all;"
+    ],
+    "correct": 0,
+    "explanation": "white-space: nowrap prevents text sequences from breaking onto multiple lines."
+  },
+  {
+    "id": "web_092",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "How do you truncate overflow text with an ellipsis (...) in CSS?",
+    "options": [
+      "overflow: hidden; white-space: nowrap; text-overflow: ellipsis;",
+      "text-truncate: true;",
+      "display: inline-ellipsis;",
+      "clip-path: ellipsis();"
+    ],
+    "correct": 0,
+    "explanation": "The combination of overflow: hidden, white-space: nowrap, and text-overflow: ellipsis renders standard three-dot overflow truncation."
+  },
+  {
+    "id": "web_093",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is the difference between `null` and `undefined` in JavaScript?",
+    "options": [
+      "`undefined` means a variable has been declared but not assigned a value; `null` represents an intentional assignment of an empty value",
+      "`null` is a type of number; `undefined` is an object",
+      "`undefined` is assigned intentionally; `null` is automatic",
+      "They are identical in every context"
+    ],
+    "correct": 0,
+    "explanation": "undefined indicates absence of value by default in uninitialized variables or missing parameters; null indicates explicit absence set by program logic."
+  },
+  {
+    "id": "web_094",
+    "topic": "web_dev",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "What does the JavaScript spread operator `...` do when applied to an array `[1, 2, ...arr]`?",
+    "options": [
+      "Expands the iterable array elements into individual elements",
+      "Converts the array to a JSON string",
+      "Reverses array elements",
+      "Creates a circular linked list"
+    ],
+    "correct": 0,
+    "explanation": "Spread syntax expands iterable items (arrays, strings, sets) in place into expressions or function argument lists."
+  },
+  {
+    "id": "web_095",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is a 'polyfill' in web development?",
+    "options": [
+      "A piece of code used to provide modern web functionality on older browsers that do not natively support it",
+      "A CSS preprocessor compiler",
+      "A 3D polygon renderer for WebGL",
+      "A minification algorithm"
+    ],
+    "correct": 0,
+    "explanation": "Polyfills emulate newer APIs (e.g. Promise, fetch, Array.prototype.flat) on legacy browser engines using backward-compatible code."
+  },
+  {
+    "id": "web_096",
+    "topic": "web_dev",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "Which CSS property specifies how image or video content should resize to fit its container box?",
+    "options": [
+      "object-fit (contain, cover, fill)",
+      "image-rendering",
+      "background-size",
+      "aspect-ratio"
+    ],
+    "correct": 0,
+    "explanation": "object-fit: cover scales the media to maintain aspect ratio while filling the element box, clipping overflow."
+  },
+  {
+    "id": "web_097",
+    "topic": "web_dev",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "What does the CSS property `aspect-ratio: 16 / 9;` achieve?",
+    "options": [
+      "Maintains a 16:9 proportional ratio between element width and height automatically without padding hacks",
+      "Sets width to 16px and height to 9px",
+      "Restricts screen resolution to 1080p",
+      "Zooms the background image by 1.77x"
+    ],
+    "correct": 0,
+    "explanation": "aspect-ratio allows setting explicit proportions, preventing layout shift while responsive images load."
+  },
+  {
+    "id": "web_098",
+    "topic": "web_dev",
+    "difficulty": "hard",
+    "type": "single",
+    "question": "In Web Performance, what is 'Code Splitting'?",
+    "options": [
+      "Splitting application JavaScript bundles into smaller chunks that can be loaded dynamically on demand using dynamic import()",
+      "Dividing frontend and backend code into separate Git repositories",
+      "Minifying HTML and CSS files",
+      "Running code across multiple CPU threads"
+    ],
+    "correct": 0,
+    "explanation": "Code splitting ensures users only download the code needed for their current route or interaction, dramatically cutting initial bundle payload."
+  },
+  {
+    "id": "web_099",
+    "topic": "web_dev",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is the difference between client-side routing (Single Page Application) and traditional multi-page navigation?",
+    "options": [
+      "Client-side routing intercepts anchor clicks and updates the view via JavaScript History API without reloading the entire page",
+      "Client-side routing requires reloading HTML on every link click",
+      "Client-side routing cannot update the browser URL bar",
+      "Client-side routing only works over WebSockets"
+    ],
+    "correct": 0,
+    "explanation": "SPAs use history.pushState() to update the URL and render new component views client-side without full-page server round-trips."
+  },
+  {
+    "id": "web_100",
+    "topic": "web_dev",
+    "difficulty": "hard",
+    "type": "single",
+    "question": "What is a Progressive Web App (PWA) Service Worker lifecycle event that allows caching app shell assets offline?",
+    "options": [
+      "'install' event (caches static assets using the CacheStorage API)",
+      "'fetch' event for server-side logging only",
+      "'terminate' event",
+      "'DOMContentLoaded' event"
+    ],
+    "correct": 0,
+    "explanation": "During the Service Worker 'install' event, event.waitUntil() caches essential HTML, CSS, and JS files into CacheStorage for offline resilience."
+  }
+]

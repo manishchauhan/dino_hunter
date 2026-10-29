@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>Dino Coding Colosseum - 3D Jurassic CS & Science Battle Arena</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦖</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=JetBrains+Mono:wght@400;600;700&family=Rajdhani:wght@600;700;800&family=Bebas+Neue&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./src/style.css" />
+</head>
+<body>
+  <div id="game-container">
+    <canvas id="webgl-canvas"></canvas>
+
+    <!-- Top Left Home / Topic Menu Button & AI Header Indicator -->
+    <div class="top-nav-controls">
+      <button id="btn-home" class="home-btn" title="Menu / Change Topic" aria-label="Home Menu">
+        <span class="home-btn-icon">🏠</span>
+      </button>
+      <button id="btn-grok-header" class="grok-hud-btn" title="AI Engine (Gemini & Grok)" aria-label="AI Engine Settings">
+        <span class="grok-hud-icon">✨</span>
+        <span class="grok-hud-text" id="grok-hud-label">AI ENGINE</span>
+        <span id="grok-hud-status-dot" class="grok-hud-dot" title="AI Engine Ready"></span>
+      </button>
+    </div>
+
+    <!-- Top Combat & Quiz HUD -->
+    <header id="combat-hud">
+      <!-- Player Dinosaur Card -->
+      <div class="fighter-card player-card" id="p1-card">
+        <div class="fighter-portrait-wrapper">
+          <div class="portrait p1-portrait" id="p1-avatar">🦖</div>
+          <span class="fighter-tag">YOU</span>
+        </div>
+        <div class="fighter-info">
+          <div class="name-row">
+            <span class="fighter-name" id="p1-name">APEX T-REX</span>
+            <span class="fighter-title" id="p1-title">PLAYER FIGHTER</span>
+          </div>
+          <div class="meter-bar health-bar-bg">
+            <div class="meter-fill health-ghost" id="p1-health-ghost" style="width: 100%;"></div>
+            <div class="meter-fill health-fill" id="p1-health" style="width: 100%;"></div>
+            <span class="meter-text" id="p1-hp-text">500 / 500</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Center Colosseum Topic & Stage Badge -->
+      <div id="arcade-center-badge">
+        <div class="stage-tag" id="hud-stage-tag">STAGE 1 / 6</div>
+        <div class="topic-tag" id="hud-topic-tag">⚡ ALL CS TOPICS</div>
+        <div class="vs-crest" id="hud-streak-crest">🔥 STREAK: 0</div>
+      </div>
+
+      <!-- CPU Opponent Dinosaur Card -->
+      <div class="fighter-card cpu-card" id="p2-card">
+        <div class="fighter-info right-aligned">
+          <div class="name-row">
+            <span class="fighter-title" id="p2-title">SHADOW STALKER</span>
+            <span class="fighter-name" id="p2-name">VELOCIRAPTOR</span>
+          </div>
+          <div class="meter-bar health-bar-bg">
+            <div class="meter-fill health-ghost cpu-ghost" id="p2-health-ghost" style="width: 100%;"></div>
+            <div class="meter-fill health-fill cpu-fill" id="p2-health" style="width: 100%;"></div>
+            <span class="meter-text" id="p2-hp-text">350 / 350</span>
+          </div>
+          <div class="enemy-attack-indicator" id="p2-attack-indicator">
+            <span>ELEMENT: </span><strong id="p2-element-name">💨 SPRINT SLAM</strong>
+          </div>
+        </div>
+        <div class="fighter-portrait-wrapper">
+          <div class="portrait p2-portrait" id="p2-avatar">🦎</div>
+          <span class="fighter-tag cpu-tag" id="p2-badge-tag">CPU</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Floating 3D Damage Numbers -->
+    <div id="floating-damage-container"></div>
+
+    <!-- Quick Action / Attack Notification Banner -->
+    <div id="action-banner"></div>
+
+    <!-- Arcade Giant Announcement (FIGHT!, K.O.!, STAGE CLEAR!) -->
+    <div id="arcade-announcement" class="arcade-announcement hidden">
+      <div class="arcade-title" id="arcade-main-text">FIGHT!</div>
+      <div class="arcade-subtitle" id="arcade-sub-text">STAGE 1: VELOCIRAPTOR</div>
+    </div>
+
+    <!-- 3D Arena Quiz Question Overlay Card -->
+    <div id="quiz-card-overlay" class="quiz-card-overlay hidden">
+      <div class="quiz-card-panel" id="quiz-card-panel">
+        <!-- Question Meta Header -->
+        <div class="quiz-meta-header">
+          <div class="quiz-meta-left">
+            <span class="badge-pill badge-diff" id="quiz-diff-badge">EASY</span>
+            <span class="badge-pill badge-subject" id="quiz-subject-badge">JAVASCRIPT</span>
+            <span class="badge-pill badge-type" id="quiz-type-badge">SINGLE SELECT</span>
+            <span class="badge-pill badge-ai hidden" id="quiz-ai-badge">⚡ GROK AI</span>
+          </div>
+          <div class="quiz-timer-box">
+            <span class="timer-icon">⏱️</span>
+            <span class="timer-seconds" id="quiz-timer-text">20s</span>
+          </div>
+        </div>
+
+        <!-- Animated Countdown Progress Bar -->
+        <div class="quiz-timer-bar-track">
+          <div class="quiz-timer-bar-fill" id="quiz-timer-bar" style="width: 100%;"></div>
+        </div>
+
+        <!-- Grok AI Synthesizing Hologram Loader (Shown while new question enters/synthesizes) -->
+        <div id="quiz-ai-loading" class="quiz-ai-loading hidden">
+          <div class="ai-pulse-spinner">⚡</div>
+          <div class="ai-loading-text" id="ai-loading-text">Grok AI is synthesizing next subject question...</div>
+        </div>
+
+        <!-- Question Prompt & Optional Code Snippet -->
+        <div class="quiz-content-area" id="quiz-content-area">
+          <div class="quiz-question-title" id="quiz-question-text">Loading question...</div>
+          <pre class="quiz-code-block hidden" id="quiz-code-container"><code id="quiz-code-text"></code></pre>
+        </div>
+
+        <!-- Multi-Select Instructions Hint -->
+        <div id="quiz-multi-hint" class="quiz-multi-hint hidden">
+          <span>☑️ Choose all correct answers, then click <strong>Submit Selection</strong></span>
+        </div>
+
+        <!-- Interactive Options Container -->
+        <div class="quiz-options-grid" id="quiz-options-container">
+          <!-- Dynamically populated option cards / checkboxes / true-false toggles -->
+        </div>
+
+        <!-- Multi-Select Submit Button -->
+        <div class="quiz-action-footer hidden" id="quiz-footer-actions">
+          <button id="btn-quiz-submit" class="quiz-submit-btn">
+            <span>SUBMIT SELECTION</span> <span class="submit-arrow">▶</span>
+          </button>
+        </div>
+
+        <!-- Instant Feedback Banner -->
+        <div id="quiz-feedback-banner" class="quiz-feedback-banner hidden">
+          <span class="feedback-icon" id="feedback-icon">✓</span>
+          <span class="feedback-text" id="feedback-text">CORRECT! YOUR DINOSAUR ATTACKS!</span>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- Home / Pause Modal -->
+    <div id="home-modal-overlay" class="overlay hidden">
+      <div class="overlay-modal pause-modal">
+        <div class="ancient-crest">🏛️ ⚔️ 🦖</div>
+        <h2 class="modal-title">COLOSSEUM PAUSED</h2>
+        <p class="modal-subtitle">DINO CODING ARENA • JURASSIC CS TOURNAMENT</p>
+        <div class="modal-menu-options">
+          <button id="btn-resume" class="gladiator-btn pulse">⚔️ RESUME QUIZ BATTLE</button>
+          <button id="btn-restart-stage" class="roster-toggle-btn">🔄 RESTART CURRENT LEVEL</button>
+          <button id="btn-change-topic" class="roster-toggle-btn">📚 CHANGE CODING TOPIC</button>
+          <button id="btn-open-grok-from-pause" class="roster-toggle-btn">⚡ AI SETTINGS (GEMINI & GROK)</button>
+          <button id="btn-sound-toggle" class="roster-toggle-btn">🔊 SOUND: ON</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Start / Topic Selection Screen -->
+    <div id="start-overlay" class="overlay active">
+      <div class="overlay-modal topic-selection-modal">
+        <div class="ancient-crest">⚔️ 🧠 🦖</div>
+        <h1 class="game-title">DINO CODING ARENA</h1>
+        <p class="subtitle">ANSWER COMPUTER SCIENCE & STEM QUESTIONS • SURVIVE JURASSIC COMBAT • BEAT ALL 6 APEX BOSSES</p>
+
+        <!-- Compact AI Question Engine Status Bar -->
+        <div class="grok-quick-banner" id="start-grok-banner">
+          <div class="grok-quick-left">
+            <span class="grok-bolt">✨</span>
+            <div class="grok-quick-titles">
+              <span class="grok-quick-title">AI QUESTION ENGINE (GEMINI & GROK)</span>
+              <span class="grok-quick-desc" id="start-grok-status-text">Gemini & Grok AI Online • 299 Offline Questions Ready</span>
+            </div>
+          </div>
+          <div class="grok-banner-action-group">
+            <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer" class="grok-link-pill gemini-link-pill" title="Get free Google Gemini API Key from Google AI Studio">
+              ✨ Free Gemini Key ↗
+            </a>
+            <button id="btn-open-grok-from-start" class="grok-action-chip">⚙️ AI Settings</button>
+          </div>
+        </div>
+
+        <!-- Topic Selection Section -->
+        <div class="selection-section">
+          <div class="section-header-row">
+            <div class="section-heading">SELECT YOUR SUBJECTS</div>
+            
+            <!-- Category & Multi-Select Controls -->
+            <div class="multi-select-toolbar">
+              <button id="btn-play-category" class="chip-btn chip-btn-accent" type="button" title="Select all questions in the active category">⚡ Select Entire Category</button>
+              <label class="multi-toggle-label" title="Enable multi-subject selection">
+                <input type="checkbox" id="chk-multi-subject" checked>
+                <span class="multi-toggle-text">Multi-Select</span>
+              </label>
+              <button id="btn-select-all-topics" class="chip-btn" type="button">All (600)</button>
+              <button id="btn-clear-all-topics" class="chip-btn" type="button">Reset</button>
+            </div>
+          </div>
+
+          <!-- Big Category Filter Tabs -->
+          <div class="category-tabs-row" id="topic-category-tabs">
+            <button class="cat-tab active" data-category="all">⚡ All CS (600)</button>
+            <button class="cat-tab" data-category="dsa">🧠 Algorithms (100)</button>
+            <button class="cat-tab" data-category="web_dev">🌐 Web & Frontend (100)</button>
+            <button class="cat-tab" data-category="backend_db">🗄️ Backend & DB (100)</button>
+            <button class="cat-tab" data-category="languages_oop">💻 Languages & OOP (100)</button>
+            <button class="cat-tab" data-category="systems_security">🛡️ Systems & Security (100)</button>
+            <button class="cat-tab" data-category="ml_ai">🤖 AI & ML (100)</button>
+          </div>
+
+          <!-- Dynamic Selection Summary -->
+          <div class="selection-summary-badge" id="topic-selection-summary">
+            <span>🎯 Active: </span><strong id="topic-summary-text">All Computer Science Gauntlet (600 Questions Available)</strong>
+          </div>
+
+          <div class="topics-cards-grid" id="topics-grid-container">
+            <!-- Dynamically populated topic cards with multi-select support -->
+          </div>
+        </div>
+
+        <!-- Player Fighter Selection Mini-Bar -->
+        <div class="selection-section">
+          <div class="section-header-row">
+            <div class="section-heading">CHOOSE YOUR COMBATANT</div>
+            <span class="combatant-hint">Swipe 12 Apex Dinosaurs ➔</span>
+          </div>
+          <div class="dino-cards-grid" id="player-dino-grid"></div>
+        </div>
+
+        <button id="btn-start" class="gladiator-btn pulse">ENTER THE CODING COLOSSEUM ▶</button>
+      </div>
+    </div>
+
+    <!-- Arcade Ladder Between Stages Modal -->
+    <div id="arcade-ladder-overlay" class="overlay hidden">
+      <div class="overlay-modal ladder-modal">
+        <div class="ancient-crest">🏆 ⚔️ 🦖</div>
+        <div class="ladder-header">
+          <span class="victory-tag">STAGE COMPLETED</span>
+          <h2 id="ladder-title" class="victory-title">DINOSAUR DEFEATED!</h2>
+          <div class="ladder-rewards-row">
+            <span class="reward-pill" id="ladder-heal-badge">❤️ +25% HP RESTORED</span>
+            <span class="reward-pill" id="ladder-streak-badge">⚡ STREAK: 1</span>
+          </div>
+        </div>
+
+        <div class="ladder-tower" id="ladder-tower-container">
+          <!-- Dynamically populated Stage 1 -> 6 progression cards -->
+        </div>
+
+        <div class="ladder-actions">
+          <button id="btn-fight-next" class="gladiator-btn pulse">⚔️ BATTLE NEXT DINOSAUR ▶</button>
+          <button id="btn-ladder-home" class="roster-toggle-btn">🏠 QUIT TO TOPIC MENU</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Comprehensive Scoreboard & Skill Badge Modal -->
+    <div id="quiz-scoreboard-overlay" class="overlay hidden">
+      <div class="overlay-modal scoreboard-modal">
+        <div class="scoreboard-header">
+          <div class="outcome-icon" id="scoreboard-outcome-icon">🏆</div>
+          <h1 class="scoreboard-title" id="scoreboard-outcome-title">COLOSSEUM BATTLE REPORT</h1>
+          <p class="scoreboard-subtitle" id="scoreboard-outcome-subtitle">CODING ASSESSMENT & JURASSIC SURVIVAL METRICS</p>
+        </div>
+
+        <!-- Skill Rank Badge Award -->
+        <div class="skill-badge-card" id="skill-badge-card">
+          <div class="skill-badge-tier-tag" id="skill-badge-tier">SENIOR PRO</div>
+          <h2 class="skill-badge-name" id="skill-badge-name">🥇 SENIOR SOFTWARE ENGINEER</h2>
+          <p class="skill-badge-desc" id="skill-badge-desc">Deep technical competence and fast analytical problem solving.</p>
+        </div>
+
+        <!-- Metrics Grid -->
+        <div class="scoreboard-metrics-grid">
+          <div class="metric-card">
+            <span class="metric-val" id="score-accuracy">85%</span>
+            <span class="metric-lbl">ACCURACY</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-val" id="score-correct-wrong">12 / 2</span>
+            <span class="metric-lbl">RIGHT / WRONG</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-val" id="score-stages">STAGE 5</span>
+            <span class="metric-lbl">BOSSES REACHED</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-val" id="score-speed">8.4s</span>
+            <span class="metric-lbl">AVG ANSWER TIME</span>
+          </div>
+        </div>
+
+        <!-- Review Missed Questions Section -->
+        <div class="review-questions-section" id="review-questions-section">
+          <div class="review-section-title">
+            <span>📝 REVIEW MISSED QUESTIONS & EXPLANATIONS</span>
+            <span class="review-count-badge" id="review-count-badge">2 Questions</span>
+          </div>
+          <div class="missed-questions-scroll" id="missed-questions-container">
+            <!-- Dynamically populated with missed questions and detailed technical explanations -->
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="scoreboard-action-buttons">
+          <button id="btn-score-retry" class="gladiator-btn pulse">🔄 RETRY TOURNAMENT</button>
+          <button id="btn-score-topic" class="roster-toggle-btn">📚 SELECT DIFFERENT TOPIC</button>
+          <button id="btn-score-home" class="roster-toggle-btn">🏠 MAIN MENU</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3, 2, 1, READY, FIGHT! Countdown Overlay -->
+    <div id="countdown-overlay" class="countdown-overlay hidden">
+      <div class="countdown-backdrop"></div>
+      <div class="countdown-content">
+        <div class="countdown-arena-badge" id="countdown-arena-badge">
+          <span class="countdown-arena-icon" id="countdown-arena-icon">🌋</span>
+          <div class="countdown-arena-text">
+            <span class="countdown-arena-label">ARENA BIOME</span>
+            <span class="countdown-arena-name" id="countdown-arena-name">VOLCANIC CALDERA</span>
+          </div>
+        </div>
+        <div class="countdown-round-tag" id="countdown-round-tag">STAGE 1: VELOCIRAPTOR</div>
+        <div class="countdown-number-wrapper">
+          <div class="countdown-number" id="countdown-number">3</div>
+        </div>
+        <div class="countdown-tip" id="countdown-tip">ANSWER CODING QUESTIONS TO STRIKE THE DINOSAUR!</div>
+      </div>
+    </div>
+
+    <!-- AI Question Engine Login & Settings Modal (Google Gemini + xAI Grok) - SUPREME TOP LEVEL -->
+    <div id="grok-modal-overlay" class="overlay hidden">
+      <div class="overlay-modal grok-modal">
+        <div class="grok-modal-header">
+          <div class="grok-badge-icon">✨</div>
+          <div class="grok-header-text">
+            <h2 class="modal-title">AI QUESTION ENGINE CONNECT</h2>
+            <p class="modal-subtitle">GOOGLE GEMINI & xAI GROK INTELLIGENCE</p>
+          </div>
+          <button id="btn-close-grok-modal" class="modal-close-btn" aria-label="Close AI Modal">✕</button>
+        </div>
+
+        <div class="grok-content-body">
+          <div class="grok-info-card">
+            <p>Connect your <strong>Google Gemini</strong> or <strong>xAI Grok</strong> account to generate real-time AI questions tailored to your chosen subjects, difficulty, and dinosaur arena stages!</p>
+          </div>
+
+          <!-- Provider Selector Tabs -->
+          <div class="ai-provider-tabs-row" id="ai-provider-tabs">
+            <button type="button" class="ai-tab-btn active" id="tab-gemini" data-provider="gemini">
+              <span>✨ Google Gemini</span> <span class="provider-subtag">FREE / FAST</span>
+            </button>
+            <button type="button" class="ai-tab-btn" id="tab-xai" data-provider="xai">
+              <span>⚡ xAI Grok</span> <span class="provider-subtag">GROK-2</span>
+            </button>
+          </div>
+
+          <!-- Enable AI Toggle Switch -->
+          <div class="grok-setting-row">
+            <div class="setting-label-col">
+              <span class="setting-main-label">⚡ Enable AI Question Engine</span>
+              <span class="setting-sub-label">Generate questions live via AI during match</span>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="grok-enable-toggle" checked>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+
+          <!-- Demo / Instant Mode Toggle -->
+          <div class="grok-setting-row">
+            <div class="setting-label-col">
+              <span class="setting-main-label">🧪 Instant AI Engine (Demo Mode)</span>
+              <span class="setting-sub-label">Simulate AI questions offline without requiring an API key</span>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="grok-demo-toggle">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+
+          <!-- SECTION: GOOGLE GEMINI SETTINGS -->
+          <div id="ai-section-gemini" class="ai-provider-section">
+            <div class="grok-key-helper-card gemini-helper-card">
+              <div class="helper-text">
+                <strong>Need a Google Gemini API Key?</strong>
+                <span>Get a free API key instantly in Google AI Studio:</span>
+              </div>
+              <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer" class="grok-console-btn gemini-btn">
+                ✨ Open Google AI Studio (aistudio.google.com) ↗
+              </a>
+            </div>
+
+            <div class="grok-form-group">
+              <label for="gemini-api-key" class="form-label">
+                <span>Google Gemini API Key</span>
+                <span class="key-security-tag">🔒 Saved in Browser</span>
+              </label>
+              <div class="key-input-wrapper">
+                <input type="password" id="gemini-api-key" class="grok-input" placeholder="AIzaSy..." autocomplete="off" spellcheck="false">
+                <button id="btn-toggle-gemini-key-visibility" class="key-visibility-btn" type="button" title="Show/Hide Key">👁️</button>
+              </div>
+              <span class="form-hint">Direct link to key dashboard: <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer">https://aistudio.google.com/app/apikey</a></span>
+            </div>
+
+            <div class="grok-form-group">
+              <label for="gemini-model-select" class="form-label">Gemini Model</label>
+              <select id="gemini-model-select" class="grok-select">
+                <option value="gemini-1.5-flash">gemini-1.5-flash (Ultrafast, Low Latency - Recommended)</option>
+                <option value="gemini-2.0-flash">gemini-2.0-flash (Next-Gen Flash Engine)</option>
+                <option value="gemini-1.5-pro">gemini-1.5-pro (Deep Reasoning & STEM)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- SECTION: xAI GROK SETTINGS -->
+          <div id="ai-section-xai" class="ai-provider-section hidden">
+            <div class="grok-key-helper-card">
+              <div class="helper-text">
+                <strong>Need an xAI Grok API Key?</strong>
+                <span>Generate your API key on the official xAI Console:</span>
+              </div>
+              <a href="https://console.x.ai/" target="_blank" rel="noopener noreferrer" class="grok-console-btn">
+                🔑 Open console.x.ai to Get Grok Key ↗
+              </a>
+            </div>
+
+            <div class="grok-form-group">
+              <label for="grok-api-key" class="form-label">
+                <span>xAI Grok API Key</span>
+                <span class="key-security-tag">🔒 Saved in Browser</span>
+              </label>
+              <div class="key-input-wrapper">
+                <input type="password" id="grok-api-key" class="grok-input" placeholder="xai-..." autocomplete="off" spellcheck="false">
+                <button id="btn-toggle-key-visibility" class="key-visibility-btn" type="button" title="Show/Hide Key">👁️</button>
+              </div>
+              <span class="form-hint">Direct link to key dashboard: <a href="https://console.x.ai/" target="_blank" rel="noopener noreferrer">https://console.x.ai/</a></span>
+            </div>
+
+            <div class="grok-form-group">
+              <label for="grok-model-select" class="form-label">Grok AI Model</label>
+              <select id="grok-model-select" class="grok-select">
+                <option value="grok-2-latest">grok-2-latest (Fastest, High Reasoning & Code)</option>
+                <option value="grok-beta">grok-beta (Standard xAI Beta)</option>
+                <option value="grok-2">grok-2 (Full Reasoning Model)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Connection Test Feedback -->
+          <div id="grok-test-status" class="grok-test-status-box hidden">
+            <span class="test-icon" id="grok-test-icon">⏳</span>
+            <span class="test-msg" id="grok-test-msg">Testing connection...</span>
+          </div>
+
+          <div class="grok-modal-actions">
+            <button id="btn-test-grok-conn" class="roster-toggle-btn">📡 TEST GEMINI API CONNECTION</button>
+            <button id="btn-save-grok-config" class="gladiator-btn pulse">✓ SAVE & ACTIVATE GEMINI</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>

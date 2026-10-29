@@ -1,0 +1,1502 @@
+[
+  {
+    "id": "lang_001",
+    "topic": "languages_oop",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "What are the four fundamental pillars of Object-Oriented Programming (OOP)?",
+    "options": [
+      "Encapsulation, Abstraction, Inheritance, Polymorphism",
+      "Compilation, Execution, Linking, Loading",
+      "Variables, Loops, Functions, Classes",
+      "Model, View, Controller, Router"
+    ],
+    "correct": 0,
+    "explanation": "The four core pillars of OOP are Encapsulation (bundling data and methods), Abstraction (hiding details), Inheritance (reusability), and Polymorphism (many forms)."
+  },
+  {
+    "id": "lang_002",
+    "topic": "languages_oop",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "What does the 'L' stand for in the SOLID design principles?",
+    "options": [
+      "Liskov Substitution Principle",
+      "Late Binding Principle",
+      "Linear Dependency Principle",
+      "Lazy Initialization Principle"
+    ],
+    "correct": 0,
+    "explanation": "The Liskov Substitution Principle states that objects of a superclass should be replaceable with objects of its subclasses without breaking program correctness."
+  },
+  {
+    "id": "lang_003",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What does the Open/Closed Principle (the 'O' in SOLID) dictate?",
+    "options": [
+      "Software entities (classes, modules) should be open for extension, but closed for modification",
+      "Files should be closed immediately after opening",
+      "Methods must be public by default",
+      "Databases must be open source"
+    ],
+    "correct": 0,
+    "explanation": "Open/Closed encourages designing software where new behavior is added via new classes or plugins rather than altering tested existing code."
+  },
+  {
+    "id": "lang_004",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What design pattern ensures a class has only one instance while providing a global point of access to it?",
+    "options": [
+      "Singleton Pattern",
+      "Factory Pattern",
+      "Observer Pattern",
+      "Prototype Pattern"
+    ],
+    "correct": 0,
+    "explanation": "Singleton restricts class instantiation to a single object, commonly used for thread pools, logging instances, and configuration caches."
+  },
+  {
+    "id": "lang_005",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What design pattern defines a one-to-many dependency between objects so that when one object changes state, all its dependents are notified automatically?",
+    "options": [
+      "Observer Pattern",
+      "Strategy Pattern",
+      "Decorator Pattern",
+      "Facade Pattern"
+    ],
+    "correct": 0,
+    "explanation": "The Observer pattern is the backbone of event-driven architectures, pub/sub messaging, and UI event binding systems."
+  },
+  {
+    "id": "lang_006",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What design pattern attaches additional responsibilities to an object dynamically without modifying its underlying class or using subclassing?",
+    "options": [
+      "Decorator Pattern",
+      "Adapter Pattern",
+      "Proxy Pattern",
+      "Composite Pattern"
+    ],
+    "correct": 0,
+    "explanation": "Decorator wraps an object inside an enclosing decorator object that conforms to the same interface, extending behavior at runtime."
+  },
+  {
+    "id": "lang_007",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What design pattern converts the interface of an existing class into another interface that clients expect, allowing incompatible classes to work together?",
+    "options": [
+      "Adapter Pattern",
+      "Bridge Pattern",
+      "Builder Pattern",
+      "Flyweight Pattern"
+    ],
+    "correct": 0,
+    "explanation": "The Adapter pattern acts as a wrapper/converter between two incompatible interfaces, just like an AC power plug adapter."
+  },
+  {
+    "id": "lang_008",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is the difference between Method Overloading and Method Overriding?",
+    "options": [
+      "Overloading has same method name with different parameters in same class (compile-time); Overriding provides a new implementation of a superclass method in a subclass (runtime)",
+      "Overriding happens at compile-time; Overloading happens at runtime",
+      "Overloading requires the 'virtual' keyword in Java",
+      "They are identical in Python and C++"
+    ],
+    "correct": 0,
+    "explanation": "Overloading provides multiple signatures for one method name at compile time. Overriding replaces a parent class method dynamically at runtime."
+  },
+  {
+    "id": "lang_009",
+    "topic": "languages_oop",
+    "difficulty": "hard",
+    "type": "single",
+    "question": "In C++ and Java, how does the runtime engine determine which overridden method to call when invoked on a polymorphic base reference?",
+    "options": [
+      "Through a Virtual Method Table (vtable) and virtual pointer (vptr) lookup",
+      "By checking compiler debug symbols",
+      "By scanning the source code file at runtime",
+      "Using string comparisons on method names"
+    ],
+    "correct": 0,
+    "explanation": "Compilers generate a vtable containing function pointers for each class with virtual methods; objects store a hidden vptr pointing to their class vtable."
+  },
+  {
+    "id": "lang_010",
+    "topic": "languages_oop",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "Why is 'Composition over Inheritance' widely recommended in modern software engineering?",
+    "options": [
+      "Composition provides greater flexibility by combining loosely-coupled components at runtime, avoiding fragile base class hierarchies",
+      "Inheritance is banned in modern compilers",
+      "Composition uses zero memory",
+      "Inheritance cannot reuse code"
+    ],
+    "correct": 0,
+    "explanation": "Deep inheritance hierarchies create tight coupling ('is-a'); composition ('has-a') allows dynamic behavior swapping without breaking parent classes."
+  },
+  {
+    "id": "lang_011",
+    "topic": "languages_oop",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "What is the Global Interpreter Lock (GIL) in CPython?",
+    "options": [
+      "A mutex that prevents multiple native threads from executing Python bytecode simultaneously on multiple CPU cores",
+      "A security firewall for Python scripts",
+      "A tool that prevents importing third-party libraries",
+      "A compiler optimization for loops"
+    ],
+    "correct": 0,
+    "explanation": "CPython's GIL simplifies memory management by ensuring only one thread executes Python bytecode at a time, making CPU-bound multi-threading non-parallel."
+  },
+  {
+    "id": "lang_012",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "How do you achieve true CPU-parallel execution across multi-core processors in Python?",
+    "options": [
+      "Using the `multiprocessing` module (or concurrent.futures.ProcessPoolExecutor) to spawn separate processes with independent memory spaces",
+      "Using standard `threading.Thread` with 100 threads",
+      "Setting `sys.setcheckinterval(0)`",
+      "Compiling Python with gcc -O3"
+    ],
+    "correct": 0,
+    "explanation": "Separate OS processes each have their own independent Python interpreter and GIL, achieving genuine multi-core CPU parallelism."
+  },
+  {
+    "id": "lang_013",
+    "topic": "languages_oop",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "What does the `yield` keyword do when used inside a Python function?",
+    "options": [
+      "Turns the function into a Generator that yields values lazily one at a time, pausing execution state between calls",
+      "Terminates the program immediately",
+      "Raises a runtime exception",
+      "Creates a background daemon thread"
+    ],
+    "correct": 0,
+    "explanation": "yield produces an iterator generator that computes values on demand, saving memory when processing massive sequences or streams."
+  },
+  {
+    "id": "lang_014",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What happens when you define a mutable default argument in Python like `def append_to(item, target_list=[]):`?",
+    "options": [
+      "The default list is created once at function definition time and shared across all subsequent invocations, causing unexpected accumulation",
+      "Python throws a SyntaxError",
+      "A fresh empty list is created every time the function is called",
+      "The list is deleted after the function returns"
+    ],
+    "correct": 0,
+    "explanation": "Default parameter expressions are evaluated once when the function is defined. The idiomatic fix is `def append_to(item, target_list=None):`."
+  },
+  {
+    "id": "lang_015",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "In Python, what is the difference between `==` and `is`?",
+    "options": [
+      "`==` compares value equality (calling `__eq__`); `is` compares identity (checks if both variables reference the exact same object in memory via id())",
+      "`is` compares values; `==` compares memory addresses",
+      "They are identical aliases in Python 3",
+      "`is` only works on strings"
+    ],
+    "correct": 0,
+    "explanation": "a == b checks if the values are equal; a is b checks if id(a) == id(b) (e.g. testing for singletons like `val is None`)."
+  },
+  {
+    "id": "lang_016",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What pair of magic dunder methods must a Python class implement to support the context manager protocol (`with` statement)?",
+    "options": [
+      "`__enter__` and `__exit__`",
+      "`__open__` and `__close__`",
+      "`__start__` and `__stop__`",
+      "`__init__` and `__del__`"
+    ],
+    "correct": 0,
+    "explanation": "The `with` statement calls `__enter__` on entry and guarantees `__exit__` is executed on exit, ensuring reliable resource cleanup (files, locks)."
+  },
+  {
+    "id": "lang_017",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What does the `@functools.wraps(func)` decorator do when authoring custom Python decorators?",
+    "options": [
+      "Preserves the original function's metadata (such as name, docstring, and annotations) on the wrapper function",
+      "Compiles the function to C code",
+      "Executes the function inside a try/except block",
+      "Converts the function to asynchronous async/await"
+    ],
+    "correct": 0,
+    "explanation": "Without @wraps, decorated functions lose their original __name__ and __doc__, displaying 'wrapper' when inspected."
+  },
+  {
+    "id": "lang_018",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "How does CPython's primary memory management and garbage collection work?",
+    "options": [
+      "Reference counting for immediate deallocation, supplemented by a cyclic generational garbage collector to detect circular reference leaks",
+      "Stop-the-world tracing garbage collection only",
+      "Manual free() calls required by developers",
+      "Mark-and-sweep every 10 seconds"
+    ],
+    "correct": 0,
+    "explanation": "Objects are freed immediately when their reference count reaches zero; generational GC runs periodically to collect isolated circular reference graphs."
+  },
+  {
+    "id": "lang_019",
+    "topic": "languages_oop",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "What is the output of this Python list comprehension: `[x**2 for x in range(5) if x % 2 == 1]`?",
+    "options": [
+      "[1, 9]",
+      "[0, 4, 16]",
+      "[1, 4, 9]",
+      "[1, 3]"
+    ],
+    "correct": 0,
+    "explanation": "Odd numbers in range(5) are 1 and 3. Their squares are 1^2 = 1 and 3^2 = 9, yielding [1, 9]."
+  },
+  {
+    "id": "lang_020",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is the difference between `__str__` and `__repr__` in Python?",
+    "options": [
+      "`__str__` returns a readable string for end users; `__repr__` returns an unambiguous representation ideally evaluable by `eval()` for developers",
+      "`__repr__` is for users; `__str__` is for debugging",
+      "`__str__` only works on numbers",
+      "There is no difference in Python 3"
+    ],
+    "correct": 0,
+    "explanation": "str(obj) calls __str__ for human-friendly formatting; repr(obj) produces an exact developer representation used in REPL and logging."
+  },
+  {
+    "id": "lang_021",
+    "topic": "languages_oop",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "What is the relationship between `equals()` and `hashCode()` in Java?",
+    "options": [
+      "If two objects are equal according to `equals()`, they MUST produce the exact same integer `hashCode()`",
+      "Objects with the same hashCode must always be equal according to equals()",
+      "hashCode is only used for sorting arrays",
+      "equals() cannot be overridden in Java"
+    ],
+    "correct": 0,
+    "explanation": "The Java contract requires that equal objects have identical hash codes so hash-based collections (HashMap, HashSet) can locate buckets accurately."
+  },
+  {
+    "id": "lang_022",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What does the `volatile` keyword guarantee in Java multi-threading?",
+    "options": [
+      "Guarantees memory visibility (all threads read the latest value directly from main memory) and prevents instruction reordering",
+      "Guarantees atomic increments (count++)",
+      "Acquires an exclusive reentrant lock on the variable",
+      "Prevents the variable from ever being modified"
+    ],
+    "correct": 0,
+    "explanation": "volatile ensures writes to a variable are immediately visible to all other threads by bypassing CPU cache registers, but does not provide compound atomicity."
+  },
+  {
+    "id": "lang_023",
+    "topic": "languages_oop",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "What is the difference between `final`, `finally`, and `finalize` in Java?",
+    "options": [
+      "`final` defines constants or non-overridable classes/methods; `finally` is a cleanup block in try/catch; `finalize` is a deprecated cleanup method on Object",
+      "`finally` creates constants; `final` handles errors",
+      "They are synonymous keywords in Java 21",
+      "`finalize` runs on every function return"
+    ],
+    "correct": 0,
+    "explanation": "final is an access modifier; finally guarantees execution after try/catch; finalize was an old GC hook deprecated since Java 9."
+  },
+  {
+    "id": "lang_024",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is Type Erasure in Java Generics?",
+    "options": [
+      "The compiler removes all generic type parameters at compile-time, replacing them with raw types (or bounds) and inserting casts in bytecode",
+      "Deletes variable names from source code",
+      "A security vulnerability in Java 8",
+      "Converts objects to primitive types at runtime"
+    ],
+    "correct": 0,
+    "explanation": "Java maintained backwards compatibility with pre-generic bytecode by erasing generic types (e.g. List<String> becomes raw List at runtime)."
+  },
+  {
+    "id": "lang_025",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is the key internal difference between `ArrayList` and `LinkedList` in Java?",
+    "options": [
+      "`ArrayList` uses a dynamically resizing contiguous array with O(1) random access; `LinkedList` uses a doubly-linked list with O(n) random access",
+      "`LinkedList` has faster random indexing than `ArrayList`",
+      "`ArrayList` cannot contain duplicate values",
+      "`LinkedList` requires zero memory"
+    ],
+    "correct": 0,
+    "explanation": "ArrayList provides O(1) indexing and excellent CPU cache locality; LinkedList allocates separate node objects, hurting cache performance."
+  },
+  {
+    "id": "lang_026",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "Why does `ConcurrentHashMap` scale better than `Collections.synchronizedMap()` in multi-threaded Java applications?",
+    "options": [
+      "`ConcurrentHashMap` uses bucket-level lock striping and lock-free CAS reads; `synchronizedMap` locks the entire map on every single operation",
+      "`ConcurrentHashMap` runs on GPU threads",
+      "`ConcurrentHashMap` converts all data to strings",
+      "`synchronizedMap` is not thread-safe"
+    ],
+    "correct": 0,
+    "explanation": "ConcurrentHashMap locks only individual bucket tree nodes on writes and allows concurrent lock-free reads, eliminating global lock contention."
+  },
+  {
+    "id": "lang_027",
+    "topic": "languages_oop",
+    "difficulty": "hard",
+    "type": "single",
+    "question": "What are Java Virtual Threads (introduced in Project Loom / Java 21)?",
+    "options": [
+      "Lightweight user-mode threads managed by the JVM rather than 1:1 OS threads, enabling millions of concurrent threads with minimal memory",
+      "Threads that run on cloud servers remotely",
+      "Simulated threads in IDE unit tests",
+      "Threads that cannot perform network I/O"
+    ],
+    "correct": 0,
+    "explanation": "Virtual threads mount onto carrier OS threads during execution and unmount when blocking on I/O, drastically simplifying high-throughput concurrency."
+  },
+  {
+    "id": "lang_028",
+    "topic": "languages_oop",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "What is the difference between Checked and Unchecked exceptions in Java?",
+    "options": [
+      "Checked exceptions (subclasses of Exception) must be declared in throws or caught; Unchecked (subclasses of RuntimeException) do not require explicit handling",
+      "Unchecked exceptions are fatal hardware crashes",
+      "Checked exceptions only occur at compile-time",
+      "There are no unchecked exceptions in Java"
+    ],
+    "correct": 0,
+    "explanation": "Checked exceptions enforce error handling at compile-time (e.g. IOException, SQLException); RuntimeExceptions (e.g. NullPointerException) are unchecked."
+  },
+  {
+    "id": "lang_029",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What Java memory area stores class metadata, static fields, and method bytecode since Java 8?",
+    "options": [
+      "Metaspace (native memory)",
+      "PermGen",
+      "Eden Space",
+      "Stack Memory"
+    ],
+    "correct": 0,
+    "explanation": "Java 8 replaced the fixed-size PermGen space with Metaspace, which allocates class metadata dynamically from native OS memory."
+  },
+  {
+    "id": "lang_030",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is the default garbage collector in modern OpenJDK (Java 11 through Java 21)?",
+    "options": [
+      "Garbage-First Garbage Collector (G1 GC)",
+      "Serial GC",
+      "Parallel GC",
+      "ZGC (Z Garbage Collector)"
+    ],
+    "correct": 0,
+    "explanation": "G1 GC has been the default collector since Java 9, balancing high throughput with low pause times across partitioned heap regions."
+  },
+  {
+    "id": "lang_031",
+    "topic": "languages_oop",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "What does the RAII (Resource Acquisition Is Initialization) idiom mean in C++?",
+    "options": [
+      "Resource lifecycle is tied to object lifetime: resources are acquired in the constructor and released automatically in the destructor upon scope exit",
+      "Allocating all memory globally before main()",
+      "Initializing variables to zero",
+      "A compiler optimization flag"
+    ],
+    "correct": 0,
+    "explanation": "RAII ensures exception-safe deterministic resource cleanup: when an object goes out of scope, its destructor runs and releases sockets, files, or memory."
+  },
+  {
+    "id": "lang_032",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is the difference between `std::unique_ptr` and `std::shared_ptr` in modern C++?",
+    "options": [
+      "`std::unique_ptr` enforces exclusive, non-copyable ownership of a dynamic resource; `std::shared_ptr` maintains reference counting for shared ownership",
+      "`std::unique_ptr` uses reference counting; `std::shared_ptr` does not",
+      "`std::unique_ptr` can be shared across multiple threads freely",
+      "Both are raw C pointers"
+    ],
+    "correct": 0,
+    "explanation": "std::unique_ptr has zero runtime overhead (can only be moved, not copied). std::shared_ptr has atomic reference counting overhead."
+  },
+  {
+    "id": "lang_033",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What problem does `std::weak_ptr` solve in C++?",
+    "options": [
+      "Breaks cyclic reference memory leaks between `std::shared_ptr` instances by holding a non-owning weak observer reference",
+      "Allocates memory on the stack instead of heap",
+      "Speeds up pointer dereferencing",
+      "Deletes dangling raw pointers automatically"
+    ],
+    "correct": 0,
+    "explanation": "If two objects hold shared_ptr to each other, their ref counts never hit zero. Replacing one with weak_ptr breaks the cycle, allowing cleanup."
+  },
+  {
+    "id": "lang_034",
+    "topic": "languages_oop",
+    "difficulty": "hard",
+    "type": "single",
+    "question": "What does `std::move` actually do in C++?",
+    "options": [
+      "Unconditionally casts an expression into an rvalue reference (T&&), enabling move constructors to steal internal resources without deep copying",
+      "Physically moves memory bytes in RAM",
+      "Copies memory to GPU",
+      "Deletes the original object immediately"
+    ],
+    "correct": 0,
+    "explanation": "std::move does no runtime copying or moving itself; it is purely a compile-time static_cast to an rvalue reference so a move constructor can take ownership."
+  },
+  {
+    "id": "lang_035",
+    "topic": "languages_oop",
+    "difficulty": "hard",
+    "type": "single",
+    "question": "What is the C++ 'Rule of Five'?",
+    "options": [
+      "If a class explicitly manages resources and declares one of destructor, copy constructor, copy assignment, move constructor, or move assignment, it should declare all five",
+      "Code reviews must have 5 reviewers",
+      "Functions can only take 5 parameters",
+      "Variables must be at least 5 characters long"
+    ],
+    "correct": 0,
+    "explanation": "The Rule of Five ensures correct copy/move semantics and prevents double-free errors when managing raw resource pointers in C++."
+  },
+  {
+    "id": "lang_036",
+    "topic": "languages_oop",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "What is the difference between a pointer and a reference in C++?",
+    "options": [
+      "A pointer holds a memory address and can be reassigned or null; a reference is an alias to an existing object and cannot be null or reseated",
+      "References can be null; pointers cannot",
+      "Pointers require no memory address",
+      "There is no difference in C++"
+    ],
+    "correct": 0,
+    "explanation": "References must be initialized on declaration and bind permanently to their target object; pointers are variables holding addresses."
+  },
+  {
+    "id": "lang_037",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "Why must a base class in C++ have a `virtual` destructor if derived classes are deleted through base pointers?",
+    "options": [
+      "To ensure the derived class destructor is called, preventing resource leaks and undefined behavior",
+      "To make the base class abstract",
+      "To prevent inheritance",
+      "Destructors in C++ cannot be virtual"
+    ],
+    "correct": 0,
+    "explanation": "Deleting a derived object through a base pointer with a non-virtual destructor only runs the base destructor, leaking derived class resources."
+  },
+  {
+    "id": "lang_038",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is 'Undefined Behavior' (UB) in C and C++?",
+    "options": [
+      "Code for which the language standard imposes no requirements; the compiler is free to crash, optimize away code, or corrupt memory",
+      "A compiler error that prevents binary generation",
+      "A runtime warning printed to stderr",
+      "A feature that behaves identically on all CPUs"
+    ],
+    "correct": 0,
+    "explanation": "UB (like reading uninitialized memory, dereferencing null, signed integer overflow) allows compilers to assume it never happens, leading to drastic optimizations."
+  },
+  {
+    "id": "lang_039",
+    "topic": "languages_oop",
+    "difficulty": "hard",
+    "type": "single",
+    "question": "What are C++20 Concepts?",
+    "options": [
+      "Named compile-time predicates that constrain template arguments and produce clear, human-readable compiler error messages",
+      "Documentation comments in header files",
+      "AI-assisted programming tools",
+      "Abstract base classes with virtual methods"
+    ],
+    "correct": 0,
+    "explanation": "Concepts constrain template types (e.g. template<std::integral T>) at compile time, eliminating cryptic template substitution failure cascades."
+  },
+  {
+    "id": "lang_040",
+    "topic": "languages_oop",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "What is the purpose of header guards (`#ifndef HEADER_H ... #endif` or `#pragma once`) in C/C++?",
+    "options": [
+      "Prevents double inclusion of the same header file within a single compilation translation unit",
+      "Encrypts header files from unauthorized access",
+      "Speeds up network downloads",
+      "Enables multithreading"
+    ],
+    "correct": 0,
+    "explanation": "Header guards ensure class definitions and prototypes are not parsed multiple times in the same file, avoiding redefinition errors."
+  },
+  {
+    "id": "lang_041",
+    "topic": "languages_oop",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "What is a Goroutine in Go, and how does its initial stack size compare to an OS thread?",
+    "options": [
+      "A lightweight user-space green thread managed by the Go runtime scheduler, starting with only ~2KB of stack memory",
+      "An OS thread with 8MB stack",
+      "A separate Linux process",
+      "A virtual machine instance"
+    ],
+    "correct": 0,
+    "explanation": "Goroutines start at ~2KB of resizable stack memory compared to typical 1-8MB OS threads, allowing tens of thousands to run concurrently."
+  },
+  {
+    "id": "lang_042",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "In Go, what is the difference between an unbuffered channel and a buffered channel?",
+    "options": [
+      "An unbuffered channel blocks until both sender and receiver are ready (synchronous handshake); a buffered channel allows sends up to buffer capacity without blocking",
+      "Buffered channels block on every send",
+      "Unbuffered channels can only send integers",
+      "Buffered channels do not support closes"
+    ],
+    "correct": 0,
+    "explanation": "ch := make(chan int) requires sender and receiver to synchronize at the same instant; make(chan int, 5) accepts 5 items before blocking."
+  },
+  {
+    "id": "lang_043",
+    "topic": "languages_oop",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "In Go, in what order do multiple `defer` statements execute when their enclosing function returns?",
+    "options": [
+      "Last-In, First-Out (LIFO / reverse order)",
+      "First-In, First-Out (FIFO)",
+      "Random order",
+      "Simultaneously on background threads"
+    ],
+    "correct": 0,
+    "explanation": "Deferred calls are pushed onto a stack and executed in LIFO order right before the enclosing function returns."
+  },
+  {
+    "id": "lang_044",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What are the three internal header fields that constitute a Go Slice?",
+    "options": [
+      "A pointer to the backing array, length (len), and capacity (cap)",
+      "A hash code, head pointer, tail pointer",
+      "An array of pointers, size, mutex",
+      "A reference count, type descriptor, buffer"
+    ],
+    "correct": 0,
+    "explanation": "A slice header is a 24-byte struct (on 64-bit systems) containing { Data unsafe.Pointer, Len int, Cap int }."
+  },
+  {
+    "id": "lang_045",
+    "topic": "languages_oop",
+    "difficulty": "hard",
+    "type": "single",
+    "question": "In Go, why is an interface value containing a nil concrete pointer NOT equal to `nil` (`var p *MyStruct = nil; var i MyInterface = p; i == nil` evaluates to false)?",
+    "options": [
+      "An interface value is represented internally as a tuple of (type, value); it is only nil if BOTH its concrete type and value are nil",
+      "Because pointers cannot be nil in Go",
+      "Because the Go compiler has a bug",
+      "Because interfaces allocate 100 bytes of memory"
+    ],
+    "correct": 0,
+    "explanation": "An interface is nil only when its type descriptor and data pointer are both null. Here the type is *MyStruct, so i != nil."
+  },
+  {
+    "id": "lang_046",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What synchronization primitive in Go's `sync` package waits for a collection of goroutines to finish executing?",
+    "options": [
+      "sync.WaitGroup (Add, Done, Wait)",
+      "sync.Mutex",
+      "sync.Once",
+      "sync.Cond"
+    ],
+    "correct": 0,
+    "explanation": "sync.WaitGroup tracks worker counters: Add(n) sets the count, Done() decrements it, and Wait() blocks until the counter reaches zero."
+  },
+  {
+    "id": "lang_047",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "How does Go achieve polymorphism without explicit class inheritance keywords (`extends` or `implements`)?",
+    "options": [
+      "Implicit structural subtyping (Duck Typing): any type that implements all methods declared in an interface automatically implements that interface",
+      "Via runtime reflection only",
+      "Using virtual inheritance tables in C++ style",
+      "Go does not support polymorphism"
+    ],
+    "correct": 0,
+    "explanation": "In Go, types implement interfaces automatically simply by defining matching methods, eliminating tight coupling and explicit declarations."
+  },
+  {
+    "id": "lang_048",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What happens when a goroutine sends a value to a closed channel in Go?",
+    "options": [
+      "It triggers a runtime panic",
+      "The value is silently discarded",
+      "The channel reopens automatically",
+      "The goroutine blocks indefinitely"
+    ],
+    "correct": 0,
+    "explanation": "Sending on a closed channel causes an immediate panic. Receiving from a closed channel yields the zero value and false."
+  },
+  {
+    "id": "lang_049",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is the standard Go idiom for functions that can fail?",
+    "options": [
+      "Return the result along with an `error` interface value as the last return value: `val, err := doSomething()`",
+      "Throw checked exceptions with try/catch",
+      "Set global errno variable",
+      "Terminate the program with os.Exit"
+    ],
+    "correct": 0,
+    "explanation": "Go favors explicit error handling: functions return `(Result, error)`, and callers check `if err != nil` immediately."
+  },
+  {
+    "id": "lang_050",
+    "topic": "languages_oop",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "What does the `go` keyword do when placed before a function call in Go: `go doWork()`?",
+    "options": [
+      "Launches the function execution concurrently in a new lightweight goroutine",
+      "Forces synchronous execution on the main thread",
+      "Runs the function inside Docker",
+      "Benchmarks the function execution time"
+    ],
+    "correct": 0,
+    "explanation": "The `go` statement initiates concurrent execution in a goroutine scheduled by Go's runtime M:N scheduler."
+  },
+  {
+    "id": "lang_051",
+    "topic": "languages_oop",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "Which programming language is statically typed and compiles directly to native machine code without requiring a virtual machine or JIT?",
+    "options": [
+      "C++ (and Go/Rust)",
+      "Python",
+      "JavaScript",
+      "Java bytecode"
+    ],
+    "correct": 0,
+    "explanation": "C++, Go, and Rust compile ahead-of-time directly to native machine assembly for the target CPU architecture."
+  },
+  {
+    "id": "lang_052",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is the difference between Static Typing and Dynamic Typing?",
+    "options": [
+      "Static typing checks and enforces variable types at compile-time; Dynamic typing associates types with values at runtime",
+      "Static typing only supports numbers; Dynamic supports strings",
+      "Dynamic typing runs faster than static typing",
+      "There is no difference"
+    ],
+    "correct": 0,
+    "explanation": "Statically typed languages (Java, C++, Go) catch type errors during compilation; dynamically typed languages (Python, JS) check types at runtime."
+  },
+  {
+    "id": "lang_053",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is the difference between Strongly Typed and Weakly Typed languages?",
+    "options": [
+      "Strongly typed languages prevent implicit unintended type coercion (e.g. Python rejects '2' + 2); Weakly typed languages perform implicit conversions (e.g. JS '2' + 2 = '22')",
+      "Strongly typed languages require more RAM",
+      "Weakly typed languages cannot use functions",
+      "They are identical terms"
+    ],
+    "correct": 0,
+    "explanation": "Strong typing strictly preserves type boundaries without automatic silent casting; weak typing freely coerces types behind the scenes."
+  },
+  {
+    "id": "lang_054",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is Memory Alignment and Structure Padding in C and C++?",
+    "options": [
+      "CPUs read memory more efficiently at addresses that are multiples of word sizes (e.g. 4 or 8 bytes), so compilers insert empty padding bytes inside structs",
+      "Aligning text in console printouts",
+      "Encrypting memory blocks",
+      "A garbage collection algorithm"
+    ],
+    "correct": 0,
+    "explanation": "Structure padding aligns members to their natural boundaries, meaning struct { char a; int b; } occupies 8 bytes rather than 5 bytes."
+  },
+  {
+    "id": "lang_055",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is the Diamond Problem in multiple class inheritance, and how does C++ resolve it?",
+    "options": [
+      "A class inherits from two classes that both inherit from the same base, creating duplicate base copies; resolved using `virtual` inheritance",
+      "A memory leak in 4-way linked lists",
+      "A syntax error when naming classes after jewels",
+      "A deadlock in graphics rendering"
+    ],
+    "correct": 0,
+    "explanation": "In C++, declaring `class B : virtual public A` ensures only a single shared instance of base class A exists in derived class D."
+  },
+  {
+    "id": "lang_056",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is the difference between Pass-by-Value and Pass-by-Reference?",
+    "options": [
+      "Pass-by-value copies the argument value into the parameter; modifications inside the function do not affect the original variable unless passed by reference",
+      "Pass-by-reference copies the entire memory space",
+      "Pass-by-value is only used in Python",
+      "There is no difference in C++"
+    ],
+    "correct": 0,
+    "explanation": "Pass-by-value isolates the caller's variable from mutations; pass-by-reference gives the function direct access to the caller's memory location."
+  },
+  {
+    "id": "lang_057",
+    "topic": "languages_oop",
+    "difficulty": "hard",
+    "type": "single",
+    "question": "In Python, what is the Method Resolution Order (MRO) algorithm used for multiple inheritance?",
+    "options": [
+      "C3 Superclass Linearization algorithm",
+      "Depth-First Search",
+      "Breadth-First Search",
+      "Dijkstra's Algorithm"
+    ],
+    "correct": 0,
+    "explanation": "Python uses C3 linearization to produce a deterministic, monotonic class traversal order (accessible via `ClassName.__mro__`)."
+  },
+  {
+    "id": "lang_058",
+    "topic": "languages_oop",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "What does the `pass` statement do in Python?",
+    "options": [
+      "A null statement that serves as a syntactic placeholder where code is required but no action should be taken",
+      "Skips to the next iteration of a loop",
+      "Returns from the current function",
+      "Passes an argument to a decorator"
+    ],
+    "correct": 0,
+    "explanation": "pass is a no-op placeholder used when defining empty classes, functions, or minimal exception blocks."
+  },
+  {
+    "id": "lang_059",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is the difference between `deepcopy` and shallow copy (`copy.copy`) in Python?",
+    "options": [
+      "Shallow copy creates a new container but references the original nested objects; deepcopy recursively copies all nested objects",
+      "Shallow copy copies all nested objects; deepcopy does not",
+      "deepcopy only works on integers",
+      "They are identical in Python 3"
+    ],
+    "correct": 0,
+    "explanation": "Shallow copy duplicates only the outer list/dict; modifying a nested mutable object inside the shallow copy affects the original."
+  },
+  {
+    "id": "lang_060",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is Duck Typing in dynamic programming languages?",
+    "options": [
+      "'If it walks like a duck and quacks like a duck, it's a duck': type checking is based on whether methods and properties exist, not the object's formal class inheritance",
+      "Naming variables after animals",
+      "A compiler optimization technique",
+      "A memory leak detection tool"
+    ],
+    "correct": 0,
+    "explanation": "Duck typing checks capabilities at runtime rather than nominal types: if an object implements .read(), it can be used wherever a stream is expected."
+  },
+  {
+    "id": "lang_061",
+    "topic": "languages_oop",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "What is the main function signature entry point in a standard Java application?",
+    "options": [
+      "public static void main(String[] args)",
+      "void main(String args)",
+      "int main()",
+      "public static main()"
+    ],
+    "correct": 0,
+    "explanation": "The JVM specifically looks for public static void main(String[] args) as the starting entry point of any executable Java class."
+  },
+  {
+    "id": "lang_062",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is the Java String Pool in JVM memory?",
+    "options": [
+      "A special cache area in the heap where literal strings are stored to save memory by sharing identical string instances (interning)",
+      "A database connection pool",
+      "A thread pool for string concatenation",
+      "A buffer for console input"
+    ],
+    "correct": 0,
+    "explanation": "String literals are stored in the String constant pool: String a = 'hello'; String b = 'hello'; both point to the exact same memory address (a == b is true)."
+  },
+  {
+    "id": "lang_063",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "Why are Java Strings immutable (cannot be changed after creation)?",
+    "options": [
+      "Enables string pooling, guarantees thread safety without synchronization, and secures sensitive parameters (like class loading paths and database URLs)",
+      "Because the CPU cannot modify text in RAM",
+      "Because Java has no character arrays",
+      "It is an accidental design limitation"
+    ],
+    "correct": 0,
+    "explanation": "Immutability allows sharing strings across threads safely, makes hash codes cacheable (speeding up HashMaps), and prevents security exploits."
+  },
+  {
+    "id": "lang_064",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is the difference between `StringBuilder` and `StringBuffer` in Java?",
+    "options": [
+      "`StringBuilder` is non-synchronized and faster for single-threaded use; `StringBuffer` is synchronized and thread-safe with locking overhead",
+      "`StringBuffer` is faster than `StringBuilder`",
+      "`StringBuilder` is immutable; `StringBuffer` is mutable",
+      "They are identical in modern Java"
+    ],
+    "correct": 0,
+    "explanation": "StringBuilder is preferred in standard sequential code for maximum concatenation speed because it avoids synchronized locking overhead."
+  },
+  {
+    "id": "lang_065",
+    "topic": "languages_oop",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "What is an Anonymous Function / Lambda Expression in modern programming languages?",
+    "options": [
+      "A function defined inline without an explicit identifier name, commonly passed as arguments to higher-order functions",
+      "A function that has no parameters",
+      "A function with an encrypted name",
+      "A function that cannot return values"
+    ],
+    "correct": 0,
+    "explanation": "Lambdas (e.g. `(x) => x * 2` in JS, `lambda x: x * 2` in Python, `x -> x * 2` in Java) provide concise inline function definitions."
+  },
+  {
+    "id": "lang_066",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is Tail Call Optimization (TCO)?",
+    "options": [
+      "A compiler optimization where a function whose last action is a recursive call reuses the current stack frame, eliminating stack overflow risk",
+      "An optimization for array sorting",
+      "A tool that truncates long strings",
+      "Removing dead code at the end of files"
+    ],
+    "correct": 0,
+    "explanation": "TCO turns tail-recursive functions into iterative loops under the hood, allowing infinite recursion depth in constant stack space."
+  },
+  {
+    "id": "lang_067",
+    "topic": "languages_oop",
+    "difficulty": "hard",
+    "type": "single",
+    "question": "In C++, what does the `const` qualifier on a member function declaration mean: `int getVal() const;`?",
+    "options": [
+      "Guarantees that the function will not modify any non-mutable member variables of the calling object (`this` is a pointer to const)",
+      "Prevents the function from returning non-zero values",
+      "Makes the function run at compile-time",
+      "Forces the return value to be constant"
+    ],
+    "correct": 0,
+    "explanation": "const member functions promise not to alter the object's observable state, allowing them to be called on const object instances."
+  },
+  {
+    "id": "lang_068",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is a Pure Virtual Function in C++?",
+    "options": [
+      "A virtual function with `= 0` syntax that has no implementation in the base class, making the class Abstract and requiring derived classes to implement it",
+      "A function that takes zero parameters",
+      "A function that executes in 0 clock cycles",
+      "A function with no return type"
+    ],
+    "correct": 0,
+    "explanation": "virtual void draw() = 0; defines an interface contract; any class containing a pure virtual function cannot be directly instantiated."
+  },
+  {
+    "id": "lang_069",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is the output of `sizeof(char)` guaranteed by the C and C++ language standards?",
+    "options": [
+      "1 byte (always)",
+      "2 bytes",
+      "4 bytes",
+      "Depends on 32-bit vs 64-bit architecture"
+    ],
+    "correct": 0,
+    "explanation": "By standard definition in C and C++, sizeof(char) is strictly 1 byte in all compliant implementations."
+  },
+  {
+    "id": "lang_070",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "In Go, what does `recover()` do when called inside a deferred function?",
+    "options": [
+      "Regains control of a panicking goroutine, stopping the panic cascade and returning the error passed to panic()",
+      "Restarts the operating system",
+      "Recovers deleted files from disk",
+      "Rolls back database transactions"
+    ],
+    "correct": 0,
+    "explanation": "recover() catches runtime panics inside defer blocks, preventing abnormal program termination similar to catch blocks in other languages."
+  },
+  {
+    "id": "lang_071",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "In Python, what is the purpose of `__slots__` in a class definition?",
+    "options": [
+      "Replaces the default dynamic instance `__dict__` with a fixed-size descriptor array, saving significant memory when creating millions of small objects",
+      "Defines slot machine probability",
+      "Allows multi-threaded class creation",
+      "Creates slots in HTML templates"
+    ],
+    "correct": 0,
+    "explanation": "__slots__ = ('x', 'y') prevents Python from allocating a 104-byte dictionary per instance, drastically reducing heap overhead."
+  },
+  {
+    "id": "lang_072",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is Currying in functional programming?",
+    "options": [
+      "Translating a function that takes multiple arguments into a sequence of functions, each taking a single argument",
+      "Cooking code with spice",
+      "Encrypting function parameters",
+      "Executing functions in reverse order"
+    ],
+    "correct": 0,
+    "explanation": "f(a, b, c) becomes f(a)(b)(c), enabling partial application where functions can be pre-configured with reusable arguments."
+  },
+  {
+    "id": "lang_073",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is an Idempotent function in software design?",
+    "options": [
+      "A function that produces the same state regardless of whether it is called once or multiple times with the same input",
+      "A function that has no side effects",
+      "A function that runs in constant time O(1)",
+      "A function that never returns null"
+    ],
+    "correct": 0,
+    "explanation": "Setting status = 'active' or abs(x) is idempotent: calling it 10 times results in the identical outcome as calling it once."
+  },
+  {
+    "id": "lang_074",
+    "topic": "languages_oop",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "Which of the following data structures in Python is immutable (cannot be altered after creation)?",
+    "options": [
+      "tuple",
+      "list",
+      "dict",
+      "set"
+    ],
+    "correct": 0,
+    "explanation": "Tuples (e.g. (1, 2, 3)) are immutable; their elements cannot be added, removed, or modified once instantiated."
+  },
+  {
+    "id": "lang_075",
+    "topic": "languages_oop",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "Why can Python tuples be used as keys in dictionaries, but lists cannot?",
+    "options": [
+      "Tuples are immutable and therefore hashable; lists are mutable and their hash code could change, breaking hash table lookups",
+      "Lists take too much memory",
+      "Python limits dictionary keys to 3 elements",
+      "Tuples are faster than strings"
+    ],
+    "correct": 0,
+    "explanation": "Dictionary keys must implement __hash__ and be immutable so their bucket positions remain consistent throughout their lifecycle."
+  },
+  {
+    "id": "lang_076",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "In C++, what does `constexpr` indicate when applied to a function or variable?",
+    "options": [
+      "Specifies that the expression or function can be evaluated at compile-time by the compiler rather than at runtime",
+      "Makes the variable accessible in all threads",
+      "Forces the variable into GPU memory",
+      "Converts runtime errors to warnings"
+    ],
+    "correct": 0,
+    "explanation": "constexpr enables compile-time computations (like computing lookup tables or mathematical constants), yielding zero runtime execution overhead."
+  },
+  {
+    "id": "lang_077",
+    "topic": "languages_oop",
+    "difficulty": "hard",
+    "type": "single",
+    "question": "What is SFINAE (Substitution Failure Is Not An Error) in C++ template metaprogramming?",
+    "options": [
+      "If a template specialization fails during type deduction substitution, the compiler discards that overload without throwing a compilation error",
+      "A memory leak in templates",
+      "A macro expansion rule in C",
+      "A linker flag for shared libraries"
+    ],
+    "correct": 0,
+    "explanation": "SFINAE allows compile-time introspection (e.g. std::enable_if), enabling functions to selectively exist only for types with certain traits."
+  },
+  {
+    "id": "lang_078",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is the difference between an Abstract Class and an Interface in Java?",
+    "options": [
+      "An abstract class can hold state (instance fields) and constructors; an interface defines a contract of method signatures with default implementations",
+      "An interface can have state; an abstract class cannot",
+      "A class can inherit multiple abstract classes in Java",
+      "They are identical in Java 21"
+    ],
+    "correct": 0,
+    "explanation": "Java permits single inheritance of abstract classes with state, but multiple implementation of interfaces defining behavior contracts."
+  },
+  {
+    "id": "lang_079",
+    "topic": "languages_oop",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "What is the Factory Pattern primarily used for?",
+    "options": [
+      "Creating objects without having to specify the exact concrete class of the object that will be created",
+      "Manufacturing hardware chips",
+      "Destroying expired memory pointers",
+      "Connecting to SQL databases"
+    ],
+    "correct": 0,
+    "explanation": "Factory methods delegate object instantiation to subclasses or dedicated creators, promoting loose coupling with concrete implementations."
+  },
+  {
+    "id": "lang_080",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What design pattern separates the construction of a complex object from its representation, allowing step-by-step assembly (e.g. `User.builder().name('A').build()`)?",
+    "options": [
+      "Builder Pattern",
+      "Prototype Pattern",
+      "Singleton Pattern",
+      "Facade Pattern"
+    ],
+    "correct": 0,
+    "explanation": "The Builder pattern avoids telescoping constructors with dozens of optional parameters, producing clean, fluent initialization code."
+  },
+  {
+    "id": "lang_081",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What design pattern provides a simplified, unified high-level interface to a complex library, framework, or subsystem of classes?",
+    "options": [
+      "Facade Pattern",
+      "Proxy Pattern",
+      "Flyweight Pattern",
+      "Decorator Pattern"
+    ],
+    "correct": 0,
+    "explanation": "A Facade hides underlying subsystem complexities behind a simple, friendly interface (e.g. VideoConverter.convert('movie.mp4'))."
+  },
+  {
+    "id": "lang_082",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What design pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable at runtime (e.g., swapping payment strategies)?",
+    "options": [
+      "Strategy Pattern",
+      "State Pattern",
+      "Command Pattern",
+      "Chain of Responsibility"
+    ],
+    "correct": 0,
+    "explanation": "The Strategy pattern lets the client choose or swap algorithms (like CreditCardPayment vs PayPalPayment) dynamically at runtime."
+  },
+  {
+    "id": "lang_083",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "In Python, what is the difference between `range(1000)` in Python 2 vs Python 3?",
+    "options": [
+      "In Python 2 `range()` generated a full in-memory list; in Python 3 `range()` is a memory-efficient immutable sequence generator object",
+      "Python 3 range creates a list",
+      "Python 2 range had no upper bound",
+      "There is no difference"
+    ],
+    "correct": 0,
+    "explanation": "Python 3's range() acts like Python 2's xrange(), consuming constant O(1) memory regardless of whether the range size is 10 or 10 billion."
+  },
+  {
+    "id": "lang_084",
+    "topic": "languages_oop",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "What is an `enum` in programming languages like Java, C++, and Python?",
+    "options": [
+      "A special data type that enables a variable to be a set of predefined named constants",
+      "A numerical loop index",
+      "A tool for enumerating network ports",
+      "A decimal number with floating precision"
+    ],
+    "correct": 0,
+    "explanation": "Enums (Enumerations) provide type safety, replacing arbitrary 'magic numbers' or strings with distinct named constants."
+  },
+  {
+    "id": "lang_085",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "In Python, what is Monkey Patching?",
+    "options": [
+      "Dynamically modifying or replacing a module, class, or method at runtime without altering the original source code",
+      "A monkey testing tool for UI",
+      "Writing code in an unformatted style",
+      "A bug in the CPython C API"
+    ],
+    "correct": 0,
+    "explanation": "Monkey patching modifies classes or functions on the fly at runtime (frequently used in testing to mock network calls or patch third-party bugs)."
+  },
+  {
+    "id": "lang_086",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "In Java, what is the difference between `Comparable` and `Comparator`?",
+    "options": [
+      "`Comparable` defines an object's natural ordering via `compareTo()`; `Comparator` defines external custom sorting logic via `compare(o1, o2)`",
+      "`Comparator` defines natural ordering; `Comparable` is external",
+      "`Comparable` only works on numbers",
+      "There is no functional difference"
+    ],
+    "correct": 0,
+    "explanation": "Comparable modifies the class itself to define natural ordering; Comparator creates separate standalone sorting strategies."
+  },
+  {
+    "id": "lang_087",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is the Java Memory Model (JMM) 'Happens-Before' guarantee?",
+    "options": [
+      "A formal guarantee that memory writes by one thread are guaranteed to be visible to another thread across synchronized or volatile actions",
+      "A promise that code compiles before running",
+      "A guarantee that garbage collection runs before heap fills",
+      "A time profiling metric"
+    ],
+    "correct": 0,
+    "explanation": "Happens-Before defines visibility ordering: if action A happens-before action B, the memory changes of A are guaranteed visible to B."
+  },
+  {
+    "id": "lang_088",
+    "topic": "languages_oop",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "What does the C++ keyword `explicit` do when placed before a single-argument constructor?",
+    "options": [
+      "Prevents the compiler from using the constructor for implicit type conversions and copy-initialization",
+      "Allows the constructor to be called without arguments",
+      "Makes the constructor public",
+      "Exports the constructor in a DLL"
+    ],
+    "correct": 0,
+    "explanation": "explicit prevents surprising automatic type coercions (e.g. converting int 5 automatically into a Vector object with size 5)."
+  },
+  {
+    "id": "lang_089",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is an Anonymous Struct or Embedded Struct in Go?",
+    "options": [
+      "Embedding a struct inside another struct without an explicit field name, promoting its fields and methods directly (Go's composition mechanism)",
+      "A struct with no fields",
+      "A struct hidden from the compiler",
+      "A struct that cannot be exported"
+    ],
+    "correct": 0,
+    "explanation": "type Admin struct { User } promotes all fields and methods of User into Admin, providing clean composition without classical inheritance."
+  },
+  {
+    "id": "lang_090",
+    "topic": "languages_oop",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "What happens when you allocate memory with `malloc()` in C versus `new` in C++?",
+    "options": [
+      "`malloc()` only allocates raw untyped bytes without calling constructors; `new` allocates memory, checks types, and calls the class constructor",
+      "`malloc()` calls class constructors",
+      "`new` only works on primitive types",
+      "`malloc()` frees memory automatically"
+    ],
+    "correct": 0,
+    "explanation": "malloc allocates uninitialized heap memory; C++ 'new' is type-safe and automatically invokes the appropriate constructor."
+  },
+  {
+    "id": "lang_091",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is a Memory Leak in programs with manual memory management (like C or C++)?",
+    "options": [
+      "Allocating memory on the heap and losing all pointer references to it without releasing it via free() or delete",
+      "Writing past the bounds of an array",
+      "Reading uninitialized memory",
+      "CPU overheating in the server"
+    ],
+    "correct": 0,
+    "explanation": "Losing pointer references prevents the program from ever returning heap blocks to the OS, causing memory consumption to swell over time."
+  },
+  {
+    "id": "lang_092",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is a Buffer Overflow vulnerability?",
+    "options": [
+      "Writing data beyond the allocated boundary of an array or buffer, corrupting adjacent stack or heap memory (often overwriting return addresses)",
+      "When a network buffer is completely full",
+      "A database timeout error",
+      "A crash caused by division by zero"
+    ],
+    "correct": 0,
+    "explanation": "Buffer overflows in languages without bounds checking (C/C++) allow attackers to inject executable shellcode and hijack control flow."
+  },
+  {
+    "id": "lang_093",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is the difference between a Process and a Thread at the operating system level?",
+    "options": [
+      "A process has its own independent address space and resources; threads within the same process share the same heap, global memory, and open file descriptors",
+      "Threads have separate address spaces; processes share memory",
+      "Processes run on GPU; threads run on CPU",
+      "There is no difference in Linux"
+    ],
+    "correct": 0,
+    "explanation": "Processes provide strong isolation with dedicated virtual memory; threads are lightweight execution contexts sharing memory within one process."
+  },
+  {
+    "id": "lang_094",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is a Race Condition in concurrent programming?",
+    "options": [
+      "When multiple threads access and mutate shared data concurrently without synchronization, making final output dependent on execution timing",
+      "A benchmark test to see which thread runs faster",
+      "A high-speed network connection",
+      "A deadlock between two locks"
+    ],
+    "correct": 0,
+    "explanation": "Race conditions produce non-deterministic bugs when concurrent unsynchronized reads and writes interleave unexpectedly."
+  },
+  {
+    "id": "lang_095",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is a Mutex (Mutual Exclusion lock)?",
+    "options": [
+      "A synchronization primitive that allows only one thread to access a critical section or shared resource at any given time",
+      "A tool for compressing data",
+      "A variable that cannot be changed",
+      "A multi-threaded queue"
+    ],
+    "correct": 0,
+    "explanation": "A Mutex serializes access: a thread calls lock() before modifying shared data and unlock() after, preventing race conditions."
+  },
+  {
+    "id": "lang_096",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "What is a Deadlock and what are the 4 Coffman conditions required for it to occur?",
+    "options": [
+      "Mutual Exclusion, Hold and Wait, No Preemption, Circular Wait",
+      "Read, Write, Execute, Delete",
+      "CPU, RAM, Disk, Network",
+      "Lock, Unlock, Yield, Resume"
+    ],
+    "correct": 0,
+    "explanation": "Deadlock freezes execution when threads cyclically hold resources while waiting for resources held by other threads."
+  },
+  {
+    "id": "lang_097",
+    "topic": "languages_oop",
+    "difficulty": "hard",
+    "type": "single",
+    "question": "What is a Spinlock and when is it preferred over a traditional blocking Mutex?",
+    "options": [
+      "A lock where threads repeatedly poll in a CPU loop until the lock becomes available; preferred when critical sections are extremely brief (< context switch cost)",
+      "A lock that spins disk drives",
+      "A lock used only in graphics rendering",
+      "A lock that never releases"
+    ],
+    "correct": 0,
+    "explanation": "Spinlocks avoid the heavy operating system thread context switch overhead, making them ideal in low-level OS kernels for ultra-short critical sections."
+  },
+  {
+    "id": "lang_098",
+    "topic": "languages_oop",
+    "difficulty": "medium",
+    "type": "single",
+    "question": "In Python, what is the difference between `staticmethod` and `classmethod`?",
+    "options": [
+      "`classmethod` receives the class itself (`cls`) as its first implicit parameter; `staticmethod` receives no implicit class or instance argument",
+      "`staticmethod` receives `self`; `classmethod` receives nothing",
+      "`classmethod` cannot be called from class names",
+      "They are identical aliases"
+    ],
+    "correct": 0,
+    "explanation": "classmethod takes `cls` and can act as alternative constructors; staticmethod is just an ordinary function placed inside class namespace."
+  },
+  {
+    "id": "lang_099",
+    "topic": "languages_oop",
+    "difficulty": "easy",
+    "type": "single",
+    "question": "What does the `assert` statement do in Python and C++?",
+    "options": [
+      "Tests a condition; if the condition evaluates to false, raises an AssertionError to catch developer logic bugs during debugging",
+      "Prints output to the printer",
+      "Encrypts the source code",
+      "Defines a new variable"
+    ],
+    "correct": 0,
+    "explanation": "Assertions verify internal program invariants during development, and can be stripped out in production builds with compiler flags."
+  },
+  {
+    "id": "lang_100",
+    "topic": "languages_oop",
+    "difficulty": "hard",
+    "type": "single",
+    "question": "What is the difference between Just-In-Time (JIT) compilation and Ahead-Of-Time (AOT) compilation?",
+    "options": [
+      "AOT compiles source/bytecode to machine code before program execution; JIT compiles frequently executed bytecode to machine code at runtime based on profiling",
+      "JIT runs before deployment; AOT runs on user devices",
+      "JIT cannot generate machine code",
+      "AOT requires a virtual machine at runtime"
+    ],
+    "correct": 0,
+    "explanation": "JIT (in V8, JVM, PyPy) monitors hot execution loops dynamically at runtime, optimizing machine code with real runtime type feedback."
+  }
+]

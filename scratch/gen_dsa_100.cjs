@@ -1,0 +1,1027 @@
+// Generator for 100 Data Structures & Algorithms Questions
+const fs = require('fs');
+
+const dsaQuestions = [
+  // 1-10: Complexity & Basics
+  {
+    id: "dsa_001",
+    topic: "dsa",
+    difficulty: "easy",
+    type: "single",
+    question: "What is the worst-case time complexity of standard Binary Search on a sorted array of size n?",
+    options: ["O(1)", "O(log n)", "O(n)", "O(n log n)"],
+    correct: 1,
+    explanation: "Binary search cuts the search space in half at each iteration, yielding log2(n) comparisons in the worst case."
+  },
+  {
+    id: "dsa_002",
+    topic: "dsa",
+    difficulty: "easy",
+    type: "single",
+    question: "Which of the following data structures operates on a First-In, First-Out (FIFO) principle?",
+    options: ["Stack", "Queue", "Priority Queue", "Binary Search Tree"],
+    correct: 1,
+    explanation: "A Queue processes elements in arrival order (FIFO), whereas a Stack is LIFO (Last-In, First-Out)."
+  },
+  {
+    id: "dsa_003",
+    topic: "dsa",
+    difficulty: "easy",
+    type: "single",
+    question: "What is the average time complexity of inserting an element at the end of a dynamic array (like std::vector or Python list)?",
+    options: ["O(1) amortized", "O(log n)", "O(n)", "O(n^2)"],
+    correct: 0,
+    explanation: "Appending takes O(1) time normally; when the buffer doubles, copying takes O(n), averaging out to O(1) amortized."
+  },
+  {
+    id: "dsa_004",
+    topic: "dsa",
+    difficulty: "easy",
+    type: "boolean",
+    question: "In a singly linked list with only a head pointer, accessing the k-th node takes O(1) time.",
+    options: ["True", "False"],
+    correct: 1,
+    explanation: "False. Singly linked lists lack contiguous memory indexing; you must traverse sequentially from head in O(k) time."
+  },
+  {
+    id: "dsa_005",
+    topic: "dsa",
+    difficulty: "easy",
+    type: "single",
+    question: "What is the time complexity to retrieve the minimum element from a standard Min-Heap?",
+    options: ["O(1)", "O(log n)", "O(n)", "O(n log n)"],
+    correct: 0,
+    explanation: "The minimum element is stored directly at the root (index 0) of a Min-Heap, allowing O(1) peeking."
+  },
+  {
+    id: "dsa_006",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "What is the time complexity to build a binary heap from an unsorted array of n elements using the bottom-up heapify algorithm?",
+    options: ["O(n)", "O(n log n)", "O(log n)", "O(n^2)"],
+    correct: 0,
+    explanation: "Bottom-up heap construction runs in mathematically proven O(n) linear time, not O(n log n)."
+  },
+  {
+    id: "dsa_007",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "Which sorting algorithm is guaranteed to be stable and have an O(n log n) worst-case time complexity?",
+    options: ["QuickSort", "HeapSort", "MergeSort", "SelectionSort"],
+    correct: 2,
+    explanation: "MergeSort guarantees O(n log n) in all cases (best, average, worst) and preserves the relative order of equal keys (stable)."
+  },
+  {
+    id: "dsa_008",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "What algorithm is used to detect cycles in a singly linked list using two pointers (slow and fast)?",
+    options: ["Dijkstra's Algorithm", "Floyd's Cycle-Finding Algorithm (Tortoise and Hare)", "Kruskal's Algorithm", "Kadane's Algorithm"],
+    correct: 1,
+    explanation: "Floyd's cycle detection advances a slow pointer 1 step and a fast pointer 2 steps; if they meet, a cycle exists."
+  },
+  {
+    id: "dsa_009",
+    topic: "dsa",
+    difficulty: "easy",
+    type: "single",
+    question: "What is the maximum number of nodes in a binary tree of height h (where height of single root is 1)?",
+    options: ["2^h - 1", "2^(h-1)", "2h", "h^2"],
+    correct: 0,
+    explanation: "A full binary tree has 1 + 2 + 4 + ... + 2^(h-1) = 2^h - 1 nodes."
+  },
+  {
+    id: "dsa_010",
+    topic: "dsa",
+    difficulty: "easy",
+    type: "single",
+    question: "Which tree traversal visits the root node first, followed by the left subtree, then the right subtree?",
+    options: ["In-order", "Pre-order", "Post-order", "Level-order"],
+    correct: 1,
+    explanation: "Pre-order traversal visits Node -> Left -> Right."
+  },
+
+  // 11-20: Trees, Graphs & Hash Tables
+  {
+    id: "dsa_011",
+    topic: "dsa",
+    difficulty: "easy",
+    type: "single",
+    question: "Performing an in-order traversal on a Binary Search Tree (BST) produces nodes in which order?",
+    options: ["Ascending sorted order", "Descending sorted order", "Breadth-first order", "Arbitrary order"],
+    correct: 0,
+    explanation: "Because in-order visits Left (smaller) -> Root -> Right (larger), it yields strictly non-decreasing sorted keys."
+  },
+  {
+    id: "dsa_012",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "In an AVL tree, what is the maximum allowed absolute difference between the heights of the left and right subtrees of any node?",
+    options: ["0", "1", "2", "log n"],
+    correct: 1,
+    explanation: "AVL trees enforce the balance factor condition: |height(left) - height(right)| <= 1 for every node."
+  },
+  {
+    id: "dsa_013",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "Which data structure is most commonly used to implement Breadth-First Search (BFS) in a graph?",
+    options: ["Stack", "Queue", "Min-Heap", "Disjoint Set"],
+    correct: 1,
+    explanation: "BFS explores nodes level by level using a Queue (FIFO), whereas DFS uses a Stack (or recursion)."
+  },
+  {
+    id: "dsa_014",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "What is the time complexity of Dijkstra's single-source shortest path algorithm using a Fibonacci or Binary Min-Heap?",
+    options: ["O(V + E)", "O((V + E) log V)", "O(V^2)", "O(V * E)"],
+    correct: 1,
+    explanation: "Using a standard binary min-heap, extracting min takes O(V log V) and edge relaxations take O(E log V), giving O((V + E) log V)."
+  },
+  {
+    id: "dsa_015",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "Which algorithm can find the shortest paths between all pairs of vertices in a weighted graph with possible negative edges (no negative cycles)?",
+    options: ["Dijkstra's Algorithm", "Floyd-Warshall Algorithm", "Prim's Algorithm", "Kruskal's Algorithm"],
+    correct: 1,
+    explanation: "Floyd-Warshall uses dynamic programming to solve All-Pairs Shortest Path in O(V^3) time and handles negative edges."
+  },
+  {
+    id: "dsa_016",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "What is the primary condition for a directed graph to have a valid Topological Ordering?",
+    options: ["It must be strongly connected", "It must be a Directed Acyclic Graph (DAG)", "It must be an Eulerian graph", "It must be complete"],
+    correct: 1,
+    explanation: "Topological sorting is only possible for DAGs; any cycle would create circular dependencies with no valid ordering."
+  },
+  {
+    id: "dsa_017",
+    topic: "dsa",
+    difficulty: "easy",
+    type: "single",
+    question: "What collision resolution technique links all elements that hash to the same slot into a linked list or dynamic array?",
+    options: ["Open Addressing", "Linear Probing", "Separate Chaining", "Double Hashing"],
+    correct: 2,
+    explanation: "Separate chaining maintains a bucket list at each hash table index where collisions are appended."
+  },
+  {
+    id: "dsa_018",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "What is the optimal algorithm to find the maximum sum of a contiguous subarray in an array of numbers?",
+    options: ["Dijkstra's Algorithm", "Kadane's Algorithm", "QuickSelect", "Huffman Coding"],
+    correct: 1,
+    explanation: "Kadane's algorithm computes the maximum contiguous subarray sum in O(n) time and O(1) auxiliary space."
+  },
+  {
+    id: "dsa_019",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "What data structure is ideal for implementing an LRU (Least Recently Used) cache with O(1) get and put operations?",
+    options: ["Hash Map + Doubly Linked List", "Binary Search Tree + Stack", "Array + Queue", "Min-Heap + Hash Map"],
+    correct: 0,
+    explanation: "A Hash Map provides O(1) key-to-node lookups, while a Doubly Linked List allows O(1) removal and re-insertion at the head."
+  },
+  {
+    id: "dsa_020",
+    topic: "dsa",
+    difficulty: "hard",
+    type: "single",
+    question: "With path compression and union by rank, what is the amortized time complexity per operation in a Disjoint Set Union (DSU)?",
+    options: ["O(log n)", "O(α(n)) (Inverse Ackermann function)", "O(1) strict", "O(log* n)"],
+    correct: 1,
+    explanation: "The combination of union by rank and path compression achieves O(α(n)) practically O(1) since α(n) < 5 for all physical inputs."
+  },
+
+  // 21-30: DP, Sorting & Bit Manipulation
+  {
+    id: "dsa_021",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "In the 0/1 Knapsack Problem with capacity W and n items, what is the standard dynamic programming time complexity?",
+    options: ["O(n log n)", "O(n * W)", "O(2^n)", "O(W^2)"],
+    correct: 1,
+    explanation: "DP with items and weight states requires filling an n x W table, running in O(n * W) pseudo-polynomial time."
+  },
+  {
+    id: "dsa_022",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "What is the best possible time complexity to find the k-th smallest element in an unsorted array of n elements using QuickSelect?",
+    options: ["O(n) average", "O(n log n)", "O(k log n)", "O(n^2) guaranteed"],
+    correct: 0,
+    explanation: "QuickSelect only recurses into one partition branch, achieving O(n) average time complexity."
+  },
+  {
+    id: "dsa_023",
+    topic: "dsa",
+    difficulty: "easy",
+    type: "single",
+    question: "Which bitwise operation checks whether a positive integer n is a power of two?",
+    options: ["(n & (n - 1)) == 0", "(n | (n - 1)) == 0", "(n ^ (n - 1)) == 0", "(~n & 1) == 0"],
+    correct: 0,
+    explanation: "A power of two in binary has exactly one '1' bit (e.g., 8 is 1000). Subtracting 1 flips all lower bits (0111). Their AND is 0."
+  },
+  {
+    id: "dsa_024",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "What is the optimal time complexity to find the Longest Increasing Subsequence (LIS) in an array of n numbers?",
+    options: ["O(n^2)", "O(n log n)", "O(n)", "O(2^n)"],
+    correct: 1,
+    explanation: "Using dynamic programming with patience sorting / binary search (std::lower_bound), LIS runs in O(n log n) time."
+  },
+  {
+    id: "dsa_025",
+    topic: "dsa",
+    difficulty: "easy",
+    type: "single",
+    question: "What does the XOR operation evaluate to when applied to identical values: x ^ x?",
+    options: ["x", "0", "1", "2x"],
+    correct: 1,
+    explanation: "Any number XORed with itself produces 0 because identical bits cancel each other out."
+  },
+  {
+    id: "dsa_026",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "What specialized tree data structure is optimal for fast retrieval of keys by their prefixes (e.g., autocomplete)?",
+    options: ["Trie (Prefix Tree)", "B-Tree", "Fenwick Tree", "Red-Black Tree"],
+    correct: 0,
+    explanation: "A Trie stores common prefixes along paths from root, allowing word and prefix lookups proportional to word length O(L)."
+  },
+  {
+    id: "dsa_027",
+    topic: "dsa",
+    difficulty: "hard",
+    type: "single",
+    question: "What is the time complexity to update a point value and query a prefix sum in a Fenwick Tree (Binary Indexed Tree)?",
+    options: ["O(1) update, O(n) query", "O(log n) update, O(log n) query", "O(n) update, O(1) query", "O(log n) update, O(1) query"],
+    correct: 1,
+    explanation: "A Fenwick Tree isolates lowest set bits (i & -i) to perform both point updates and prefix range queries in O(log n) time."
+  },
+  {
+    id: "dsa_028",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "Which Minimum Spanning Tree (MST) algorithm repeatedly adds the lowest-weight edge that connects a visited vertex to an unvisited vertex?",
+    options: ["Kruskal's Algorithm", "Prim's Algorithm", "Dijkstra's Algorithm", "Tarjan's Algorithm"],
+    correct: 1,
+    explanation: "Prim's algorithm grows a single tree cluster from a starting vertex, adding min-weight boundary edges via a priority queue."
+  },
+  {
+    id: "dsa_029",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "Which MST algorithm sorts all graph edges by weight and adds edges if they do not create a cycle using a Disjoint Set Union?",
+    options: ["Prim's Algorithm", "Kruskal's Algorithm", "Kosaraju's Algorithm", "Bellman-Ford Algorithm"],
+    correct: 1,
+    explanation: "Kruskal's algorithm sorts edges O(E log E) and greedily picks edges with DSU cycle detection."
+  },
+  {
+    id: "dsa_030",
+    topic: "dsa",
+    difficulty: "hard",
+    type: "single",
+    question: "Which algorithm finds all Strongly Connected Components (SCCs) in a directed graph using a single Depth-First Search traversal?",
+    options: ["Kruskal's Algorithm", "Tarjan's SCC Algorithm", "Bellman-Ford", "Ford-Fulkerson"],
+    correct: 1,
+    explanation: "Tarjan's algorithm uses DFS discovery times and low-link values with a stack to identify all SCCs in O(V + E) single-pass time."
+  },
+
+  // 31-40: Advanced Graphs, Trees & Searching
+  {
+    id: "dsa_031",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "What is the worst-case space complexity of a recursive Depth-First Search on a graph with V vertices?",
+    options: ["O(1)", "O(V)", "O(E)", "O(V^2)"],
+    correct: 1,
+    explanation: "In a degenerate linear graph (a linked chain of nodes), the call stack depth reaches V frames, requiring O(V) space."
+  },
+  {
+    id: "dsa_032",
+    topic: "dsa",
+    difficulty: "easy",
+    type: "single",
+    question: "What is the worst-case time complexity of QuickSort when the pivot is always chosen as the minimum or maximum element?",
+    options: ["O(n log n)", "O(n^2)", "O(n)", "O(log n)"],
+    correct: 1,
+    explanation: "Extremal pivots split the array into sizes 0 and n - 1, producing an arithmetic progression of comparisons totaling O(n^2)."
+  },
+  {
+    id: "dsa_033",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "Which algorithm can detect negative weight cycles in a directed graph?",
+    options: ["Dijkstra's Algorithm", "Bellman-Ford Algorithm", "BFS", "Prim's Algorithm"],
+    correct: 1,
+    explanation: "Bellman-Ford relaxes all edges V-1 times; if an edge can still be relaxed on the V-th pass, a negative cycle exists."
+  },
+  {
+    id: "dsa_034",
+    topic: "dsa",
+    difficulty: "easy",
+    type: "single",
+    question: "How do you reverse a singly linked list in-place in O(n) time and O(1) auxiliary space?",
+    options: ["Using 3 pointers: prev, current, next", "Using an auxiliary stack of size n", "Recursively without base case", "Converting to an adjacency matrix"],
+    correct: 0,
+    explanation: "Three pointers (prev, curr, next) allow flipping node pointers iteratively without allocating extra memory."
+  },
+  {
+    id: "dsa_035",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "What is the time complexity of searching for an element in an unsorted array of size n?",
+    options: ["O(1)", "O(log n)", "O(n)", "O(n log n)"],
+    correct: 2,
+    explanation: "Without ordering or index mapping, linear search may need to examine all n items in the worst case."
+  },
+  {
+    id: "dsa_036",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "What data structure is optimal for solving the 'Next Greater Element' problem in O(n) time?",
+    options: ["Monotonic Stack", "Priority Queue", "Segment Tree", "Circular Queue"],
+    correct: 0,
+    explanation: "A monotonic decreasing stack keeps indices of unresolved elements and resolves them as soon as a greater value appears."
+  },
+  {
+    id: "dsa_037",
+    topic: "dsa",
+    difficulty: "easy",
+    type: "single",
+    question: "Which non-comparison sorting algorithm runs in O(n + k) time where k is the range of non-negative integers?",
+    options: ["QuickSort", "Counting Sort", "MergeSort", "HeapSort"],
+    correct: 1,
+    explanation: "Counting sort tallies frequency of each integer key in an auxiliary array of size k, running in O(n + k) time."
+  },
+  {
+    id: "dsa_038",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "What is the space complexity of standard MergeSort on an array of size n?",
+    options: ["O(1)", "O(log n)", "O(n)", "O(n log n)"],
+    correct: 2,
+    explanation: "Standard array MergeSort requires an auxiliary buffer of size n to merge halves, giving O(n) space complexity."
+  },
+  {
+    id: "dsa_039",
+    topic: "dsa",
+    difficulty: "hard",
+    type: "single",
+    question: "What is the worst-case height of a Red-Black tree containing n nodes?",
+    options: ["log2(n)", "2 * log2(n + 1)", "n / 2", "sqrt(n)"],
+    correct: 1,
+    explanation: "Because the longest path (alternating red and black) is at most twice the shortest (all black), height is bounded by 2 * log2(n + 1)."
+  },
+  {
+    id: "dsa_040",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "What is the Lowest Common Ancestor (LCA) of nodes 4 and 6 in a BST where root is 5, left child is 3 (with children 2, 4), and right child is 7 (with children 6, 8)?",
+    options: ["3", "5", "7", "4"],
+    correct: 1,
+    explanation: "In a BST, if one node is smaller than root (4 < 5) and the other is larger (6 > 5), the root (5) is their LCA."
+  },
+
+  // 41-50: String Algorithms & Two Pointers
+  {
+    id: "dsa_041",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "What preprocessing table does the Knuth-Morris-Pratt (KMP) pattern matching algorithm construct?",
+    options: ["Suffix Automaton", "Longest Proper Prefix which is also Suffix (LPS array)", "Z-Array", "Palindromic Tree"],
+    correct: 1,
+    explanation: "KMP builds an LPS array in O(m) time to determine how far the pattern pointer can backtrack without re-checking matched characters."
+  },
+  {
+    id: "dsa_042",
+    topic: "dsa",
+    difficulty: "easy",
+    type: "single",
+    question: "What is the time complexity of checking if a string of length n is a palindrome using two pointers?",
+    options: ["O(1)", "O(log n)", "O(n)", "O(n^2)"],
+    correct: 2,
+    explanation: "Starting one pointer at 0 and one at n-1 and moving inwards compares at most n/2 character pairs, running in O(n) time."
+  },
+  {
+    id: "dsa_043",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "Which algorithmic technique is most appropriate for finding the longest contiguous substring without repeating characters?",
+    options: ["Sliding Window with a Hash Set", "Binary Search on answers", "Dynamic Programming with bitmask", "Kruskal's Algorithm"],
+    correct: 0,
+    explanation: "A sliding window expands with the right pointer and contracts from the left when a duplicate character is encountered."
+  },
+  {
+    id: "dsa_044",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "What is the Dutch National Flag problem algorithm used to sort an array containing only 0s, 1s, and 2s in one pass?",
+    options: ["Three-way partitioning with low, mid, and high pointers", "MergeSort", "Radix Sort", "Counting Sort with three passes"],
+    correct: 0,
+    explanation: "Dijkstra's three-way partitioning uses low, mid, and high pointers to partition the array in-place in O(n) time and O(1) space."
+  },
+  {
+    id: "dsa_045",
+    topic: "dsa",
+    difficulty: "hard",
+    type: "single",
+    question: "What algorithm finds the longest palindromic substring in an arbitrary string of length n in strictly linear O(n) time?",
+    options: ["Manacher's Algorithm", "KMP Algorithm", "Rabin-Karp Algorithm", "Boyer-Moore Algorithm"],
+    correct: 0,
+    explanation: "Manacher's algorithm reuses previously computed palindrome radii to expand centers in guaranteed linear O(n) time."
+  },
+  {
+    id: "dsa_046",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "What rolling hash technique does the Rabin-Karp substring search algorithm use to achieve O(n + m) average time?",
+    options: ["Polynomial rolling hash with modulo arithmetic", "MD5 hashing", "SHA-256 block hashing", "CRC32 checksum"],
+    correct: 0,
+    explanation: "Rabin-Karp computes a polynomial rolling hash that can be shifted right in O(1) time by subtracting the leading char and adding the trailing."
+  },
+  {
+    id: "dsa_047",
+    topic: "dsa",
+    difficulty: "easy",
+    type: "single",
+    question: "How do you swap two variables a and b in-place without using a temporary third variable or arithmetic overflow?",
+    options: ["a = a ^ b; b = a ^ b; a = a ^ b;", "a = a & b; b = a | b; a = a ^ b;", "a = b; b = a;", "a = ~a; b = ~b;"],
+    correct: 0,
+    explanation: "Three successive XOR operations swap the contents of two distinct memory locations without temporary storage."
+  },
+  {
+    id: "dsa_048",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "What is the recurrence relation for the Tower of Hanoi problem with n disks?",
+    options: ["T(n) = 2T(n-1) + 1", "T(n) = T(n-1) + n", "T(n) = 2T(n/2) + O(1)", "T(n) = T(n-1) + T(n-2)"],
+    correct: 0,
+    explanation: "Moving n disks requires moving n-1 disks to helper peg, 1 disk to target, and n-1 disks to target: T(n) = 2T(n-1) + 1 = 2^n - 1."
+  },
+  {
+    id: "dsa_049",
+    topic: "dsa",
+    difficulty: "easy",
+    type: "single",
+    question: "What is the time complexity of looking up a key in an ideal Hash Table with zero collisions?",
+    options: ["O(1)", "O(log n)", "O(n)", "O(k)"],
+    correct: 0,
+    explanation: "Computing the hash code and indexing directly into an array bucket executes in constant O(1) time."
+  },
+  {
+    id: "dsa_050",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "Which data structure allows efficient range minimum queries (RMQ) in O(1) time after O(n log n) preprocessing?",
+    options: ["Sparse Table", "Linked List", "Binary Search Tree", "Disjoint Set"],
+    correct: 0,
+    explanation: "A Sparse Table precomputes power-of-two intervals in O(n log n) time and answers idempotent queries like min/max in O(1) time."
+  },
+
+  // 51-60: Graph Theory, Cycles & Flow
+  {
+    id: "dsa_051",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "How can you determine if an undirected graph is bipartite?",
+    options: ["Run 2-coloring via BFS/DFS; verify no two adjacent vertices share the same color", "Find an Eulerian tour", "Calculate the determinant of the Laplacian matrix", "Sort vertices by degree"],
+    correct: 0,
+    explanation: "A graph is bipartite if and only if it contains no odd-length cycles, which is verified by 2-coloring with BFS/DFS."
+  },
+  {
+    id: "dsa_052",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "What is the maximum number of edges in a simple undirected graph with V vertices without self-loops or multi-edges?",
+    options: ["V * (V - 1) / 2", "V * (V - 1)", "2^V", "V^2"],
+    correct: 0,
+    explanation: "Every pair of distinct vertices can have at most one edge: C(V, 2) = V * (V - 1) / 2."
+  },
+  {
+    id: "dsa_053",
+    topic: "dsa",
+    difficulty: "hard",
+    type: "single",
+    question: "Which algorithm finds the maximum flow in a flow network by augmenting along shortest paths using BFS in O(V * E^2) time?",
+    options: ["Edmonds-Karp Algorithm", "Ford-Fulkerson with DFS", "Dijkstra's Algorithm", "Hopcroft-Karp Algorithm"],
+    correct: 0,
+    explanation: "Edmonds-Karp implements Ford-Fulkerson using BFS for augmenting paths, proving polynomial upper bound O(V * E^2)."
+  },
+  {
+    id: "dsa_054",
+    topic: "dsa",
+    difficulty: "hard",
+    type: "single",
+    question: "What is the time complexity of the Hopcroft-Karp algorithm for maximum cardinality bipartite matching?",
+    options: ["O(E * sqrt(V))", "O(V * E)", "O(V^3)", "O(E log V)"],
+    correct: 0,
+    explanation: "Hopcroft-Karp augments multiple shortest paths simultaneously per phase, achieving O(E * sqrt(V)) time complexity."
+  },
+  {
+    id: "dsa_055",
+    topic: "dsa",
+    difficulty: "easy",
+    type: "boolean",
+    question: "Every tree with V vertices has exactly V - 1 edges.",
+    options: ["True", "False"],
+    correct: 0,
+    explanation: "True. A fundamental definition of a tree is a connected acyclic graph, which always possesses exactly V - 1 edges."
+  },
+  {
+    id: "dsa_056",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "What graph structure represents dependencies between tasks where task A must precede task B?",
+    options: ["Directed Acyclic Graph (DAG)", "Undirected Graph with loops", "Bipartite Graph", "Complete Graph"],
+    correct: 0,
+    explanation: "DAGs naturally model scheduling dependencies because directions indicate prerequisites and acyclicity prevents deadlocks."
+  },
+  {
+    id: "dsa_057",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "What is Kahn's algorithm used for in graph algorithms?",
+    options: ["Topological Sorting using in-degrees and a queue", "Shortest path in unweighted graphs", "Finding bridges in an undirected graph", "Minimum Spanning Tree"],
+    correct: 0,
+    explanation: "Kahn's algorithm repeatedly enqueues vertices with in-degree 0 and removes their outgoing edges to produce topological order."
+  },
+  {
+    id: "dsa_058",
+    topic: "dsa",
+    difficulty: "hard",
+    type: "single",
+    question: "In an undirected connected graph, what is a bridge (cut-edge)?",
+    options: ["An edge whose removal increases the number of connected components", "An edge that belongs to all cycles", "The edge with the highest weight in the graph", "An edge connecting two leaf vertices"],
+    correct: 0,
+    explanation: "A bridge is an edge whose deletion disconnects the graph into two separate components."
+  },
+  {
+    id: "dsa_059",
+    topic: "dsa",
+    difficulty: "hard",
+    type: "single",
+    question: "What is an articulation point (cut-vertex) in a connected graph?",
+    options: ["A vertex whose removal disconnects the graph", "A vertex with in-degree equal to out-degree", "The vertex with the highest degree", "A root vertex of a spanning tree"],
+    correct: 0,
+    explanation: "Removing an articulation point splits the remaining graph into two or more disconnected components."
+  },
+  {
+    id: "dsa_060",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "What is the space complexity of an Adjacency Matrix representation for a graph with V vertices?",
+    options: ["O(V^2)", "O(V + E)", "O(E^2)", "O(V log V)"],
+    correct: 0,
+    explanation: "An adjacency matrix allocates a 2D array of size V x V, consuming O(V^2) space regardless of the number of edges."
+  },
+
+  // 61-70: Heaps, Trees & Segment Trees
+  {
+    id: "dsa_061",
+    topic: "dsa",
+    difficulty: "easy",
+    type: "single",
+    question: "In a 0-indexed binary heap array, what is the index of the left child of the node at index i?",
+    options: ["2i + 1", "2i", "2i + 2", "floor(i / 2)"],
+    correct: 0,
+    explanation: "In 0-indexed complete binary trees, left child is 2i + 1, right child is 2i + 2, and parent is floor((i - 1) / 2)."
+  },
+  {
+    id: "dsa_062",
+    topic: "dsa",
+    difficulty: "easy",
+    type: "single",
+    question: "In a 0-indexed binary heap array, what is the index of the parent of the node at index i (i > 0)?",
+    options: ["Math.floor((i - 1) / 2)", "Math.floor(i / 2)", "2i - 1", "i - 2"],
+    correct: 0,
+    explanation: "Parent index is computed as floor((i - 1) / 2)."
+  },
+  {
+    id: "dsa_063",
+    topic: "dsa",
+    difficulty: "hard",
+    type: "single",
+    question: "What is the time complexity to build a Segment Tree over an array of n elements?",
+    options: ["O(n)", "O(n log n)", "O(log n)", "O(n^2)"],
+    correct: 0,
+    explanation: "A segment tree has 4n nodes and builds recursively bottom-up, performing constant work per node totaling O(n)."
+  },
+  {
+    id: "dsa_064",
+    topic: "dsa",
+    difficulty: "hard",
+    type: "single",
+    question: "What technique allows a Segment Tree to perform range updates (e.g., add val to range [L, R]) in O(log n) time?",
+    options: ["Lazy Propagation", "Fractional Cascading", "Centroid Decomposition", "Heavy-Light Decomposition"],
+    correct: 0,
+    explanation: "Lazy propagation postpones updates to child nodes until those subtrees are explicitly accessed, keeping range updates O(log n)."
+  },
+  {
+    id: "dsa_065",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "What is the worst-case search time complexity in a standard Splay Tree with n nodes?",
+    options: ["O(n)", "O(log n) guaranteed", "O(1)", "O(n log n)"],
+    correct: 0,
+    explanation: "A single search in a splay tree can degrade to O(n) worst case, though any sequence of m operations has O(m log n) amortized time."
+  },
+  {
+    id: "dsa_066",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "Which self-balancing binary search tree maintains a random priority for each node satisfying both BST and Heap properties?",
+    options: ["Treap (Tree + Heap)", "B+ Tree", "AVL Tree", "Trie"],
+    correct: 0,
+    explanation: "A Treap maintains keys according to BST ordering and randomly assigned priorities according to Heap ordering."
+  },
+  {
+    id: "dsa_067",
+    topic: "dsa",
+    difficulty: "easy",
+    type: "single",
+    question: "Which tree data structure is most widely used in relational database indexing (like MySQL InnoDB and PostgreSQL)?",
+    options: ["B+ Tree", "Red-Black Tree", "Binary Search Tree", "Splay Tree"],
+    correct: 0,
+    explanation: "B+ trees have high fan-out (reducing disk I/O) and linked leaf nodes for ultra-fast sequential range scans."
+  },
+  {
+    id: "dsa_068",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "What is the diameter of a binary tree?",
+    options: ["The number of nodes on the longest path between any two leaf/root nodes", "The number of levels in the tree", "The total count of all leaf nodes", "The maximum degree of any node"],
+    correct: 0,
+    explanation: "The diameter (or width) of a tree is the length of the longest path between any two arbitrary nodes in the tree."
+  },
+  {
+    id: "dsa_069",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "What is the time complexity to invert (mirror) a binary tree of n nodes?",
+    options: ["O(n)", "O(n log n)", "O(log n)", "O(1)"],
+    correct: 0,
+    explanation: "Mirroring visits every node once and swaps its left and right child pointers, running in O(n) linear time."
+  },
+  {
+    id: "dsa_070",
+    topic: "dsa",
+    difficulty: "easy",
+    type: "single",
+    question: "What data structure can be used to evaluate an arithmetic expression written in Reverse Polish Notation (Postfix)?",
+    options: ["Stack", "Queue", "Priority Queue", "Binary Search Tree"],
+    correct: 0,
+    explanation: "A Stack pushes operands and pops the top two operands whenever an operator is encountered."
+  },
+
+  // 71-80: Recursion, Divide & Conquer, Backtracking
+  {
+    id: "dsa_071",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "What is the state space size of the N-Queens problem on an N x N chessboard before pruning?",
+    options: ["N!", "N^N", "2^N", "N^2"],
+    correct: 1,
+    explanation: "Placing one queen per column naively yields N choices for each of N columns: N^N states (pruned to N! by row uniqueness)."
+  },
+  {
+    id: "dsa_072",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "According to the Master Theorem, what is the asymptotic solution to the recurrence T(n) = 2T(n/2) + O(n)?",
+    options: ["O(n log n)", "O(n)", "O(n^2)", "O(log n)"],
+    correct: 0,
+    explanation: "Case 2 of Master Theorem applies: log_b(a) = log_2(2) = 1, f(n) = Theta(n^1), so T(n) = Theta(n log n) (MergeSort recurrence)."
+  },
+  {
+    id: "dsa_073",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "What is the Master Theorem asymptotic solution to T(n) = 8T(n/2) + O(n^2)?",
+    options: ["O(n^3)", "O(n^2 log n)", "O(n^2)", "O(2^n)"],
+    correct: 0,
+    explanation: "log_2(8) = 3. Since f(n) = O(n^2) = O(n^(3 - epsilon)), Case 1 applies, yielding T(n) = Theta(n^3)."
+  },
+  {
+    id: "dsa_074",
+    topic: "dsa",
+    difficulty: "easy",
+    type: "single",
+    question: "What is the base case in computing factorial(n) recursively?",
+    options: ["n <= 1 returns 1", "n == 0 returns 0", "n == 2 returns 2", "n < 0 returns -1"],
+    correct: 0,
+    explanation: "0! and 1! are mathematically defined as 1, which stops infinite recursive descent."
+  },
+  {
+    id: "dsa_075",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "What algorithm paradigm does the standard Binary Search belong to?",
+    options: ["Divide and Conquer", "Dynamic Programming", "Greedy Algorithm", "Backtracking"],
+    correct: 0,
+    explanation: "Binary search divides the problem into halves, conquers the subproblem by choosing one half, and discards the other."
+  },
+  {
+    id: "dsa_076",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "What algorithm technique does Huffman Coding use to construct optimal prefix-free codes?",
+    options: ["Greedy approach using a Min-Priority Queue", "Dynamic Programming table", "Brute-force permutations", "Depth-First Search"],
+    correct: 0,
+    explanation: "Huffman coding greedily merges the two lowest frequency characters using a min-heap until a single tree remains."
+  },
+  {
+    id: "dsa_077",
+    topic: "dsa",
+    difficulty: "hard",
+    type: "single",
+    question: "What is the time complexity to find the median of two sorted arrays of lengths m and n using binary search?",
+    options: ["O(log(min(m, n)))", "O(m + n)", "O((m + n) log(m + n))", "O(log m * log n)"],
+    correct: 0,
+    explanation: "By binary searching the partition cut on the smaller array, we find the median in optimal O(log(min(m, n))) time."
+  },
+  {
+    id: "dsa_078",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "How many subsets (power set) does a set of n distinct elements have?",
+    options: ["2^n", "n!", "n^2", "2n"],
+    correct: 0,
+    explanation: "Every element has 2 choices (include or exclude), generating 2 * 2 * ... * 2 = 2^n subsets."
+  },
+  {
+    id: "dsa_079",
+    topic: "dsa",
+    difficulty: "easy",
+    type: "single",
+    question: "What is the time complexity to generate all permutations of an array with n distinct elements?",
+    options: ["O(n * n!)", "O(2^n)", "O(n^2)", "O(n^n)"],
+    correct: 0,
+    explanation: "There are n! permutations, and creating/copying each permutation of length n takes O(n * n!) total work."
+  },
+  {
+    id: "dsa_080",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "What technique is used in Dynamic Programming to avoid recomputing overlapping subproblems when using top-down recursion?",
+    options: ["Memoization (caching results)", "Tabulation", "Bit shifting", "Garbage collection"],
+    correct: 0,
+    explanation: "Memoization stores intermediate outputs in a lookup table (hash map or array) so each subproblem is solved only once."
+  },
+
+  // 81-90: Bit Manipulation, Math & Advanced Structures
+  {
+    id: "dsa_081",
+    topic: "dsa",
+    difficulty: "easy",
+    type: "single",
+    question: "What does Brian Kernighan's algorithm count in O(number of set bits) time?",
+    options: ["The number of 1s in the binary representation of an integer", "The total digits of a number", "The prime factors of a number", "The leading zeros"],
+    correct: 0,
+    explanation: "In each loop n = n & (n - 1) clears the lowest set bit, counting set bits in iterations equal only to the number of 1s."
+  },
+  {
+    id: "dsa_082",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "In an array where every element appears twice except for one single element, how can you find the single element in O(n) time and O(1) space?",
+    options: ["XOR all elements together", "Sum all elements and subtract min", "Sort and check adjacent pairs", "Use a 64-bit integer mask"],
+    correct: 0,
+    explanation: "Because x ^ x = 0 and x ^ 0 = x, duplicate pairs cancel out, leaving solely the unique element."
+  },
+  {
+    id: "dsa_083",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "What probabilistic data structure tests whether an element is definitely NOT in a set or MIGHT be in a set?",
+    options: ["Bloom Filter", "Skip List", "Radix Tree", "Trie"],
+    correct: 0,
+    explanation: "Bloom filters use multiple hash functions over a bit array; false negatives are zero, but false positives are possible."
+  },
+  {
+    id: "dsa_084",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "What linked list data structure uses multi-level forward pointers with randomized heights to achieve O(log n) average search time?",
+    options: ["Skip List", "Unrolled Linked List", "XOR Linked List", "Circular Doubly Linked List"],
+    correct: 0,
+    explanation: "A Skip List builds layered express lanes via coin tosses, matching balanced tree search times with simpler linked logic."
+  },
+  {
+    id: "dsa_085",
+    topic: "dsa",
+    difficulty: "hard",
+    type: "single",
+    question: "What is an XOR Linked List?",
+    options: ["A memory-efficient doubly linked list storing pointer = address(prev) ^ address(next)", "A list encrypted with AES", "A linked list containing only boolean values", "A list that supports O(1) arbitrary indexing"],
+    correct: 0,
+    explanation: "An XOR linked list compresses two directional pointers into a single field by storing the XOR of prev and next node memory addresses."
+  },
+  {
+    id: "dsa_086",
+    topic: "dsa",
+    difficulty: "easy",
+    type: "single",
+    question: "What is the result of shifting a positive integer x left by 1 bit (x << 1)?",
+    options: ["Multiplies x by 2", "Divides x by 2", "Squares x", "Adds 1 to x"],
+    correct: 0,
+    explanation: "Each bit position corresponds to a power of 2; shifting left by k bits computes x * 2^k."
+  },
+  {
+    id: "dsa_087",
+    topic: "dsa",
+    difficulty: "easy",
+    type: "single",
+    question: "What is the result of shifting a positive integer x right by 1 bit (x >> 1)?",
+    options: ["Integer division of x by 2", "Multiplies x by 2", "Subtracts 1 from x", "Takes square root of x"],
+    correct: 0,
+    explanation: "Shifting right by 1 drops the lowest bit, performing floor(x / 2)."
+  },
+  {
+    id: "dsa_088",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "What is the time complexity of the Sieve of Eratosthenes to find all prime numbers up to N?",
+    options: ["O(N log(log N))", "O(N log N)", "O(N^2)", "O(sqrt(N))"],
+    correct: 0,
+    explanation: "The sum of reciprocals of primes converges to log(log N), giving O(N log(log N)) time."
+  },
+  {
+    id: "dsa_089",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "What is the Euclidean algorithm used for?",
+    options: ["Computing the Greatest Common Divisor (GCD) of two integers", "Finding prime factors", "Sorting 2D coordinate points", "Calculating polygon area"],
+    correct: 0,
+    explanation: "Euclidean algorithm repeatedly applies gcd(a, b) = gcd(b, a % b) until remainder is 0, running in O(log(min(a, b)))."
+  },
+  {
+    id: "dsa_090",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "What is the time complexity of Modular Exponentiation (a^b % m) using binary exponentiation?",
+    options: ["O(log b)", "O(b)", "O(b log m)", "O(1)"],
+    correct: 0,
+    explanation: "Repeated squaring divides the power b by 2 at each step, computing power in O(log b) multiplication operations."
+  },
+
+  // 91-100: Practical Problem Solving & Code Snippets
+  {
+    id: "dsa_091",
+    topic: "dsa",
+    difficulty: "easy",
+    type: "single",
+    question: "In JavaScript / Python, what does the two-sum problem ask and what is its optimal time complexity using a Hash Map?",
+    options: ["Find two numbers adding up to target in O(n) time", "Find two numbers adding to target in O(n^2) time", "Find two numbers with max difference in O(n log n)", "Sum all pairs in O(1)"],
+    correct: 0,
+    explanation: "Iterating through the array while checking if (target - num) exists in a hash map solves Two-Sum in O(n) time and O(n) space."
+  },
+  {
+    id: "dsa_092",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "Consider this pseudocode:\nlet slow = head, fast = head;\nwhile (fast && fast.next) {\n  slow = slow.next;\n  fast = fast.next.next;\n}\nWhat does 'slow' point to when the loop finishes?",
+    options: ["The middle node of the linked list", "The tail node", "The second node", "Null"],
+    correct: 0,
+    explanation: "Because fast travels at 2x speed, when fast reaches the end, slow has traveled exactly half the distance, landing on the middle node."
+  },
+  {
+    id: "dsa_093",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "What problem does the 'Trap Rain Water' classic problem solve, and what is the optimal two-pointer space complexity?",
+    options: ["Calculates trapped water between elevation bars in O(n) time and O(1) space", "Finds lake depth in O(n log n) time", "Simulates hydraulic fluid in O(n^2) space", "Computes rainfall probability in O(log n)"],
+    correct: 0,
+    explanation: "Maintaining left_max and right_max pointers moving inward calculates trapped water column by column in O(n) time and O(1) extra space."
+  },
+  {
+    id: "dsa_094",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "What is the maximum number of edges in a tree with n nodes?",
+    options: ["n - 1", "n", "n * (n - 1) / 2", "2n"],
+    correct: 0,
+    explanation: "Any tree with n nodes has precisely n - 1 edges. Adding any edge introduces a cycle."
+  },
+  {
+    id: "dsa_095",
+    topic: "dsa",
+    difficulty: "easy",
+    type: "single",
+    question: "Which of the following array operations takes O(n) time in a standard array of size n?",
+    options: ["Inserting an element at index 0 (unshift)", "Reading an element by index arr[k]", "Updating an existing element arr[k] = val", "Popping the last element from fixed capacity array"],
+    correct: 0,
+    explanation: "Inserting at index 0 requires shifting all n existing elements one position to the right, taking O(n) time."
+  },
+  {
+    id: "dsa_096",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "What is the optimal time complexity to find the diameter of a binary tree in one traversal?",
+    options: ["O(n)", "O(n log n)", "O(n^2)", "O(log n)"],
+    correct: 0,
+    explanation: "A single post-order traversal computes each node's height while maintaining a global max of (left_height + right_height) in O(n) time."
+  },
+  {
+    id: "dsa_097",
+    topic: "dsa",
+    difficulty: "hard",
+    type: "single",
+    question: "What data structure can maintain a sliding window maximum over an array of size n with window size k in O(n) total time?",
+    options: ["Monotonic Deque (double-ended queue)", "Standard Queue", "Min-Heap", "Stack"],
+    correct: 0,
+    explanation: "A monotonic deque maintains indices of elements in decreasing order of value, allowing O(1) amortized window maximum queries."
+  },
+  {
+    id: "dsa_098",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "How do you detect if a directed graph contains a cycle using DFS?",
+    options: ["Check for back-edges pointing to a node currently in the active recursion call stack", "Check if total edges > total vertices", "Check if any node has in-degree > 1", "Run Dijkstra from node 0"],
+    correct: 0,
+    explanation: "Three-state coloring (unvisited, visiting/in-stack, visited) identifies back-edges: visiting a node already in-stack proves a cycle."
+  },
+  {
+    id: "dsa_099",
+    topic: "dsa",
+    difficulty: "medium",
+    type: "single",
+    question: "What is the Coin Change problem (minimum coins to make amount A) optimal time complexity using dynamic programming?",
+    options: ["O(n * A) where n is number of coin denominations", "O(n^A)", "O(A log n)", "O(n!)"],
+    correct: 0,
+    explanation: "A 1D DP table of size A where dp[i] = min(dp[i - coin] + 1) iterates over n coins for each amount up to A, running in O(n * A) time."
+  },
+  {
+    id: "dsa_100",
+    topic: "dsa",
+    difficulty: "hard",
+    type: "single",
+    question: "What algorithm determines whether a boolean formula in 2-Conjunctive Normal Form (2-SAT) is satisfiable in linear O(V + E) time?",
+    options: ["Construct an Implication Graph and check if variable x and NOT x are in the same Strongly Connected Component (SCC)", "Dynamic programming with bitmask", "Simulated Annealing", "Dijkstra's Algorithm"],
+    correct: 0,
+    explanation: "2-SAT constructs an implication graph from clauses; formula is satisfiable if and only if no variable x shares an SCC with ~x."
+  }
+];
+
+console.log(`Generated ${dsaQuestions.length} DSA questions.`);
+fs.writeFileSync('scratch/dsa_100.json', JSON.stringify(dsaQuestions, null, 2));
